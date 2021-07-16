@@ -180,12 +180,12 @@ function addData(svg,data,scales,colorList="steelblue",metab="GCR",colorBy="Rece
                             .append("rect")
                             .attr("width", 20)
                             .attr("height", 5)
-                            .attr("x",width)
+                            .attr("x",width+5)
                             .attr("y",function(d,i) {return 10+legendSpacing+i*parseInt(attrText.slice(0,-2));})
                             .attr("fill", function(d,i) {return colorList.slice(0,colorByOptions.length)[i];});
     //Add text
     legendG.append("text")
-          .attr('x',(width+4+parseInt(legendBar.attr("width"))))
+          .attr('x',(width+10+parseInt(legendBar.attr("width"))))
           .attr('y', function(d,i) {return (10+legendSpacing+i*parseInt(attrText.slice(0,-2)) + 0.5*parseInt(attrText.slice(0,-2))); })
           .style("font-size",attrText)
           .text(function(d,i) {return colorByOptions[i]+"    ."}); //Little bit of extra spacing on end.
@@ -210,20 +210,18 @@ function makeGraphs(){
     var colorCol = "Organ";
     var xCol = "Year";
     
-    for(g in graphNames){
-      var graph = scene1.select("#"+graphNames[g]);
-      var colName = graph.attr("id"); //Column name must match g id for that graph
-      
-      //Determine max and min for graph
-      var minY = 0//d3.min(data, function(d) {return parseFloat(d[colName])-parseFloat(d[colName])*0.1;});
-      var maxY = d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
-      var maxX = 2023//d3.max(data, function(d) {return parseFloat(d[xCol])+parseFloat(d[xCol])*0.1;}); //Auto-determine max +10%
-      var minX = 1993//d3.min(data, function(d) {return parseFloat(d[xCol])-parseFloat(d[xCol])*0.1;}); //Auto-determine lowest value -10%
-   
-      var graphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
-      addData(svg=graph,data=data,scales=graphScales,colorList=colors, metab=graph.attr("id"),colorBy=colorCol,xAxis=xCol);//data.columns[2]);
-      graph.selectAll(".xlabel").text(xCol);
-    }
+    var graph = scene1.select("#"+graphNames[0]);
+    var colName = graph.attr("id"); //Column name must match g id for that graph
+    
+    //Determine max and min for graph
+    var minY = 0//d3.min(data, function(d) {return parseFloat(d[colName])-parseFloat(d[colName])*0.1;});
+    var maxY = d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
+    var maxX = 2020//d3.max(data, function(d) {return parseFloat(d[xCol])+parseFloat(d[xCol])*0.1;}); //Auto-determine max +10%
+    var minX = 1995//d3.min(data, function(d) {return parseFloat(d[xCol])-parseFloat(d[xCol])*0.1;}); //Auto-determine lowest value -10%
+  
+    var graphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
+    addData(svg=graph,data=data,scales=graphScales,colorList=colors, metab=graph.attr("id"),colorBy=colorCol,xAxis=xCol);//data.columns[2]);
+    graph.selectAll(".xlabel").text(xCol);
 })
 }
 
