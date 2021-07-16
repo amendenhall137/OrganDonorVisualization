@@ -1,13 +1,4 @@
 ﻿Year,Organ,All Removal Reason,Deceased Donor Transplant,Living Donor Transplant,Deceased Donor Emergency Tx,Deceased Donor Multi-Organ Tx,Transplanted At Another Center,Transplant,Patient died during TX procedure,Medically Unsuitable,Refused transplant,Died,Too Sick to Transplant,DeathSickness
-2021,All Organs,33883,17827,3271,0,0,2172,23270,11,0,248,3108,2840,5948
-2021,Kidney,21507,9538,2959,0,0,1973,14470,0,0,157,2319,1952,4271
-2021,Liver,7194,4424,274,0,0,130,4828,6,0,66,537,589,1126
-2021,Pancreas,256,75,0,0,0,6,81,1,0,5,10,19,29
-2021,Kidney / Pancreas,724,462,37,0,0,45,544,0,0,0,57,41,98
-2021,Heart,2509,1930,0,0,0,11,1941,1,0,15,115,155,270
-2021,Lung,1582,1337,0,0,0,7,1344,2,0,4,62,75,137
-2021,Heart / Lung,30,18,0,0,0,0,18,0,0,0,0,4,4
-2021,Intestine,77,42,0,0,0,0,42,1,0,1,7,5,12
 2020,All Organs,65361,33309,5767,1,1,4476,43554,34,0,474,6618,5640,12258
 2020,Kidney,41612,17581,5226,1,0,3967,26775,0,0,305,4968,3889,8857
 2020,Liver,13854,8386,491,0,0,341,9218,29,0,124,1105,1243,2348
