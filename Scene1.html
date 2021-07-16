@@ -2,129 +2,124 @@
 <meta charset="utf-8">
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v5.min.js"></script>
-<link rel="stylesheet" href="style.css">
-<svg id="organScene1" width="1700" height="1600"></svg>
+<link rel="stylesheet" href="Style.css">
+<!-- Create a div where the graph will take place -->
+<!--<form>
+  <input id="lotNumber" type="text" placeholder="Enter Lot Number"></input>
+  <button type="button" onclick="makeGraphs('byLot')">Enter</button>
+</form>
+<form>
+  <input id="recellIDs" type="text" placeholder="Enter list of recellIDs"></input>
+  <button type="button" onclick="makeGraphs('byRecellIDs')">Enter</button>
+</form>
+<form>
+  <input id="queryFilepath" type="text" placeholder="Enter path of query excel file"></input>
+  <button type="button" onclick="makeGraphs('byRecellIDCSV')">Enter</button>
+</form>-->
+<svg id="organDashboard" width="1700" height="1600"></svg>
+<!--<div name="tooltip" opacity=1>tooltip</div>-->
 <script>
-    // set the dimensions and margins of the graph.
-    var margin = {top: 50, right: 170, bottom: 50, left: 50},
-        smallGraph = {graphWidth: (450-margin.left-margin.right), graphHeight:(300-margin.top-margin.bottom),width: 450,height:300,attrText:"12px",titleText:"20px"},
-        bigGraph = {graphWidth: (750-margin.left-margin.right), graphHeight:(600-margin.top-margin.bottom),width: 750,height:600,attrText:"14px",titleText:"24px"},
-        padding = 10;
-    
-        
-    function metabChartSetup(svgContainer){
-        //Graph1 = transplants over time
-        svgContainer.append("svg")
-        .attr("width", bigGraph.width)
-        .attr("height", bigGraph.height)
-        .attr("x", padding)
-        .attr("y", padding)
-        .attr("style", "outline: thin solid blue;")
-        .append("g")
-            .attr("transform",
-                "translate(" + margin.left + "," + margin.top + ")")
-            .attr("class","bigGraph")
-            .attr("graphType","line")
-            .attr("id", "TransplantOverTime1");
-    
-        //Graph2 = nh3
-        svgContainer.append("svg")
-        .attr("width", bigGraph.width)
-        .attr("height", bigGraph.height)
-        .attr("x", padding*2+bigGraph.width)
-        .attr("y", padding)
-        .attr("style", "outline: thin solid green;")
-        .append("g")
-            .attr("transform",
-                "translate(" + margin.left + "," + margin.top + ")")
-            .attr("class","bigGraph")
-            .attr("graphType","pie")
-            .attr("id", "TransplantByOrgan");
+// set the dimensions and margins of the graph
+var margin = {top: 50, right: 170, bottom: 50, left: 50},
+    smallGraph = {graphWidth: (450-margin.left-margin.right), graphHeight:(300-margin.top-margin.bottom),width: 450,height:300,attrText:"12px",titleText:"20px"},
+    bigGraph = {graphWidth: (750-margin.left-margin.right), graphHeight:(600-margin.top-margin.bottom),width: 750,height:600,attrText:"14px",titleText:"24px"},
+    padding = 10;
 
-      return ["TransplantOverTime1","TransplantByOrgan"];
-    }
     
-    function setupAxes(svg, xmax=0, ymax=0, xmin=0, ymin=0){
-        //console.log(svg.attr("graphType"));
-        if(svg.attr("graphType") =="line"){
-            var width=0;
-            var height=0;
-            var attrText=0;
-            var titleText=0;
-            if(svg.attr("class") == "smallGraph"){
-              width = smallGraph.graphWidth;
-              height = smallGraph.graphHeight;
-              attrText = smallGraph.attrText;
-              titleText = smallGraph.titleText;
-            }
-            else if(svg.attr("class") == "bigGraph"){
-              width = bigGraph.graphWidth;
-              height = bigGraph.graphHeight;
-              attrText = bigGraph.attrText;
-              titleText = bigGraph.titleText;
-            }
+function metabChartSetup(svgContainer){
+    //Graph1 = Transplant
+    svgContainer.append("svg")
+    .attr("width", bigGraph.width)
+    .attr("height", bigGraph.height)
+    .attr("x", padding)
+    .attr("y", padding)
+    .attr("style", "outline: thin solid red;")
+    .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")")
+        .attr("class","bigGraph")
+        .attr("graphType","line")
+        .attr("id", "Transplant");
+
+    //Graph2 = nh3
+    /*svgContainer.append("svg")
+    .attr("width", smallGraph.width)
+    .attr("height", smallGraph.height)
+    .attr("x", padding*2+bigGraph.width)
+    .attr("y", padding)
+    .attr("style", "outline: thin solid green;")
+    .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")")
+        .attr("class","smallGraph")
+        .attr("graphType","line")
+        .attr("id", "NH3_mmolperL");
+
+    //Graph3 = LDH
+    svgContainer.append("svg")
+    .attr("width", smallGraph.width)
+    .attr("height", smallGraph.height)
+    .attr("x", (padding*3+smallGraph.width+bigGraph.width))
+    .attr("y", padding)
+    .attr("style", "outline: thin solid blue;")
+    .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")")
+        .attr("class","smallGraph")
+        .attr("graphType","line")
+        .attr("id", "LDH_UperL");
     
-            //x-scale
-            var x = d3.scaleLinear()
-              .domain([xmin, xmax])
-              .range([ 0, width ]);
-            //x-axis
-            svg.append("g")
-              .attr("transform", "translate(0," + height + ")") //Move to bottom of graph
-              .style("font-size", attrText)
-              .call(d3.axisBottom(x));
-            //xlabel
-            svg.append("text")
-              .attr("class", "xlabel")
-              .attr("id",("xlabel_"+ svg.attr("id")))
-              .attr("text-anchor", "middle")
-              .attr("x", width/2)
-              .attr("y", height + 30)
-              .style("font-size", attrText)
-              .text(svg.attr("id"));
-    
-            //yscale
-            var y = d3.scaleLinear()
-              .domain([ymin, ymax])
-              .range([ height, 0]);
-            //yaxis
-            svg.append("g")
-               .style("font-size", attrText)
-               .call(d3.axisLeft(y));
-            //Ylabel
-            svg.append("text")
-              .attr("class", "ylabel")
-              .attr("id",("ylabel_"+svg.attr("id")))
-              .attr("text-anchor", "middle")
-              .attr("x", -width/2)
-              .attr("y", -margin.left)
-              .attr("dy", ".75em")
-              .attr("transform", "rotate(-90)")
-              .style("font-size", attrText)
-              .text(svg.attr("id"));
-    
-            //Add title
-            svg.append("text")
-              .attr("class", "title")
-              .attr("id",("title_"+ svg.attr("id")))
-              .attr("text-anchor", "middle")
-              .attr("x", width/2)
-              .attr("y", 0)
-              .style("font-size", titleText)
-              .text(svg.attr("id"));
-    
-            return {"x":x,"y":y};
-    
-        }
-    
-    }
-    
-    function addData(svg,data,scales,colorList="steelblue",metab="GCR",colorBy="Recell_ID",xAxis="Endo_Day"){
-      if(svg.attr("graphType") == "line"){
+    //Graph4 = GLN_mM
+    svgContainer.append("svg")
+    .attr("width", smallGraph.width)
+    .attr("height", smallGraph.height)
+    .attr("x", padding*2+bigGraph.width)
+    .attr("y", padding*2+smallGraph.height)
+    .attr("style", "outline: thin solid blue;")
+    .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")")
+        .attr("class","smallGraph")
+        .attr("graphType","line")
+        .attr("id", "GLN_mM");
+
+    //Graph5 = LAC_GperL
+    svgContainer.append("svg")
+    .attr("width", smallGraph.width)
+    .attr("height", smallGraph.height)
+    .attr("x", padding*3+smallGraph.width+bigGraph.width)
+    .attr("y", padding*2+smallGraph.height)
+    .attr("style", "outline: thin solid blue;")
+    .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")")
+        .attr("class","smallGraph")
+        .attr("graphType","line")
+        .attr("id", "LAC_GperL");
+
+    //Graph6 = GLC
+    svgContainer.append("svg")
+    .attr("width", smallGraph.width)
+    .attr("height", smallGraph.height)
+    .attr("x", padding)
+    .attr("y", padding+bigGraph.height)
+    .attr("style", "outline: thin solid red;")
+    .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")")
+        .attr("class","smallGraph")
+        .attr("graphType","line")
+        .attr("id", "GLC_GperL");*/
+  return ["Transplant"];//,"NH3_mmolperL","LDH_UperL", "GLN_mM", "LAC_GperL","GLC_GperL"];
+}
+
+function setupAxes(svg, xmax=0, ymax=0, xmin=0, ymin=0){
+    //console.log(svg.attr("graphType"));
+    if(svg.attr("graphType") =="line"){
         var width=0;
         var height=0;
-        var attrText="0px";
-        var titleText="0px";
+        var attrText=0;
+        var titleText=0;
         if(svg.attr("class") == "smallGraph"){
           width = smallGraph.graphWidth;
           height = smallGraph.graphHeight;
@@ -137,94 +132,196 @@
           attrText = bigGraph.attrText;
           titleText = bigGraph.titleText;
         }
-    
-        // group the data: I want to draw one line per group
-        var groupedData = d3.nest() // nest function allows to group the calculation per level of a factor
-                        .key(function(d) { return d[colorBy];})
-                        .entries(data);
-    
-        var colorByOptions = groupedData.map(function(d){ return d.key }); // list of group names
-        var colorScale = d3.scaleOrdinal()
-          .domain(colorByOptions)
-          .range(colorList.slice(0,colorByOptions.length));
-        // Draw the line
-        svg.selectAll(".line")
-            .data(groupedData)
-            .enter()
-            .append("path")
-              /*.on('mouseover', function(d,i){
-                tooltip.style("opacity",1)
-                .style("left",(d3.event.pageX)+"px")
-                .style("top",(d3.event.pageY)+"px")
-                html("hi")
-              })
-              .on("mouseout",function(){tooltip.style("opacity",0)*/
-              .attr("fill", "none")
-              .attr("stroke", function(d){ return colorScale(d.key) })
-              .attr("stroke-width", 1.5)
-              .attr("d", function(d){
-                return d3.line()
-                  .x(function(d) { return scales.x(d[xAxis]); })
-                  .y(function(d) { return scales.y(+d[metab]); })
-                  (d.values)
-              })
-    
-        //Add legend
-        var legendSpacing = 6;
-        var legendG = svg.selectAll(".legend").data(colorByOptions).enter().append("g")
-        //Add rect
-        var legendBar =  legendG.attr("class","legend")
-                                .attr("id", function(d){return (d[colorBy]+"_"+d[metab])})
-                                .append("rect")
-                                .attr("width", 20)
-                                .attr("height", 5)
-                                .attr("x",width)
-                                .attr("y",function(d,i) {return 10+legendSpacing+i*parseInt(attrText.slice(0,-2));})
-                                .attr("fill", function(d,i) {return colorList.slice(0,colorByOptions.length)[i];});
-        //Add text
-        legendG.append("text")
-              .attr('x',(width+4+parseInt(legendBar.attr("width"))))
-              .attr('y', function(d,i) {return (10+legendSpacing+i*parseInt(attrText.slice(0,-2)) + 0.5*parseInt(attrText.slice(0,-2))); })
-              .style("font-size",attrText)
-              .text(function(d,i) {return colorByOptions[i]+"    ."}); //Little bit of extra spacing on end.
-      }
+
+        //x-scale
+        var x = d3.scaleLinear()
+          .domain([xmin, xmax])
+          .range([ 0, width ]);
+        //x-axis
+        svg.append("g")
+          .attr("transform", "translate(0," + height + ")") //Move to bottom of graph
+          .style("font-size", attrText)
+          .call(d3.axisBottom(x));
+        //xlabel
+        svg.append("text")
+          .attr("class", "xlabel")
+          .attr("id",("xlabel_"+ svg.attr("id")))
+          .attr("text-anchor", "middle")
+          .attr("x", width/2)
+          .attr("y", height + 30)
+          .style("font-size", attrText)
+          .text(svg.attr("id"));
+
+        //yscale
+        var y = d3.scaleLinear()
+          .domain([ymin, ymax])
+          .range([ height, 0]);
+        //yaxis
+        svg.append("g")
+           .style("font-size", attrText)
+           .call(d3.axisLeft(y));
+        //Ylabel
+        svg.append("text")
+          .attr("class", "ylabel")
+          .attr("id",("ylabel_"+svg.attr("id")))
+          .attr("text-anchor", "middle")
+          .attr("x", -width/2)
+          .attr("y", -margin.left)
+          .attr("dy", ".75em")
+          .attr("transform", "rotate(-90)")
+          .style("font-size", attrText)
+          .text(svg.attr("id"));
+
+        //Add title
+        svg.append("text")
+          .attr("class", "title")
+          .attr("id",("title_"+ svg.attr("id")))
+          .attr("text-anchor", "middle")
+          .attr("x", width/2)
+          .attr("y", 0)
+          .style("font-size", titleText)
+          .text(svg.attr("id"));
+
+        return {"x":x,"y":y};
+
     }
 
-    function makeScene1Graphs(){
-    d3.select('svg').selectAll('*').remove(); //Remove old graphs
-    var colors ="'#008000','#0070C0','#FF0000'";
-   
-    d3.csv(route).then(function(data) {
-        //console.log(data);
-        var dashboard = d3.select("#organDashboard");
-        var graphNames = metabChartSetup(dashboard);
+}
 
-        //Convert colors to an array..
-        colors = colors.replace('{"colors":"','');
-        colors = colors.replace('"}','');
-        colors = colors.replaceAll("'","");
-        colors = colors.split(",");
-        //X axis and color column names
-        var colorCol = "Recell_ID";
-        var xCol = "Endo_Day";
-        
-        for(g in graphNames){
-        var graph = dashboard.select("#"+graphNames[g]);
-        var colName = graph.attr("id"); //Column name must match g id for that graph
-        
-        //Determine max and min for graph
-        var minY = 0;//d3.min(data, function(d) {return parseFloat(d[colName])-parseFloat(d[colName])*0.1;});
-        var maxY = d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
-        var maxX = d3.max(data, function(d) {return parseFloat(d[xCol])+parseFloat(d[xCol])*0.1;}); //Auto-determine max +10%
-        var minX = 0;//d3.min(data, function(d) {return parseFloat(d[xCol])-parseFloat(d[xCol])*0.1;}); //Auto-determine lowest value -10%
-    
-        var graphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
-        addData(svg=graph,data=data,scales=graphScales,colorList=colors, metab=graph.attr("id"),colorBy=colorCol,xAxis=xCol);//data.columns[2]);
-        graph.selectAll(".xlabel").text(xCol);
-        }
-    })
+function addData(svg,data,scales,colorList="steelblue",metab="GCR",colorBy="Recell_ID",xAxis="Endo_Day"){
+  if(svg.attr("graphType") == "line"){
+    var width=0;
+    var height=0;
+    var attrText="0px";
+    var titleText="0px";
+    if(svg.attr("class") == "smallGraph"){
+      width = smallGraph.graphWidth;
+      height = smallGraph.graphHeight;
+      attrText = smallGraph.attrText;
+      titleText = smallGraph.titleText;
+    }
+    else if(svg.attr("class") == "bigGraph"){
+      width = bigGraph.graphWidth;
+      height = bigGraph.graphHeight;
+      attrText = bigGraph.attrText;
+      titleText = bigGraph.titleText;
+    }
+
+    // group the data: I want to draw one line per group
+    var groupedData = d3.nest() // nest function allows to group the calculation per level of a factor
+                    .key(function(d) { return d[colorBy];})
+                    .entries(data);
+
+    var colorByOptions = groupedData.map(function(d){ return d.key }); // list of group names
+    var colorScale = d3.scaleOrdinal()
+      .domain(colorByOptions)
+      .range(colorList.slice(0,colorByOptions.length));
+    // Draw the line
+    svg.selectAll(".line")
+        .data(groupedData)
+        .enter()
+        .append("path")
+          /*.on('mouseover', function(d,i){
+            tooltip.style("opacity",1)
+            .style("left",(d3.event.pageX)+"px")
+            .style("top",(d3.event.pageY)+"px")
+            html("hi")
+          })
+          .on("mouseout",function(){tooltip.style("opacity",0)*/
+          .attr("fill", "none")
+          .attr("stroke", function(d){ return colorScale(d.key) })
+          .attr("stroke-width", 1.5)
+          .attr("d", function(d){
+            return d3.line()
+              .x(function(d) { return scales.x(d[xAxis]); })
+              .y(function(d) { return scales.y(+d[metab]); })
+              (d.values)
+          })
+
+    //Add legend
+    var legendSpacing = 6;
+    var legendG = svg.selectAll(".legend").data(colorByOptions).enter().append("g")
+    //Add rect
+    var legendBar =  legendG.attr("class","legend")
+                            .attr("id", function(d){return (d[colorBy]+"_"+d[metab])})
+                            .append("rect")
+                            .attr("width", 20)
+                            .attr("height", 5)
+                            .attr("x",width)
+                            .attr("y",function(d,i) {return 10+legendSpacing+i*parseInt(attrText.slice(0,-2));})
+                            .attr("fill", function(d,i) {return colorList.slice(0,colorByOptions.length)[i];});
+    //Add text
+    legendG.append("text")
+          .attr('x',(width+4+parseInt(legendBar.attr("width"))))
+          .attr('y', function(d,i) {return (10+legendSpacing+i*parseInt(attrText.slice(0,-2)) + 0.5*parseInt(attrText.slice(0,-2))); })
+          .style("font-size",attrText)
+          .text(function(d,i) {return colorByOptions[i]+"    ."}); //Little bit of extra spacing on end.
+  }
 }
 
 
-</script>
+//Trying to make file selector work and it isn't so going to switch to text input field of filepath.
+/*function uploadQuery(){
+    console.log("enter uploadQuery");
+    const fileSelector = document.getElementById('inputID');
+    console.log('file selector'+fileSelector);
+    fileSelector.addEventListener('change', (event) => {
+    const fileList = event.target.files;
+    console.log("filelist: "+ fileList);
+    return fileList;
+    })}*/ 
+
+//Read the data and graph
+function makeGraphs(){
+  d3.select('svg').selectAll('*').remove(); //Remove old graphs
+  var colors ="'#F94040','#808080','#0000FF','#FF6000','#94641F','#AD07E3','#F0EA00','#000000','#00FF00','#FFA0A0','#C0B57B','#90BFF9','#A00000','#D4D4D4','#000080','#FFC080','#8C7E39','#A0FFA0','#FFC0E0','#ECE6CA','#008000'";
+  /*if(dataSource=="byLot"){
+      //form and getting lot number
+      var lotNum = document.getElementById("lotNumber").value;
+      var route = "http://127.0.0.1:5000/from_db_lot/" + lotNum;
+  }
+  else if(dataSource == "byRecellIDs"){ //Typed list of recell IDs with default color scheme
+    var recellIDs = document.getElementById("recellIDs").value;
+    var route = "http://127.0.0.1:5000/from_db_list/" + recellIDs;
+  }
+  else if(dataSource == "byRecellIDCSV"){
+    var queryPath = document.getElementById("queryFilepath").value;
+    var route = "http://127.0.0.1:5000/from_db_list_csv/" + queryPath;
+    d3.json("http://127.0.0.1:5000/get_colors/" + queryPath).then(function(data){ colors=JSON.stringify(data);});
     
+  }*/
+ 
+  //Data and creation
+  d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantDeath1%263.csv").then(function(data) {
+    //console.log(data);
+    var dashboard = d3.select("#organDashboard");
+    var graphNames = metabChartSetup(dashboard);
+
+    //Convert colors to an array
+    colors = colors.replace('{"colors":"','');
+    colors = colors.replace('"}','');
+    colors = colors.replaceAll("'","");
+    colors = colors.split(",");
+    //X axis and color column names
+    var colorCol = "Organ";
+    var xCol = "Year";
+    
+    for(g in graphNames){
+      var graph = dashboard.select("#"+graphNames[g]);
+      var colName = graph.attr("id"); //Column name must match g id for that graph
+      
+      //Determine max and min for graph
+      var minY = 0//d3.min(data, function(d) {return parseFloat(d[colName])-parseFloat(d[colName])*0.1;});
+      var maxY = d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
+      var maxX = 2023//d3.max(data, function(d) {return parseFloat(d[xCol])+parseFloat(d[xCol])*0.1;}); //Auto-determine max +10%
+      var minX = 1993//d3.min(data, function(d) {return parseFloat(d[xCol])-parseFloat(d[xCol])*0.1;}); //Auto-determine lowest value -10%
+   
+      var graphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
+      addData(svg=graph,data=data,scales=graphScales,colorList=colors, metab=graph.attr("id"),colorBy=colorCol,xAxis=xCol);//data.columns[2]);
+      graph.selectAll(".xlabel").text(xCol);
+    }
+})
+}
+
+makeGraphs()
+</script>
