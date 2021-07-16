@@ -1,0 +1,307 @@
+Year,Organ,Number_Of_Transplants
+2021,All Organs,21060
+2021,Kidney,12503
+2021,Liver,4704
+2021,Pancreas,78
+2021,Kidney / Pancreas,442
+2021,Heart,1931
+2021,Lung,1339
+2021,Heart / Lung,18
+2021,Intestine,43
+2020,All Organs,39036
+2020,Kidney,22817
+2020,Liver,8906
+2020,Pancreas,135
+2020,Kidney / Pancreas,827
+2020,Heart,3658
+2020,Lung,2539
+2020,Heart / Lung,58
+2020,Intestine,91
+2019,All Organs,39719
+2019,Kidney,23401
+2019,Liver,8896
+2019,Pancreas,143
+2019,Kidney / Pancreas,872
+2019,Heart,3552
+2019,Lung,2714
+2019,Heart / Lung,45
+2019,Intestine,81
+2018,All Organs,36530
+2018,Kidney,21167
+2018,Liver,8250
+2018,Pancreas,192
+2018,Kidney / Pancreas,835
+2018,Heart,3408
+2018,Lung,2530
+2018,Heart / Lung,32
+2018,Intestine,104
+2017,All Organs,34770
+2017,Kidney,19849
+2017,Liver,8082
+2017,Pancreas,213
+2017,Kidney / Pancreas,789
+2017,Heart,3244
+2017,Lung,2449
+2017,Heart / Lung,29
+2017,Intestine,109
+2016,All Organs,33610
+2016,Kidney,19060
+2016,Liver,7841
+2016,Pancreas,215
+2016,Kidney / Pancreas,798
+2016,Heart,3191
+2016,Lung,2327
+2016,Heart / Lung,18
+2016,Intestine,147
+2015,All Organs,30974
+2015,Kidney,17878
+2015,Liver,7127
+2015,Pancreas,228
+2015,Kidney / Pancreas,719
+2015,Heart,2804
+2015,Lung,2057
+2015,Heart / Lung,15
+2015,Intestine,141
+2014,All Organs,29540
+2014,Kidney,17108
+2014,Liver,6730
+2014,Pancreas,245
+2014,Kidney / Pancreas,709
+2014,Heart,2655
+2014,Lung,1925
+2014,Heart / Lung,24
+2014,Intestine,139
+2013,All Organs,28956
+2013,Kidney,16896
+2013,Liver,6455
+2013,Pancreas,256
+2013,Kidney / Pancreas,762
+2013,Heart,2531
+2013,Lung,1923
+2013,Heart / Lung,23
+2013,Intestine,109
+2012,All Organs,28059
+2012,Kidney,16487
+2012,Liver,6256
+2012,Pancreas,242
+2012,Kidney / Pancreas,801
+2012,Heart,2378
+2012,Lung,1754
+2012,Heart / Lung,29
+2012,Intestine,106
+2011,All Organs,28553
+2011,Kidney,16816
+2011,Liver,6342
+2011,Pancreas,287
+2011,Kidney / Pancreas,795
+2011,Heart,2322
+2011,Lung,1822
+2011,Heart / Lung,27
+2011,Intestine,129
+2010,All Organs,28668
+2010,Kidney,16900
+2010,Liver,6291
+2010,Pancreas,349
+2010,Kidney / Pancreas,828
+2010,Heart,2332
+2010,Lung,1769
+2010,Heart / Lung,42
+2010,Intestine,151
+2009,All Organs,28463
+2009,Kidney,16829
+2009,Liver,6320
+2009,Pancreas,375
+2009,Kidney / Pancreas,854
+2009,Heart,2212
+2009,Lung,1661
+2009,Heart / Lung,29
+2009,Intestine,179
+2008,All Organs,27967
+2008,Kidney,16521
+2008,Liver,6319
+2008,Pancreas,434
+2008,Kidney / Pancreas,837
+2008,Heart,2163
+2008,Lung,1478
+2008,Heart / Lung,27
+2008,Intestine,185
+2007,All Organs,28366
+2007,Kidney,16634
+2007,Liver,6494
+2007,Pancreas,468
+2007,Kidney / Pancreas,864
+2007,Heart,2209
+2007,Lung,1468
+2007,Heart / Lung,31
+2007,Intestine,198
+2006,All Organs,28941
+2006,Kidney,17095
+2006,Liver,6651
+2006,Pancreas,466
+2006,Kidney / Pancreas,924
+2006,Heart,2193
+2006,Lung,1405
+2006,Heart / Lung,31
+2006,Intestine,175
+2005,All Organs,28119
+2005,Kidney,16485
+2005,Liver,6444
+2005,Pancreas,542
+2005,Kidney / Pancreas,903
+2005,Heart,2125
+2005,Lung,1406
+2005,Heart / Lung,35
+2005,Intestine,178
+2004,All Organs,27042
+2004,Kidney,16007
+2004,Liver,6171
+2004,Pancreas,603
+2004,Kidney / Pancreas,881
+2004,Heart,2015
+2004,Lung,1172
+2004,Heart / Lung,40
+2004,Intestine,152
+2003,All Organs,25475
+2003,Kidney,15138
+2003,Liver,5673
+2003,Pancreas,504
+2003,Kidney / Pancreas,871
+2003,Heart,2057
+2003,Lung,1085
+2003,Heart / Lung,29
+2003,Intestine,116
+2002,All Organs,24916
+2002,Kidney,14781
+2002,Liver,5332
+2002,Pancreas,555
+2002,Kidney / Pancreas,906
+2002,Heart,2155
+2002,Lung,1042
+2002,Heart / Lung,33
+2002,Intestine,107
+2001,All Organs,24243
+2001,Kidney,14279
+2001,Liver,5195
+2001,Pancreas,473
+2001,Kidney / Pancreas,891
+2001,Heart,2202
+2001,Lung,1059
+2001,Heart / Lung,27
+2001,Intestine,113
+2000,All Organs,23274
+2000,Kidney,13631
+2000,Liver,5001
+2000,Pancreas,439
+2000,Kidney / Pancreas,915
+2000,Heart,2199
+2000,Lung,959
+2000,Heart / Lung,48
+2000,Intestine,82
+1999,All Organs,22030
+1999,Kidney,12767
+1999,Liver,4757
+1999,Pancreas,359
+1999,Kidney / Pancreas,941
+1999,Heart,2188
+1999,Lung,893
+1999,Heart / Lung,51
+1999,Intestine,73
+1998,All Organs,21525
+1998,Kidney,12454
+1998,Liver,4519
+1998,Pancreas,245
+1998,Kidney / Pancreas,972
+1998,Heart,2348
+1998,Lung,869
+1998,Heart / Lung,47
+1998,Intestine,70
+1997,All Organs,20379
+1997,Kidney,11710
+1997,Liver,4189
+1997,Pancreas,210
+1997,Kidney / Pancreas,915
+1997,Heart,2293
+1997,Lung,932
+1997,Heart / Lung,62
+1997,Intestine,68
+1996,All Organs,19765
+1996,Kidney,11411
+1996,Liver,4087
+1996,Pancreas,164
+1996,Kidney / Pancreas,861
+1996,Heart,2343
+1996,Lung,815
+1996,Heart / Lung,39
+1996,Intestine,45
+1995,All Organs,19396
+1995,Kidney,11084
+1995,Liver,3934
+1995,Pancreas,109
+1995,Kidney / Pancreas,919
+1995,Heart,2363
+1995,Lung,872
+1995,Heart / Lung,69
+1995,Intestine,46
+1994,All Organs,18299
+1994,Kidney,10646
+1994,Liver,3652
+1994,Pancreas,95
+1994,Kidney / Pancreas,748
+1994,Heart,2340
+1994,Lung,724
+1994,Heart / Lung,71
+1994,Intestine,23
+1993,All Organs,17631
+1993,Kidney,10360
+1993,Liver,3440
+1993,Pancreas,112
+1993,Kidney / Pancreas,661
+1993,Heart,2297
+1993,Lung,667
+1993,Heart / Lung,60
+1993,Intestine,34
+1992,All Organs,16134
+1992,Kidney,9738
+1992,Liver,3064
+1992,Pancreas,64
+1992,Kidney / Pancreas,493
+1992,Heart,2170
+1992,Lung,535
+1992,Heart / Lung,48
+1992,Intestine,22
+1991,All Organs,15756
+1991,Kidney,9678
+1991,Liver,2953
+1991,Pancreas,78
+1991,Kidney / Pancreas,452
+1991,Heart,2127
+1991,Lung,405
+1991,Heart / Lung,51
+1991,Intestine,12
+1990,All Organs,15001
+1990,Kidney,9416
+1990,Liver,2690
+1990,Pancreas,69
+1990,Kidney / Pancreas,459
+1990,Heart,2107
+1990,Lung,203
+1990,Heart / Lung,52
+1990,Intestine,5
+1989,All Organs,13140
+1989,Kidney,8656
+1989,Liver,2202
+1989,Pancreas,82
+1989,Kidney / Pancreas,335
+1989,Heart,1705
+1989,Lung,93
+1989,Heart / Lung,67
+1989,Intestine,0
+1988,All Organs,12623
+1988,Kidney,8878
+1988,Liver,1713
+1988,Pancreas,78
+1988,Kidney / Pancreas,171
+1988,Heart,1676
+1988,Lung,33
+1988,Heart / Lung,74
+1988,Intestine,0
