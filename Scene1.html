@@ -4,29 +4,17 @@
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <link rel="stylesheet" href="Style.css">
 <!-- Create a div where the graph will take place -->
-<!--<form>
-  <input id="lotNumber" type="text" placeholder="Enter Lot Number"></input>
-  <button type="button" onclick="makeGraphs('byLot')">Enter</button>
-</form>
-<form>
-  <input id="recellIDs" type="text" placeholder="Enter list of recellIDs"></input>
-  <button type="button" onclick="makeGraphs('byRecellIDs')">Enter</button>
-</form>
-<form>
-  <input id="queryFilepath" type="text" placeholder="Enter path of query excel file"></input>
-  <button type="button" onclick="makeGraphs('byRecellIDCSV')">Enter</button>
-</form>-->
 <svg id="organDashboard" width="1700" height="1600"></svg>
 <!--<div name="tooltip" opacity=1>tooltip</div>-->
 <script>
 // set the dimensions and margins of the graph
-var margin = {top: 50, right: 170, bottom: 50, left: 50},
+var margin = {top: 50, right: 170, bottom: 75, left: 75},
     smallGraph = {graphWidth: (450-margin.left-margin.right), graphHeight:(300-margin.top-margin.bottom),width: 450,height:300,attrText:"12px",titleText:"20px"},
-    bigGraph = {graphWidth: (750-margin.left-margin.right), graphHeight:(600-margin.top-margin.bottom),width: 750,height:600,attrText:"14px",titleText:"24px"},
+    bigGraph = {graphWidth: (750-margin.left-margin.right), graphHeight:(600-margin.top-margin.bottom),width: 7500,height:600,attrText:"14px",titleText:"24px"},
     padding = 10;
 
     
-function metabChartSetup(svgContainer){
+function chartSetup(svgContainer){
     //Graph1 = Transplant
     svgContainer.append("svg")
     .attr("width", bigGraph.width)
@@ -60,7 +48,6 @@ function metabChartSetup(svgContainer){
 }
 
 function setupAxes(svg, xmax=0, ymax=0, xmin=0, ymin=0){
-    //console.log(svg.attr("graphType"));
     if(svg.attr("graphType") =="line"){
         var width=0;
         var height=0;
@@ -87,14 +74,14 @@ function setupAxes(svg, xmax=0, ymax=0, xmin=0, ymin=0){
         svg.append("g")
           .attr("transform", "translate(0," + height + ")") //Move to bottom of graph
           .style("font-size", attrText)
-          .call(d3.axisBottom(x));
+          .call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(6));
         //xlabel
         svg.append("text")
           .attr("class", "xlabel")
           .attr("id",("xlabel_"+ svg.attr("id")))
           .attr("text-anchor", "middle")
           .attr("x", width/2)
-          .attr("y", height + 30)
+          .attr("y", height + 40)
           .style("font-size", attrText)
           .text(svg.attr("id"));
 
@@ -209,26 +196,22 @@ function addData(svg,data,scales,colorList="steelblue",metab="GCR",colorBy="Rece
 //Read the data and graph
 function makeGraphs(){
   d3.select('svg').selectAll('*').remove(); //Remove old graphs
-  var colors ="'#F94040','#808080','#0000FF','#FF6000','#94641F','#AD07E3','#F0EA00','#000000','#00FF00','#FFA0A0','#C0B57B','#90BFF9','#A00000','#D4D4D4','#000080','#FFC080','#8C7E39','#A0FFA0','#FFC0E0','#ECE6CA','#008000'";
+  var colors =['#F94040','#808080','#0000FF','#FF6000','#94641F','#AD07E3','#F0EA00','#000000','#00FF00','#FFA0A0','#C0B57B','#90BFF9','#A00000','#D4D4D4','#000080','#FFC080','#8C7E39','#A0FFA0','#FFC0E0','#ECE6CA','#008000'];
 
  
   //Data and creation
   d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantWaitlist1and3.csv").then(function(data) {
     //console.log(data);
-    var dashboard = d3.select("#organDashboard");
-    var graphNames = metabChartSetup(dashboard);
+    var scene1 = d3.select("#organDashboard");
+    var graphNames = chartSetup(scene1);
 
-    //Convert colors to an array
-    colors = colors.replace('{"colors":"','');
-    colors = colors.replace('"}','');
-    colors = colors.replaceAll("'","");
-    colors = colors.split(",");
+
     //X axis and color column names
     var colorCol = "Organ";
     var xCol = "Year";
     
     for(g in graphNames){
-      var graph = dashboard.select("#"+graphNames[g]);
+      var graph = scene1.select("#"+graphNames[g]);
       var colName = graph.attr("id"); //Column name must match g id for that graph
       
       //Determine max and min for graph
