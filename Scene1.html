@@ -53,63 +53,9 @@ function metabChartSetup(svgContainer){
             "translate(" + margin.left + "," + margin.top + ")")
         .attr("class","smallGraph")
         .attr("graphType","line")
-        .attr("id", "NH3_mmolperL");
+        .attr("id", "NH3_mmolperL");*/
 
-    //Graph3 = LDH
-    svgContainer.append("svg")
-    .attr("width", smallGraph.width)
-    .attr("height", smallGraph.height)
-    .attr("x", (padding*3+smallGraph.width+bigGraph.width))
-    .attr("y", padding)
-    .attr("style", "outline: thin solid blue;")
-    .append("g")
-        .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")")
-        .attr("class","smallGraph")
-        .attr("graphType","line")
-        .attr("id", "LDH_UperL");
-    
-    //Graph4 = GLN_mM
-    svgContainer.append("svg")
-    .attr("width", smallGraph.width)
-    .attr("height", smallGraph.height)
-    .attr("x", padding*2+bigGraph.width)
-    .attr("y", padding*2+smallGraph.height)
-    .attr("style", "outline: thin solid blue;")
-    .append("g")
-        .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")")
-        .attr("class","smallGraph")
-        .attr("graphType","line")
-        .attr("id", "GLN_mM");
-
-    //Graph5 = LAC_GperL
-    svgContainer.append("svg")
-    .attr("width", smallGraph.width)
-    .attr("height", smallGraph.height)
-    .attr("x", padding*3+smallGraph.width+bigGraph.width)
-    .attr("y", padding*2+smallGraph.height)
-    .attr("style", "outline: thin solid blue;")
-    .append("g")
-        .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")")
-        .attr("class","smallGraph")
-        .attr("graphType","line")
-        .attr("id", "LAC_GperL");
-
-    //Graph6 = GLC
-    svgContainer.append("svg")
-    .attr("width", smallGraph.width)
-    .attr("height", smallGraph.height)
-    .attr("x", padding)
-    .attr("y", padding+bigGraph.height)
-    .attr("style", "outline: thin solid red;")
-    .append("g")
-        .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")")
-        .attr("class","smallGraph")
-        .attr("graphType","line")
-        .attr("id", "GLC_GperL");*/
+  
   return ["Transplant"];//,"NH3_mmolperL","LDH_UperL", "GLN_mM", "LAC_GperL","GLC_GperL"];
 }
 
@@ -260,39 +206,14 @@ function addData(svg,data,scales,colorList="steelblue",metab="GCR",colorBy="Rece
 }
 
 
-//Trying to make file selector work and it isn't so going to switch to text input field of filepath.
-/*function uploadQuery(){
-    console.log("enter uploadQuery");
-    const fileSelector = document.getElementById('inputID');
-    console.log('file selector'+fileSelector);
-    fileSelector.addEventListener('change', (event) => {
-    const fileList = event.target.files;
-    console.log("filelist: "+ fileList);
-    return fileList;
-    })}*/ 
-
 //Read the data and graph
 function makeGraphs(){
   d3.select('svg').selectAll('*').remove(); //Remove old graphs
   var colors ="'#F94040','#808080','#0000FF','#FF6000','#94641F','#AD07E3','#F0EA00','#000000','#00FF00','#FFA0A0','#C0B57B','#90BFF9','#A00000','#D4D4D4','#000080','#FFC080','#8C7E39','#A0FFA0','#FFC0E0','#ECE6CA','#008000'";
-  /*if(dataSource=="byLot"){
-      //form and getting lot number
-      var lotNum = document.getElementById("lotNumber").value;
-      var route = "http://127.0.0.1:5000/from_db_lot/" + lotNum;
-  }
-  else if(dataSource == "byRecellIDs"){ //Typed list of recell IDs with default color scheme
-    var recellIDs = document.getElementById("recellIDs").value;
-    var route = "http://127.0.0.1:5000/from_db_list/" + recellIDs;
-  }
-  else if(dataSource == "byRecellIDCSV"){
-    var queryPath = document.getElementById("queryFilepath").value;
-    var route = "http://127.0.0.1:5000/from_db_list_csv/" + queryPath;
-    d3.json("http://127.0.0.1:5000/get_colors/" + queryPath).then(function(data){ colors=JSON.stringify(data);});
-    
-  }*/
+
  
   //Data and creation
-  d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantDeath1%263.csv").then(function(data) {
+  d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantWaitlist1and3.csv").then(function(data) {
     //console.log(data);
     var dashboard = d3.select("#organDashboard");
     var graphNames = metabChartSetup(dashboard);
