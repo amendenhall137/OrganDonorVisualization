@@ -119,7 +119,10 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
       titleText = bigGraph.titleText;
     }
     if(lineStyle == "dashed"){
-        dash = (10,2);
+        dash = (20,2);
+    }
+    else if(lineStyle == "dotted"){
+        dash = (4,2);
     }
 
     // group the data: I want to draw one line per group
@@ -205,18 +208,39 @@ function makeLineGraph1(){
 }
 
 function makeLineGraph2(){
-
+    d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearPaymentTransplantWaitlist2.csv").then(function(data){
+        var scene2 = d3.select("#organDashboard");
+        var graphNames = chartSetup(scene2);
+        var colorCol = "Payment";
+        var xCol = "Year";
+        var graph = scene2.select("#"+graphNames[0]);
+        var colName = "NumberTransplants";//graph.attr("id"); //Column name must match g id for that graph
+        
+        //Determine max and min for graph
+        var minY = 0;//d3.min(data, function(d) {return parseFloat(d[colName])-parseFloat(d[colName])*0.1;});
+        var maxY = 50000;//d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
+        var maxX = 2020;//d3.max(data, function(d) {return parseFloat(d[xCol])+parseFloat(d[xCol])*0.1;}); //Auto-determine max +10%
+        var minX = 1995;//d3.min(data, function(d) {return parseFloat(d[xCol])-parseFloat(d[xCol])*0.1;}); //Auto-determine lowest value -10%
+        
+        //Create First Line Graph
+        var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid");//data.columns[2]);
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis="Waitlist_Additions",colorBy=colorCol,xAxis=xCol,line="dashed");
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis="Waitlist_Removals",colorBy=colorCol,xAxis=xCol,line="dotted");
+        graph.selectAll(".xlabel").text(xCol);
+        graph.selectAll(".ylabel").text(colName);
+    })
 }
 
 function makeLineGraph3(){
     //Data and creation
     d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantWaitlist1and3.csv").then(function(data) {
         //Var names
-        var scene2 = d3.select("#organDashboard");
-        var graphNames = chartSetup(scene2);
+        var scene3 = d3.select("#organDashboard");
+        var graphNames = chartSetup(scene3);
         var colorCol = "Organ";
         var xCol = "Year";
-        var graph = scene2.select("#"+graphNames[0]);
+        var graph = scene3.select("#"+graphNames[0]);
         var colName = "Transplant"//graph.attr("id"); //Column name must match g id for that graph
         
         //Determine max and min for graph
