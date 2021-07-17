@@ -228,9 +228,11 @@ function makeGraphs(){
 
     //Pie Chart
     var g = d3.select("#TransplantPie");
+    var radius = Math.min(bigGraph.width, bigGraph.height) / 2 -(margin.left+margin.right)/2;
     var pieGroupBy = "Organ";
     var pieSumBy = "Year";
     var vals = "Transplant";
+    var outerArc = d3.arc().innerRadius(radius * 0.9).outerRadius(radius * 0.9);//used for labels
     var pieData = d3.nest().key(function(d){
                                 return d.Organ;})
                     .rollup(function(data){
@@ -238,18 +240,39 @@ function makeGraphs(){
                                                 return d.Transplant;
                       })
                   }).entries(data)
-                  /*.map(function(d){ //There's probably a way to do this for loop as a map but it's so small I will do it as a loop
-                      return { Organ: d.key, Transplant: d.values}});*/
-    console.log(pieData);
-    //Create Second Pie Graph
-    allOrgans = pieData.shift();
-    console.log(pieData);
+    allOrgans = pieData.shift();//Remove "allOrgans" so it is just individual breakdown.
     var pie = d3.pie().value(function(d){return d.value;});
     var arc = g.selectAll("arc").data(pie(pieData)).enter();
-    var path = d3.arc().outerRadius(200).innerRadius(100);
+    var path = d3.arc().outerRadius(radius*0.8).innerRadius(radius*0.5)
     arc.append("path").attr("d",path).attr("fill",function(d,i){return colors.slice(1,8)[i];});//colors[i];});
     
-    
+    //Lines for labels (adapted from d3-graph-gallery.com)
+    g.selectAll("allPolylines").data(pie(pieData)).enter().append("polyline")
+      .attr('stroke',"black")
+      .style('fill','none')
+      .attr("stroke-width",1)
+      .attr("points",function(d){
+          var posA = path.centroid(d); //line in slice
+          var posB = outerArc.centroid(d); //line stop at fake outer arc made for that
+          var posC = outerArc.centroid(d);//label position
+          var midangle = d.startAngle + (d.endAngle-d.startAngle)/2; //Angle to show label right/left
+          posC[0] = radius*0.95*(midangle<Math.PI ?1:-1); //mulitply to put on right or left
+          return [posA, posB, posC];
+      });
+
+    //Add labels to lines
+    g.selectAll('allLabels').data(pie(pieData)).enter().append('text')
+    .text( function(d) { console.log(d.data.key) ; return d.data.key } )
+    .attr('transform', function(d) {
+        var pos = outerArc.centroid(d);
+        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+        pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
+        return 'translate(' + pos + ')';
+    })
+    .style('text-anchor', function(d) {
+        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+        return (midangle < Math.PI ? 'start' : 'end')
+    })
   
   })
 }
