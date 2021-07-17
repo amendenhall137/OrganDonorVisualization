@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <!-- Load d3.js -->
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<link rel="stylesheet" href="Style.css">
+<head>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <link rel="stylesheet" href="Style.css">
+  <script src="lineChart.js" language="JavaScript" type="text/javascript">
+  </script>
+  <script src="pieChart.js" language="JavaScript" type="text/javascript">
+  </script>
+</head>
+<body>
 <!-- Create a div where the graph will take place -->
 <a href="Scene1.html"><button>Scene1</button></a>
 <a href="Scene2.html"><button>Scene2</button></a>
 <a href="Scene3.html"><button>Scene3</button></a>
+<p>Scene1</p>
 <svg id="organDashboard" width="1700" height="1600"></svg>
 <!--<div name="tooltip" opacity=1>tooltip</div>-->
-<script src="lineChart.js" language="JavaScript" type="text/javascript">
+<script>
+  makeLineGraph1();
+  makeGraphs2();
 </script>
-<script src="pieChart.js" language="JavaScript" type="text/javascript">
-</script>
+</body>
+

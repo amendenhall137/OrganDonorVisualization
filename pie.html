@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<link rel="stylesheet" href="Style.css">
+<!-- Create a div where the graph will take place -->
+<svg id="organDashboard" width="1700" height="1600"></svg>
+<!--<div name="tooltip" opacity=1>tooltip</div>-->
+<script>
+    // set the dimensions and margins of the graph
+var margin = {top: 50, right: 170, bottom: 75, left: 75},
+    smallGraph = {graphWidth: (450-margin.left-margin.right), graphHeight:(300-margin.top-margin.bottom),width: 450,height:300,attrText:"12px",titleText:"20px"},
+    bigGraph = {graphWidth: (750-margin.left-margin.right), graphHeight:(600-margin.top-margin.bottom),width: 750,height:600,attrText:"14px",titleText:"24px"},
+    padding = 10;
+
+    
+function chartSetup(svgContainer){
+    //Graph2 = TransplantByOrganPie
+    console.log(padding+parseInt(bigGraph.width)/2);
+    svgContainer.append("svg")
+    .attr("width", bigGraph.width)
+    .attr("height", bigGraph.height)
+    .attr("x", padding+parseInt(bigGraph.width)/2)
+    .attr("y", padding+parseInt(bigGraph.height)/2)
+    .attr("style", "outline: thin solid green;")
+    .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")")
+        .attr("class","bigGraph")
+        .attr("graphType","pie")
+        .attr("id", "TransplantPie");
+
+  
+  return ["TransplantPie"];
+}
+
+function makeGraphs(){
+  d3.select('svg').selectAll('*').remove(); //Remove old graphs
+  var colors =['#F94040','#808080','#0000FF','#FF6000','#94641F','#AD07E3','#F0EA00','#000000','#00FF00'];
+  //Data and creation
+  d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantWaitlist1and3.csv").then(function(data) {
+    //Var names
+    var scene1 = d3.select("#organDashboard");
+    var graphNames = chartSetup(scene1);
+    
+    //Pie Chart
+    var g = d3.select("#TransplantPie");
+    var pieGroupBy = "Organ";
+    var pieSumBy = "Year";
+    var vals = "Transplant";
+    var pieData = d3.nest().key(function(d){
+                                return d.Organ;})
+                    .rollup(function(data){
+                            return d3.sum(data, function(d){
+                                                return d.Transplant;
+                      })
+                  }).entries(data)
+                  /*.map(function(d){ //There's probably a way to do this for loop as a map but it's so small I will do it as a loop
+                      return { Organ: d.key, Transplant: d.values}});*/
+    /*var pieData = []; //Do we need them in their own arrays?
+    var pieKey = [];
+    var arc = d3.arc().innerRadius(0).outerRadius(100);
+    for(i in pieDict){
+      pieData.push(pieDict[i].value);
+      pieKey.push(pieDict[i].key);
+    }*/
+    console.log(pieData);
+    //Create Second Pie Graph
+    var ordScale = d3.scaleOrdinal().domain(pieData).range(colors.slice(0,8));
+    var pie = d3.pie().value(function(d){return d.value;});
+    var arc = g.selectAll("arc").data(pie(pieData)).enter();
+    var path = d3.arc().outerRadius(200).innerRadius(0);
+    arc.append("path").attr("d",path);//.attr("fill",function(d,i){return '#F94040';});//colors[i];});
+    
+    
+  
+  })
+}
+
+makeGraphs()
+</script>

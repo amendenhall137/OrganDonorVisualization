@@ -3,7 +3,7 @@ var margin = {top: 50, right: 170, bottom: 75, left: 75},
     smallGraph = {graphWidth: (450-margin.left-margin.right), graphHeight:(300-margin.top-margin.bottom),width: 450,height:300,attrText:"12px",titleText:"20px"},
     bigGraph = {graphWidth: (750-margin.left-margin.right), graphHeight:(600-margin.top-margin.bottom),width: 750,height:600,attrText:"14px",titleText:"24px"},
     padding = 10;
-
+var colors =['#F94040','#808080','#0000FF','#FF6000','#94641F','#AD07E3','#F0EA00','#000000','#00FF00','#FFA0A0','#C0B57B','#90BFF9','#A00000','#D4D4D4','#000080','#FFC080','#8C7E39','#A0FFA0','#FFC0E0','#ECE6CA','#008000'];
     
 function chartSetup(svgContainer){
     //Graph1 = Transplant
@@ -20,22 +20,7 @@ function chartSetup(svgContainer){
         .attr("graphType","line")
         .attr("id", "TransplantLine");
 
-    /*//Graph2 = TransplantByOrganPie
-    svgContainer.append("svg")
-    .attr("width", bigGraph.width)
-    .attr("height", bigGraph.height)
-    .attr("x", padding+bigGraph.width)
-    .attr("y", padding)
-    .attr("style", "outline: thin solid green;")
-    .append("g")
-        .attr("transform",
-            "translate(" + bigGraph.width/2 + "," + bigGraph.height/2 + ")")
-        .attr("class","bigGraph")
-        .attr("graphType","pie")
-        .attr("id", "TransplantPie");*/
-
-  
-  return ["TransplantLine"];//,"NH3_mmolperL","LDH_UperL", "GLN_mM", "LAC_GperL","GLC_GperL"];
+  return ["TransplantLine"];
 }
 
 function setupAxes(svg, xmax=0, ymax=0, xmin=0, ymin=0){
@@ -114,12 +99,13 @@ function setupAxes(svg, xmax=0, ymax=0, xmin=0, ymin=0){
     }
 }
 
-function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis){
+function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
   if(svg.attr("graphType") == "line"){
     var width=0;
     var height=0;
     var attrText="0px";
     var titleText="0px";
+    var dash = (0,0);
     if(svg.attr("class") == "smallGraph"){
       width = smallGraph.graphWidth;
       height = smallGraph.graphHeight;
@@ -131,6 +117,9 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis){
       height = bigGraph.graphHeight;
       attrText = bigGraph.attrText;
       titleText = bigGraph.titleText;
+    }
+    if(lineStyle == "dashed"){
+        dash = (10,2);
     }
 
     // group the data: I want to draw one line per group
@@ -156,6 +145,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis){
           .on("mouseout",function(){tooltip.style("opacity",0)*/
           .attr("fill", "none")
           .attr("stroke", function(d){ return colorScale(d.key) })
+          .style("stroke-dasharray", dash)//("10,3"))
           .attr("stroke-width", 1.5)
           .attr("d", function(d){
             return d3.line()
@@ -163,13 +153,13 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis){
               .y(function(d) { return scales.y(+d[yAxis]); })
               (d.values)
           })
-
+    if(lineStyle == "solid"){ //Only add legend one time
     //Add legend
     var legendSpacing = 6;
     var legendG = svg.selectAll(".legend").data(colorByOptions).enter().append("g")
     //Add rect
     var legendBar =  legendG.attr("class","legend")
-                            .attr("id", function(d){return (d[colorBy]+"_"+d[yAxis])})
+                            .attr("id", function(d){return (d[colorBy]+"_"+yAxis)})
                             .append("rect")
                             .attr("width", 20)
                             .attr("height", 5)
@@ -182,18 +172,14 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis){
           .attr('y', function(d,i) {return (10+legendSpacing+i*parseInt(attrText.slice(0,-2)) + 0.5*parseInt(attrText.slice(0,-2))); })
           .style("font-size",attrText)
           .text(function(d,i) {return colorByOptions[i]+"    ."}); //Little bit of extra spacing on end.
-  }
-  else if(svg.attr("graphType") == "pie"){
-
-  }
+      }
+    }
 }
 
 
 //Read the data and graph
-function makeGraphs(){
-  d3.select('svg').selectAll('*').remove(); //Remove old graphs
-  var colors =['#F94040','#808080','#0000FF','#FF6000','#94641F','#AD07E3','#F0EA00','#000000','#00FF00','#FFA0A0','#C0B57B','#90BFF9','#A00000','#D4D4D4','#000080','#FFC080','#8C7E39','#A0FFA0','#FFC0E0','#ECE6CA','#008000'];
- 
+function makeLineGraph1(){
+  //d3.select('svg').selectAll('*').remove(); //Remove old graphs
   //Data and creation
   d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantWaitlist1and3.csv").then(function(data) {
     //Var names
@@ -201,9 +187,7 @@ function makeGraphs(){
     var graphNames = chartSetup(scene1);
     var colorCol = "Organ";
     var xCol = "Year";
-    console.log(graphNames[0]);
     var graph = scene1.select("#"+graphNames[0]);
-    console.log(graph.attr("id"));
     var colName = "Transplant"//graph.attr("id"); //Column name must match g id for that graph
     
     //Determine max and min for graph
@@ -214,66 +198,40 @@ function makeGraphs(){
     
     //Create First Line Graph
     var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
-    addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol);//data.columns[2]);
+    addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid");//data.columns[2]);
     graph.selectAll(".xlabel").text(xCol);
     graph.selectAll(".ylabel").text(colName);
-
-
-    /*//Pie Chart
-    var g = d3.select("#TransplantPie");
-    var radius = Math.min(bigGraph.width, bigGraph.height) / 2 -(margin.left+margin.right)/2;
-    var pieGroupBy = "Organ";
-    var pieSumBy = "Year";
-    var vals = "Transplant";
-    var outerArc = d3.arc().innerRadius(radius * 0.9).outerRadius(radius * 0.9);//used for labels
-    var pieData = d3.nest().key(function(d){
-                                return d.Organ;})
-                    .rollup(function(data){
-                            return d3.sum(data, function(d){
-                                                return d.Transplant;
-                      })
-                  }).entries(data)
-    allOrgans = pieData.shift();//Remove "allOrgans" so it is just individual breakdown.
-    var pie = d3.pie().value(function(d){return d.value;});
-    var arc = g.selectAll("arc").data(pie(pieData)).enter();
-    var path = d3.arc().outerRadius(radius*0.8).innerRadius(radius*0.5)
-    arc.append("path").attr("d",path).attr("fill",function(d,i){return colors.slice(1,8)[i];});//colors[i];});
-    
-    //Lines for labels (adapted from d3-graph-gallery.com)
-    g.selectAll("allPolylines").data(pie(pieData)).enter().append("polyline")
-      .attr('stroke',"black")
-      .style('fill','none')
-      .attr("stroke-width",1)
-      .attr("points",function(d){
-          var posA = path.centroid(d); //line in slice
-          var posB = outerArc.centroid(d); //line stop at fake outer arc made for that
-          var posC = outerArc.centroid(d);//label position
-          var midangle = d.startAngle + (d.endAngle-d.startAngle)/2; //Angle to show label right/left
-          posC[0] = radius*0.95*(midangle<Math.PI ?1:-1); //mulitply to put on right or left
-          if(d.data.key == "Intestine"){posC[0]=radius*0.95*1;}
-          if(d.data.key == "Pancreas"){posB[1]=posB[1]-8; posC[1]=posC[1]-8;}
-          return [posA, posB, posC];
-      });
-
-    //Add labels to lines
-    g.selectAll('allLabels').data(pie(pieData)).enter().append('text')
-    .text( function(d) { return d.data.key } )
-    .attr('transform', function(d) {
-        var pos = outerArc.centroid(d);
-        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-        pos[0] = radius * 0.99 * (midangle <(Math.PI) ? 1 : -1);
-        pos[1] =pos[1]+6;
-        if(d.data.key == "Intestine"){pos[0]=radius*0.99*1+50;}
-        if(d.data.key =="Pancreas"){pos[1]=pos[1]-10;}
-        console.log(d.data.key)
-        return 'translate(' + pos + ')';
-    })
-    .style('text-anchor', function(d) {
-        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-        return (midangle < (Math.PI) ? 'start' : 'end')
-    })*/
-  
   })
 }
 
-makeGraphs()
+function makeLineGraph2(){
+
+}
+
+function makeLineGraph3(){
+    //Data and creation
+    d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantWaitlist1and3.csv").then(function(data) {
+        //Var names
+        var scene2 = d3.select("#organDashboard");
+        var graphNames = chartSetup(scene2);
+        var colorCol = "Organ";
+        var xCol = "Year";
+        var graph = scene2.select("#"+graphNames[0]);
+        var colName = "Transplant"//graph.attr("id"); //Column name must match g id for that graph
+        
+        //Determine max and min for graph
+        var minY = 0//d3.min(data, function(d) {return parseFloat(d[colName])-parseFloat(d[colName])*0.1;});
+        var maxY = d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
+        var maxX = 2020//d3.max(data, function(d) {return parseFloat(d[xCol])+parseFloat(d[xCol])*0.1;}); //Auto-determine max +10%
+        var minX = 1995//d3.min(data, function(d) {return parseFloat(d[xCol])-parseFloat(d[xCol])*0.1;}); //Auto-determine lowest value -10%
+        
+        //Create First Line Graph
+        var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
+        console.log(graph.attr("id"));
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid");//data.columns[2]);
+        console.log(graph.attr("id"));
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis="DeathSickness",colorBy=colorCol,xAxis=xCol,line="dashed");
+        graph.selectAll(".xlabel").text(xCol);
+        graph.selectAll(".ylabel").text(colName);
+    })
+}
