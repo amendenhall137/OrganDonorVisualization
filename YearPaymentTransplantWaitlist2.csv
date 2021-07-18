@@ -1,271 +1,811 @@
-Year,Payment,Waitlist_Additions,Waitlist_Removals,NumberTransplants
-2021,Donation,2,2,1
-2020,Donation,9,7,3
-2019,Donation,3,7,3
-2018,Donation,6,5,2
-2017,Donation,5,7,5
-2016,Donation,4,6,4
-2015,Donation,7,10,3
-2014,Donation,5,5,3
-2013,Donation,6,6,4
-2012,Donation,6,3,3
-2011,Donation,9,8,4
-2010,Donation,1,5,2
-2009,Donation,8,11,13
-2008,Donation,14,14,6
-2007,Donation,11,14,6
-2006,Donation,12,9,3
-2005,Donation,6,10,12
-2004,Donation,17,13,8
-2003,Donation,6,8,8
-2002,Donation,7,13,7
-2001,Donation,10,11,9
-2000,Donation,8,15,7
-1999,Donation,34,16,18
-1998,Donation,13,15,10
-1997,Donation,17,18,14
-1996,Donation,23,18,17
-1995,Donation,22,21,18
-2021,Free Care,13,18,10
-2020,Free Care,28,28,20
-2019,Free Care,18,20,15
-2018,Free Care,21,26,13
-2017,Free Care,18,27,14
-2016,Free Care,25,33,17
-2015,Free Care,20,40,17
-2014,Free Care,27,46,11
-2013,Free Care,59,58,37
-2012,Free Care,51,62,34
-2011,Free Care,50,52,37
-2010,Free Care,63,74,22
-2009,Free Care,67,64,40
-2008,Free Care,45,80,33
-2007,Free Care,81,107,41
-2006,Free Care,95,69,44
-2005,Free Care,90,93,65
-2004,Free Care,97,99,57
-2003,Free Care,71,75,37
-2002,Free Care,78,102,38
-2001,Free Care,110,79,47
-2000,Free Care,75,88,57
-1999,Free Care,87,90,45
-1998,Free Care,111,86,57
-1997,Free Care,128,119,56
-1996,Free Care,125,123,62
-1995,Free Care,160,118,76
-2021,Private insurance,14161,14901,6415
-2020,Private insurance,26776,29035,14662
-2019,Private insurance,29432,30289,14799
-2018,Private insurance,27850,29077,13346
-2017,Private insurance,26912,28539,13022
-2016,Private insurance,27071,27798,12482
-2015,Private insurance,27037,26495,11813
-2014,Private insurance,27312,26113,11820
-2013,Private insurance,26790,25371,11720
-2012,Private insurance,26111,24902,11670
-2011,Private insurance,26169,24993,11975
-2010,Private insurance,27169,25005,12363
-2009,Private insurance,26783,24585,12592
-2008,Private insurance,26014,24655,12708
-2007,Private insurance,26369,24391,12922
-2006,Private insurance,25965,23828,13384
-2005,Private insurance,24457,23137,12988
-2004,Private insurance,23626,21549,12639
-2003,Private insurance,22078,20710,12391
-2002,Private insurance,21615,20926,12633
-2001,Private insurance,22400,19623,12256
-2000,Private insurance,22405,18850,12183
-1999,Private insurance,22374,17312,11360
-1998,Private insurance,19984,15351,10747
-1997,Private insurance,18034,13630,9503
-1996,Private insurance,20780,11969,8854
-1995,Private insurance,16030,10176,8532
-2021,Children's Public Insurance (CHIP),66,55,39
-2020,Children's Public Insurance (CHIP),171,150,112
-2019,Children's Public Insurance (CHIP),111,145,115
-2018,Children's Public Insurance (CHIP),153,134,81
-2017,Children's Public Insurance (CHIP),146,98,74
-2016,Children's Public Insurance (CHIP),113,119,93
-2015,Children's Public Insurance (CHIP),105,109,73
-2014,Children's Public Insurance (CHIP),109,99,72
-2013,Children's Public Insurance (CHIP),114,104,58
-2012,Children's Public Insurance (CHIP),92,99,67
-2011,Children's Public Insurance (CHIP),91,97,80
-2010,Children's Public Insurance (CHIP),117,103,90
-2009,Children's Public Insurance (CHIP),110,111,87
-2008,Children's Public Insurance (CHIP),144,125,106
-2007,Children's Public Insurance (CHIP),111,92,100
-2006,Children's Public Insurance (CHIP),120,107,103
-2005,Children's Public Insurance (CHIP),87,63,63
-2004,Children's Public Insurance (CHIP),59,21,45
-2003,Children's Public Insurance (CHIP),1,1,2
-2002,Children's Public Insurance (CHIP),1,0,0
-2001,Children's Public Insurance (CHIP),0,0,1
-2000,Children's Public Insurance (CHIP),0,0,0
-1999,Children's Public Insurance (CHIP),0,0,2
-1998,Children's Public Insurance (CHIP),0,0,0
-1997,Children's Public Insurance (CHIP),0,0,0
-1996,Children's Public Insurance (CHIP),0,0,0
-1995,Children's Public Insurance (CHIP),0,0,1
-2021,VA Public Insurance,581,553,239
-2020,VA Public Insurance,947,1085,496
-2019,VA Public Insurance,1098,1037,514
-2018,VA Public Insurance,1028,983,454
-2017,VA Public Insurance,1000,938,473
-2016,VA Public Insurance,1066,920,428
-2015,VA Public Insurance,858,780,360
-2014,VA Public Insurance,915,778,375
-2013,VA Public Insurance,876,746,361
-2012,VA Public Insurance,682,637,357
-2011,VA Public Insurance,757,573,324
-2010,VA Public Insurance,681,532,308
-2009,VA Public Insurance,685,555,336
-2008,VA Public Insurance,596,484,279
-2007,VA Public Insurance,546,458,293
-2006,VA Public Insurance,567,458,332
-2005,VA Public Insurance,514,433,294
-2004,VA Public Insurance,442,304,209
-2003,VA Public Insurance,325,251,186
-2002,VA Public Insurance,277,212,160
-2001,VA Public Insurance,253,190,148
-2000,VA Public Insurance,255,145,140
-1999,VA Public Insurance,173,112,116
-1998,VA Public Insurance,149,77,76
-1997,VA Public Insurance,86,47,56
-1996,VA Public Insurance,27,19,32
-1995,VA Public Insurance,33,25,34
-2021,Medicaid,4197,4204,1921
-2020,Medicaid,7806,7898,4140
-2019,Medicaid,8028,7843,4085
-2018,Medicaid,7996,7602,3951
-2017,Medicaid,7385,7348,3691
-2016,Medicaid,7223,6892,3441
-2015,Medicaid,6900,6370,3184
-2014,Medicaid,6672,5823,2657
-2013,Medicaid,6175,5661,2477
-2012,Medicaid,5621,5427,2288
-2011,Medicaid,5674,5573,2453
-2010,Medicaid,5792,5470,2547
-2009,Medicaid,5752,5367,2539
-2008,Medicaid,5635,5404,2586
-2007,Medicaid,5506,5224,2662
-2006,Medicaid,5669,5180,2749
-2005,Medicaid,5470,4969,2627
-2004,Medicaid,5209,4405,2442
-2003,Medicaid,4458,4058,2187
-2002,Medicaid,4258,4265,2106
-2001,Medicaid,4402,3741,2053
-2000,Medicaid,4278,3440,1835
-1999,Medicaid,3960,3244,1798
-1998,Medicaid,3949,2978,1780
-1997,Medicaid,3638,2654,1758
-1996,Medicaid,3652,2555,1869
-1995,Medicaid,3504,2113,1737
-2021,Medicare,11898,13277,8035
-2020,Medicare,23343,26062,18210
-2019,Medicare,26772,26710,18611
-2018,Medicare,25324,25767,17231
-2017,Medicare,23241,25210,16213
-2016,Medicare,22394,25153,15800
-2015,Medicare,21621,24629,14289
-2014,Medicare,22816,22054,13447
-2013,Medicare,23647,20593,13109
-2012,Medicare,22757,19920,12431
-2011,Medicare,21368,19664,12505
-2010,Medicare,21662,18496,12119
-2009,Medicare,20503,17723,11612
-2008,Medicare,19978,17360,11048
-2007,Medicare,19078,16642,11089
-2006,Medicare,18156,15948,11007
-2005,Medicare,17011,15236,10716
-2004,Medicare,16046,14292,10315
-2003,Medicare,14995,13117,9291
-2002,Medicare,14265,12775,9392
-2001,Medicare,13704,12034,9025
-2000,Medicare,14069,11660,8372
-1999,Medicare,13204,10775,7942
-1998,Medicare,12192,9665,8054
-1997,Medicare,11869,8702,8150
-1996,Medicare,11803,7680,7857
-1995,Medicare,11681,5902,7783
-2021,Other Gov't Insurance,416,452,175
-2020,Other Gov't Insurance,790,795,389
-2019,Other Gov't Insurance,955,894,476
-2018,Other Gov't Insurance,929,767,442
-2017,Other Gov't Insurance,673,632,318
-2016,Other Gov't Insurance,623,632,346
-2015,Other Gov't Insurance,649,595,303
-2014,Other Gov't Insurance,547,549,235
-2013,Other Gov't Insurance,571,618,270
-2012,Other Gov't Insurance,580,511,252
-2011,Other Gov't Insurance,578,448,232
-2010,Other Gov't Insurance,510,409,220
-2009,Other Gov't Insurance,491,426,235
-2008,Other Gov't Insurance,507,381,219
-2007,Other Gov't Insurance,506,382,215
-2006,Other Gov't Insurance,421,360,221
-2005,Other Gov't Insurance,540,333,310
-2004,Other Gov't Insurance,360,111,222
-2003,Other Gov't Insurance,20,9,10
-2002,Other Gov't Insurance,9,5,4
-2001,Other Gov't Insurance,10,4,2
-2000,Other Gov't Insurance,3,3,1
-1999,Other Gov't Insurance,1,0,0
-1998,Other Gov't Insurance,2,0,0
-1997,Other Gov't Insurance,2,2,0
-1996,Other Gov't Insurance,3,0,1
-1995,Other Gov't Insurance,0,0,0
-2021,Self,50,45,23
-2020,Self,67,86,45
-2019,Self,113,117,99
-2018,Self,92,121,67
-2017,Self,91,106,52
-2016,Self,91,115,70
-2015,Self,116,167,72
-2014,Self,135,148,67
-2013,Self,144,166,75
-2012,Self,141,186,75
-2011,Self,125,184,72
-2010,Self,175,212,93
-2009,Self,204,251,102
-2008,Self,236,262,95
-2007,Self,262,285,133
-2006,Self,234,286,146
-2005,Self,249,266,103
-2004,Self,418,244,102
-2003,Self,212,207,103
-2002,Self,213,267,113
-2001,Self,262,302,171
-2000,Self,274,292,160
-1999,Self,367,337,177
-1998,Self,400,314,171
-1997,Self,396,343,181
-1996,Self,395,299,199
-1995,Self,387,283,175
-2021,Unknown,1715,282,4165
-2020,Unknown,54,43,871
-2019,Unknown,41,41,890
-2018,Unknown,37,40,847
-2017,Unknown,38,43,796
-2016,Unknown,24,33,809
-2015,Unknown,26,31,722
-2014,Unknown,40,64,713
-2013,Unknown,51,84,763
-2012,Unknown,53,82,807
-2011,Unknown,75,138,804
-2010,Unknown,67,126,831
-2009,Unknown,58,147,852
-2008,Unknown,70,211,838
-2007,Unknown,89,218,864
-2006,Unknown,79,344,925
-2005,Unknown,182,273,901
-2004,Unknown,95,346,883
-2003,Unknown,22,334,821
-2002,Unknown,34,630,12
-2001,Unknown,30,614,9
-2000,Unknown,45,919,3
-1999,Unknown,209,1439,85
-1998,Unknown,220,1866,192
-1997,Unknown,207,2816,208
-1996,Unknown,311,4523,396
-1995,Unknown,130,7678,497
+Year,Payment,Attribute,Value
+2021,Donation,Waitlist Additions,2
+2021,Donation,Waitlist Removals,2
+2021,Donation,Transplants,1
+2020,Donation,Waitlist Additions,9
+2020,Donation,Waitlist Removals,7
+2020,Donation,Transplants,3
+2019,Donation,Waitlist Additions,3
+2019,Donation,Waitlist Removals,7
+2019,Donation,Transplants,3
+2018,Donation,Waitlist Additions,6
+2018,Donation,Waitlist Removals,5
+2018,Donation,Transplants,2
+2017,Donation,Waitlist Additions,5
+2017,Donation,Waitlist Removals,7
+2017,Donation,Transplants,5
+2016,Donation,Waitlist Additions,4
+2016,Donation,Waitlist Removals,6
+2016,Donation,Transplants,4
+2015,Donation,Waitlist Additions,7
+2015,Donation,Waitlist Removals,10
+2015,Donation,Transplants,3
+2014,Donation,Waitlist Additions,5
+2014,Donation,Waitlist Removals,5
+2014,Donation,Transplants,3
+2013,Donation,Waitlist Additions,6
+2013,Donation,Waitlist Removals,6
+2013,Donation,Transplants,4
+2012,Donation,Waitlist Additions,6
+2012,Donation,Waitlist Removals,3
+2012,Donation,Transplants,3
+2011,Donation,Waitlist Additions,9
+2011,Donation,Waitlist Removals,8
+2011,Donation,Transplants,4
+2010,Donation,Waitlist Additions,1
+2010,Donation,Waitlist Removals,5
+2010,Donation,Transplants,2
+2009,Donation,Waitlist Additions,8
+2009,Donation,Waitlist Removals,11
+2009,Donation,Transplants,13
+2008,Donation,Waitlist Additions,14
+2008,Donation,Waitlist Removals,14
+2008,Donation,Transplants,6
+2007,Donation,Waitlist Additions,11
+2007,Donation,Waitlist Removals,14
+2007,Donation,Transplants,6
+2006,Donation,Waitlist Additions,12
+2006,Donation,Waitlist Removals,9
+2006,Donation,Transplants,3
+2005,Donation,Waitlist Additions,6
+2005,Donation,Waitlist Removals,10
+2005,Donation,Transplants,12
+2004,Donation,Waitlist Additions,17
+2004,Donation,Waitlist Removals,13
+2004,Donation,Transplants,8
+2003,Donation,Waitlist Additions,6
+2003,Donation,Waitlist Removals,8
+2003,Donation,Transplants,8
+2002,Donation,Waitlist Additions,7
+2002,Donation,Waitlist Removals,13
+2002,Donation,Transplants,7
+2001,Donation,Waitlist Additions,10
+2001,Donation,Waitlist Removals,11
+2001,Donation,Transplants,9
+2000,Donation,Waitlist Additions,8
+2000,Donation,Waitlist Removals,15
+2000,Donation,Transplants,7
+1999,Donation,Waitlist Additions,34
+1999,Donation,Waitlist Removals,16
+1999,Donation,Transplants,18
+1998,Donation,Waitlist Additions,13
+1998,Donation,Waitlist Removals,15
+1998,Donation,Transplants,10
+1997,Donation,Waitlist Additions,17
+1997,Donation,Waitlist Removals,18
+1997,Donation,Transplants,14
+1996,Donation,Waitlist Additions,23
+1996,Donation,Waitlist Removals,18
+1996,Donation,Transplants,17
+1995,Donation,Waitlist Additions,22
+1995,Donation,Waitlist Removals,21
+1995,Donation,Transplants,18
+2021,Free Care,Waitlist Additions,13
+2021,Free Care,Waitlist Removals,18
+2021,Free Care,Transplants,10
+2020,Free Care,Waitlist Additions,28
+2020,Free Care,Waitlist Removals,28
+2020,Free Care,Transplants,20
+2019,Free Care,Waitlist Additions,18
+2019,Free Care,Waitlist Removals,20
+2019,Free Care,Transplants,15
+2018,Free Care,Waitlist Additions,21
+2018,Free Care,Waitlist Removals,26
+2018,Free Care,Transplants,13
+2017,Free Care,Waitlist Additions,18
+2017,Free Care,Waitlist Removals,27
+2017,Free Care,Transplants,14
+2016,Free Care,Waitlist Additions,25
+2016,Free Care,Waitlist Removals,33
+2016,Free Care,Transplants,17
+2015,Free Care,Waitlist Additions,20
+2015,Free Care,Waitlist Removals,40
+2015,Free Care,Transplants,17
+2014,Free Care,Waitlist Additions,27
+2014,Free Care,Waitlist Removals,46
+2014,Free Care,Transplants,11
+2013,Free Care,Waitlist Additions,59
+2013,Free Care,Waitlist Removals,58
+2013,Free Care,Transplants,37
+2012,Free Care,Waitlist Additions,51
+2012,Free Care,Waitlist Removals,62
+2012,Free Care,Transplants,34
+2011,Free Care,Waitlist Additions,50
+2011,Free Care,Waitlist Removals,52
+2011,Free Care,Transplants,37
+2010,Free Care,Waitlist Additions,63
+2010,Free Care,Waitlist Removals,74
+2010,Free Care,Transplants,22
+2009,Free Care,Waitlist Additions,67
+2009,Free Care,Waitlist Removals,64
+2009,Free Care,Transplants,40
+2008,Free Care,Waitlist Additions,45
+2008,Free Care,Waitlist Removals,80
+2008,Free Care,Transplants,33
+2007,Free Care,Waitlist Additions,81
+2007,Free Care,Waitlist Removals,107
+2007,Free Care,Transplants,41
+2006,Free Care,Waitlist Additions,95
+2006,Free Care,Waitlist Removals,69
+2006,Free Care,Transplants,44
+2005,Free Care,Waitlist Additions,90
+2005,Free Care,Waitlist Removals,93
+2005,Free Care,Transplants,65
+2004,Free Care,Waitlist Additions,97
+2004,Free Care,Waitlist Removals,99
+2004,Free Care,Transplants,57
+2003,Free Care,Waitlist Additions,71
+2003,Free Care,Waitlist Removals,75
+2003,Free Care,Transplants,37
+2002,Free Care,Waitlist Additions,78
+2002,Free Care,Waitlist Removals,102
+2002,Free Care,Transplants,38
+2001,Free Care,Waitlist Additions,110
+2001,Free Care,Waitlist Removals,79
+2001,Free Care,Transplants,47
+2000,Free Care,Waitlist Additions,75
+2000,Free Care,Waitlist Removals,88
+2000,Free Care,Transplants,57
+1999,Free Care,Waitlist Additions,87
+1999,Free Care,Waitlist Removals,90
+1999,Free Care,Transplants,45
+1998,Free Care,Waitlist Additions,111
+1998,Free Care,Waitlist Removals,86
+1998,Free Care,Transplants,57
+1997,Free Care,Waitlist Additions,128
+1997,Free Care,Waitlist Removals,119
+1997,Free Care,Transplants,56
+1996,Free Care,Waitlist Additions,125
+1996,Free Care,Waitlist Removals,123
+1996,Free Care,Transplants,62
+1995,Free Care,Waitlist Additions,160
+1995,Free Care,Waitlist Removals,118
+1995,Free Care,Transplants,76
+2021,Private insurance,Waitlist Additions,14161
+2021,Private insurance,Waitlist Removals,14901
+2021,Private insurance,Transplants,6415
+2020,Private insurance,Waitlist Additions,26776
+2020,Private insurance,Waitlist Removals,29035
+2020,Private insurance,Transplants,14662
+2019,Private insurance,Waitlist Additions,29432
+2019,Private insurance,Waitlist Removals,30289
+2019,Private insurance,Transplants,14799
+2018,Private insurance,Waitlist Additions,27850
+2018,Private insurance,Waitlist Removals,29077
+2018,Private insurance,Transplants,13346
+2017,Private insurance,Waitlist Additions,26912
+2017,Private insurance,Waitlist Removals,28539
+2017,Private insurance,Transplants,13022
+2016,Private insurance,Waitlist Additions,27071
+2016,Private insurance,Waitlist Removals,27798
+2016,Private insurance,Transplants,12482
+2015,Private insurance,Waitlist Additions,27037
+2015,Private insurance,Waitlist Removals,26495
+2015,Private insurance,Transplants,11813
+2014,Private insurance,Waitlist Additions,27312
+2014,Private insurance,Waitlist Removals,26113
+2014,Private insurance,Transplants,11820
+2013,Private insurance,Waitlist Additions,26790
+2013,Private insurance,Waitlist Removals,25371
+2013,Private insurance,Transplants,11720
+2012,Private insurance,Waitlist Additions,26111
+2012,Private insurance,Waitlist Removals,24902
+2012,Private insurance,Transplants,11670
+2011,Private insurance,Waitlist Additions,26169
+2011,Private insurance,Waitlist Removals,24993
+2011,Private insurance,Transplants,11975
+2010,Private insurance,Waitlist Additions,27169
+2010,Private insurance,Waitlist Removals,25005
+2010,Private insurance,Transplants,12363
+2009,Private insurance,Waitlist Additions,26783
+2009,Private insurance,Waitlist Removals,24585
+2009,Private insurance,Transplants,12592
+2008,Private insurance,Waitlist Additions,26014
+2008,Private insurance,Waitlist Removals,24655
+2008,Private insurance,Transplants,12708
+2007,Private insurance,Waitlist Additions,26369
+2007,Private insurance,Waitlist Removals,24391
+2007,Private insurance,Transplants,12922
+2006,Private insurance,Waitlist Additions,25965
+2006,Private insurance,Waitlist Removals,23828
+2006,Private insurance,Transplants,13384
+2005,Private insurance,Waitlist Additions,24457
+2005,Private insurance,Waitlist Removals,23137
+2005,Private insurance,Transplants,12988
+2004,Private insurance,Waitlist Additions,23626
+2004,Private insurance,Waitlist Removals,21549
+2004,Private insurance,Transplants,12639
+2003,Private insurance,Waitlist Additions,22078
+2003,Private insurance,Waitlist Removals,20710
+2003,Private insurance,Transplants,12391
+2002,Private insurance,Waitlist Additions,21615
+2002,Private insurance,Waitlist Removals,20926
+2002,Private insurance,Transplants,12633
+2001,Private insurance,Waitlist Additions,22400
+2001,Private insurance,Waitlist Removals,19623
+2001,Private insurance,Transplants,12256
+2000,Private insurance,Waitlist Additions,22405
+2000,Private insurance,Waitlist Removals,18850
+2000,Private insurance,Transplants,12183
+1999,Private insurance,Waitlist Additions,22374
+1999,Private insurance,Waitlist Removals,17312
+1999,Private insurance,Transplants,11360
+1998,Private insurance,Waitlist Additions,19984
+1998,Private insurance,Waitlist Removals,15351
+1998,Private insurance,Transplants,10747
+1997,Private insurance,Waitlist Additions,18034
+1997,Private insurance,Waitlist Removals,13630
+1997,Private insurance,Transplants,9503
+1996,Private insurance,Waitlist Additions,20780
+1996,Private insurance,Waitlist Removals,11969
+1996,Private insurance,Transplants,8854
+1995,Private insurance,Waitlist Additions,16030
+1995,Private insurance,Waitlist Removals,10176
+1995,Private insurance,Transplants,8532
+2021,Children's Public Insurance (CHIP),Waitlist Additions,66
+2021,Children's Public Insurance (CHIP),Waitlist Removals,55
+2021,Children's Public Insurance (CHIP),Transplants,39
+2020,Children's Public Insurance (CHIP),Waitlist Additions,171
+2020,Children's Public Insurance (CHIP),Waitlist Removals,150
+2020,Children's Public Insurance (CHIP),Transplants,112
+2019,Children's Public Insurance (CHIP),Waitlist Additions,111
+2019,Children's Public Insurance (CHIP),Waitlist Removals,145
+2019,Children's Public Insurance (CHIP),Transplants,115
+2018,Children's Public Insurance (CHIP),Waitlist Additions,153
+2018,Children's Public Insurance (CHIP),Waitlist Removals,134
+2018,Children's Public Insurance (CHIP),Transplants,81
+2017,Children's Public Insurance (CHIP),Waitlist Additions,146
+2017,Children's Public Insurance (CHIP),Waitlist Removals,98
+2017,Children's Public Insurance (CHIP),Transplants,74
+2016,Children's Public Insurance (CHIP),Waitlist Additions,113
+2016,Children's Public Insurance (CHIP),Waitlist Removals,119
+2016,Children's Public Insurance (CHIP),Transplants,93
+2015,Children's Public Insurance (CHIP),Waitlist Additions,105
+2015,Children's Public Insurance (CHIP),Waitlist Removals,109
+2015,Children's Public Insurance (CHIP),Transplants,73
+2014,Children's Public Insurance (CHIP),Waitlist Additions,109
+2014,Children's Public Insurance (CHIP),Waitlist Removals,99
+2014,Children's Public Insurance (CHIP),Transplants,72
+2013,Children's Public Insurance (CHIP),Waitlist Additions,114
+2013,Children's Public Insurance (CHIP),Waitlist Removals,104
+2013,Children's Public Insurance (CHIP),Transplants,58
+2012,Children's Public Insurance (CHIP),Waitlist Additions,92
+2012,Children's Public Insurance (CHIP),Waitlist Removals,99
+2012,Children's Public Insurance (CHIP),Transplants,67
+2011,Children's Public Insurance (CHIP),Waitlist Additions,91
+2011,Children's Public Insurance (CHIP),Waitlist Removals,97
+2011,Children's Public Insurance (CHIP),Transplants,80
+2010,Children's Public Insurance (CHIP),Waitlist Additions,117
+2010,Children's Public Insurance (CHIP),Waitlist Removals,103
+2010,Children's Public Insurance (CHIP),Transplants,90
+2009,Children's Public Insurance (CHIP),Waitlist Additions,110
+2009,Children's Public Insurance (CHIP),Waitlist Removals,111
+2009,Children's Public Insurance (CHIP),Transplants,87
+2008,Children's Public Insurance (CHIP),Waitlist Additions,144
+2008,Children's Public Insurance (CHIP),Waitlist Removals,125
+2008,Children's Public Insurance (CHIP),Transplants,106
+2007,Children's Public Insurance (CHIP),Waitlist Additions,111
+2007,Children's Public Insurance (CHIP),Waitlist Removals,92
+2007,Children's Public Insurance (CHIP),Transplants,100
+2006,Children's Public Insurance (CHIP),Waitlist Additions,120
+2006,Children's Public Insurance (CHIP),Waitlist Removals,107
+2006,Children's Public Insurance (CHIP),Transplants,103
+2005,Children's Public Insurance (CHIP),Waitlist Additions,87
+2005,Children's Public Insurance (CHIP),Waitlist Removals,63
+2005,Children's Public Insurance (CHIP),Transplants,63
+2004,Children's Public Insurance (CHIP),Waitlist Additions,59
+2004,Children's Public Insurance (CHIP),Waitlist Removals,21
+2004,Children's Public Insurance (CHIP),Transplants,45
+2003,Children's Public Insurance (CHIP),Waitlist Additions,1
+2003,Children's Public Insurance (CHIP),Waitlist Removals,1
+2003,Children's Public Insurance (CHIP),Transplants,2
+2002,Children's Public Insurance (CHIP),Waitlist Additions,1
+2002,Children's Public Insurance (CHIP),Waitlist Removals,0
+2002,Children's Public Insurance (CHIP),Transplants,0
+2001,Children's Public Insurance (CHIP),Waitlist Additions,0
+2001,Children's Public Insurance (CHIP),Waitlist Removals,0
+2001,Children's Public Insurance (CHIP),Transplants,1
+2000,Children's Public Insurance (CHIP),Waitlist Additions,0
+2000,Children's Public Insurance (CHIP),Waitlist Removals,0
+2000,Children's Public Insurance (CHIP),Transplants,0
+1999,Children's Public Insurance (CHIP),Waitlist Additions,0
+1999,Children's Public Insurance (CHIP),Waitlist Removals,0
+1999,Children's Public Insurance (CHIP),Transplants,2
+1998,Children's Public Insurance (CHIP),Waitlist Additions,0
+1998,Children's Public Insurance (CHIP),Waitlist Removals,0
+1998,Children's Public Insurance (CHIP),Transplants,0
+1997,Children's Public Insurance (CHIP),Waitlist Additions,0
+1997,Children's Public Insurance (CHIP),Waitlist Removals,0
+1997,Children's Public Insurance (CHIP),Transplants,0
+1996,Children's Public Insurance (CHIP),Waitlist Additions,0
+1996,Children's Public Insurance (CHIP),Waitlist Removals,0
+1996,Children's Public Insurance (CHIP),Transplants,0
+1995,Children's Public Insurance (CHIP),Waitlist Additions,0
+1995,Children's Public Insurance (CHIP),Waitlist Removals,0
+1995,Children's Public Insurance (CHIP),Transplants,1
+2021,VA Public Insurance,Waitlist Additions,581
+2021,VA Public Insurance,Waitlist Removals,553
+2021,VA Public Insurance,Transplants,239
+2020,VA Public Insurance,Waitlist Additions,947
+2020,VA Public Insurance,Waitlist Removals,1085
+2020,VA Public Insurance,Transplants,496
+2019,VA Public Insurance,Waitlist Additions,1098
+2019,VA Public Insurance,Waitlist Removals,1037
+2019,VA Public Insurance,Transplants,514
+2018,VA Public Insurance,Waitlist Additions,1028
+2018,VA Public Insurance,Waitlist Removals,983
+2018,VA Public Insurance,Transplants,454
+2017,VA Public Insurance,Waitlist Additions,1000
+2017,VA Public Insurance,Waitlist Removals,938
+2017,VA Public Insurance,Transplants,473
+2016,VA Public Insurance,Waitlist Additions,1066
+2016,VA Public Insurance,Waitlist Removals,920
+2016,VA Public Insurance,Transplants,428
+2015,VA Public Insurance,Waitlist Additions,858
+2015,VA Public Insurance,Waitlist Removals,780
+2015,VA Public Insurance,Transplants,360
+2014,VA Public Insurance,Waitlist Additions,915
+2014,VA Public Insurance,Waitlist Removals,778
+2014,VA Public Insurance,Transplants,375
+2013,VA Public Insurance,Waitlist Additions,876
+2013,VA Public Insurance,Waitlist Removals,746
+2013,VA Public Insurance,Transplants,361
+2012,VA Public Insurance,Waitlist Additions,682
+2012,VA Public Insurance,Waitlist Removals,637
+2012,VA Public Insurance,Transplants,357
+2011,VA Public Insurance,Waitlist Additions,757
+2011,VA Public Insurance,Waitlist Removals,573
+2011,VA Public Insurance,Transplants,324
+2010,VA Public Insurance,Waitlist Additions,681
+2010,VA Public Insurance,Waitlist Removals,532
+2010,VA Public Insurance,Transplants,308
+2009,VA Public Insurance,Waitlist Additions,685
+2009,VA Public Insurance,Waitlist Removals,555
+2009,VA Public Insurance,Transplants,336
+2008,VA Public Insurance,Waitlist Additions,596
+2008,VA Public Insurance,Waitlist Removals,484
+2008,VA Public Insurance,Transplants,279
+2007,VA Public Insurance,Waitlist Additions,546
+2007,VA Public Insurance,Waitlist Removals,458
+2007,VA Public Insurance,Transplants,293
+2006,VA Public Insurance,Waitlist Additions,567
+2006,VA Public Insurance,Waitlist Removals,458
+2006,VA Public Insurance,Transplants,332
+2005,VA Public Insurance,Waitlist Additions,514
+2005,VA Public Insurance,Waitlist Removals,433
+2005,VA Public Insurance,Transplants,294
+2004,VA Public Insurance,Waitlist Additions,442
+2004,VA Public Insurance,Waitlist Removals,304
+2004,VA Public Insurance,Transplants,209
+2003,VA Public Insurance,Waitlist Additions,325
+2003,VA Public Insurance,Waitlist Removals,251
+2003,VA Public Insurance,Transplants,186
+2002,VA Public Insurance,Waitlist Additions,277
+2002,VA Public Insurance,Waitlist Removals,212
+2002,VA Public Insurance,Transplants,160
+2001,VA Public Insurance,Waitlist Additions,253
+2001,VA Public Insurance,Waitlist Removals,190
+2001,VA Public Insurance,Transplants,148
+2000,VA Public Insurance,Waitlist Additions,255
+2000,VA Public Insurance,Waitlist Removals,145
+2000,VA Public Insurance,Transplants,140
+1999,VA Public Insurance,Waitlist Additions,173
+1999,VA Public Insurance,Waitlist Removals,112
+1999,VA Public Insurance,Transplants,116
+1998,VA Public Insurance,Waitlist Additions,149
+1998,VA Public Insurance,Waitlist Removals,77
+1998,VA Public Insurance,Transplants,76
+1997,VA Public Insurance,Waitlist Additions,86
+1997,VA Public Insurance,Waitlist Removals,47
+1997,VA Public Insurance,Transplants,56
+1996,VA Public Insurance,Waitlist Additions,27
+1996,VA Public Insurance,Waitlist Removals,19
+1996,VA Public Insurance,Transplants,32
+1995,VA Public Insurance,Waitlist Additions,33
+1995,VA Public Insurance,Waitlist Removals,25
+1995,VA Public Insurance,Transplants,34
+2021,Medicaid,Waitlist Additions,4197
+2021,Medicaid,Waitlist Removals,4204
+2021,Medicaid,Transplants,1921
+2020,Medicaid,Waitlist Additions,7806
+2020,Medicaid,Waitlist Removals,7898
+2020,Medicaid,Transplants,4140
+2019,Medicaid,Waitlist Additions,8028
+2019,Medicaid,Waitlist Removals,7843
+2019,Medicaid,Transplants,4085
+2018,Medicaid,Waitlist Additions,7996
+2018,Medicaid,Waitlist Removals,7602
+2018,Medicaid,Transplants,3951
+2017,Medicaid,Waitlist Additions,7385
+2017,Medicaid,Waitlist Removals,7348
+2017,Medicaid,Transplants,3691
+2016,Medicaid,Waitlist Additions,7223
+2016,Medicaid,Waitlist Removals,6892
+2016,Medicaid,Transplants,3441
+2015,Medicaid,Waitlist Additions,6900
+2015,Medicaid,Waitlist Removals,6370
+2015,Medicaid,Transplants,3184
+2014,Medicaid,Waitlist Additions,6672
+2014,Medicaid,Waitlist Removals,5823
+2014,Medicaid,Transplants,2657
+2013,Medicaid,Waitlist Additions,6175
+2013,Medicaid,Waitlist Removals,5661
+2013,Medicaid,Transplants,2477
+2012,Medicaid,Waitlist Additions,5621
+2012,Medicaid,Waitlist Removals,5427
+2012,Medicaid,Transplants,2288
+2011,Medicaid,Waitlist Additions,5674
+2011,Medicaid,Waitlist Removals,5573
+2011,Medicaid,Transplants,2453
+2010,Medicaid,Waitlist Additions,5792
+2010,Medicaid,Waitlist Removals,5470
+2010,Medicaid,Transplants,2547
+2009,Medicaid,Waitlist Additions,5752
+2009,Medicaid,Waitlist Removals,5367
+2009,Medicaid,Transplants,2539
+2008,Medicaid,Waitlist Additions,5635
+2008,Medicaid,Waitlist Removals,5404
+2008,Medicaid,Transplants,2586
+2007,Medicaid,Waitlist Additions,5506
+2007,Medicaid,Waitlist Removals,5224
+2007,Medicaid,Transplants,2662
+2006,Medicaid,Waitlist Additions,5669
+2006,Medicaid,Waitlist Removals,5180
+2006,Medicaid,Transplants,2749
+2005,Medicaid,Waitlist Additions,5470
+2005,Medicaid,Waitlist Removals,4969
+2005,Medicaid,Transplants,2627
+2004,Medicaid,Waitlist Additions,5209
+2004,Medicaid,Waitlist Removals,4405
+2004,Medicaid,Transplants,2442
+2003,Medicaid,Waitlist Additions,4458
+2003,Medicaid,Waitlist Removals,4058
+2003,Medicaid,Transplants,2187
+2002,Medicaid,Waitlist Additions,4258
+2002,Medicaid,Waitlist Removals,4265
+2002,Medicaid,Transplants,2106
+2001,Medicaid,Waitlist Additions,4402
+2001,Medicaid,Waitlist Removals,3741
+2001,Medicaid,Transplants,2053
+2000,Medicaid,Waitlist Additions,4278
+2000,Medicaid,Waitlist Removals,3440
+2000,Medicaid,Transplants,1835
+1999,Medicaid,Waitlist Additions,3960
+1999,Medicaid,Waitlist Removals,3244
+1999,Medicaid,Transplants,1798
+1998,Medicaid,Waitlist Additions,3949
+1998,Medicaid,Waitlist Removals,2978
+1998,Medicaid,Transplants,1780
+1997,Medicaid,Waitlist Additions,3638
+1997,Medicaid,Waitlist Removals,2654
+1997,Medicaid,Transplants,1758
+1996,Medicaid,Waitlist Additions,3652
+1996,Medicaid,Waitlist Removals,2555
+1996,Medicaid,Transplants,1869
+1995,Medicaid,Waitlist Additions,3504
+1995,Medicaid,Waitlist Removals,2113
+1995,Medicaid,Transplants,1737
+2021,Medicare,Waitlist Additions,11898
+2021,Medicare,Waitlist Removals,13277
+2021,Medicare,Transplants,8035
+2020,Medicare,Waitlist Additions,23343
+2020,Medicare,Waitlist Removals,26062
+2020,Medicare,Transplants,18210
+2019,Medicare,Waitlist Additions,26772
+2019,Medicare,Waitlist Removals,26710
+2019,Medicare,Transplants,18611
+2018,Medicare,Waitlist Additions,25324
+2018,Medicare,Waitlist Removals,25767
+2018,Medicare,Transplants,17231
+2017,Medicare,Waitlist Additions,23241
+2017,Medicare,Waitlist Removals,25210
+2017,Medicare,Transplants,16213
+2016,Medicare,Waitlist Additions,22394
+2016,Medicare,Waitlist Removals,25153
+2016,Medicare,Transplants,15800
+2015,Medicare,Waitlist Additions,21621
+2015,Medicare,Waitlist Removals,24629
+2015,Medicare,Transplants,14289
+2014,Medicare,Waitlist Additions,22816
+2014,Medicare,Waitlist Removals,22054
+2014,Medicare,Transplants,13447
+2013,Medicare,Waitlist Additions,23647
+2013,Medicare,Waitlist Removals,20593
+2013,Medicare,Transplants,13109
+2012,Medicare,Waitlist Additions,22757
+2012,Medicare,Waitlist Removals,19920
+2012,Medicare,Transplants,12431
+2011,Medicare,Waitlist Additions,21368
+2011,Medicare,Waitlist Removals,19664
+2011,Medicare,Transplants,12505
+2010,Medicare,Waitlist Additions,21662
+2010,Medicare,Waitlist Removals,18496
+2010,Medicare,Transplants,12119
+2009,Medicare,Waitlist Additions,20503
+2009,Medicare,Waitlist Removals,17723
+2009,Medicare,Transplants,11612
+2008,Medicare,Waitlist Additions,19978
+2008,Medicare,Waitlist Removals,17360
+2008,Medicare,Transplants,11048
+2007,Medicare,Waitlist Additions,19078
+2007,Medicare,Waitlist Removals,16642
+2007,Medicare,Transplants,11089
+2006,Medicare,Waitlist Additions,18156
+2006,Medicare,Waitlist Removals,15948
+2006,Medicare,Transplants,11007
+2005,Medicare,Waitlist Additions,17011
+2005,Medicare,Waitlist Removals,15236
+2005,Medicare,Transplants,10716
+2004,Medicare,Waitlist Additions,16046
+2004,Medicare,Waitlist Removals,14292
+2004,Medicare,Transplants,10315
+2003,Medicare,Waitlist Additions,14995
+2003,Medicare,Waitlist Removals,13117
+2003,Medicare,Transplants,9291
+2002,Medicare,Waitlist Additions,14265
+2002,Medicare,Waitlist Removals,12775
+2002,Medicare,Transplants,9392
+2001,Medicare,Waitlist Additions,13704
+2001,Medicare,Waitlist Removals,12034
+2001,Medicare,Transplants,9025
+2000,Medicare,Waitlist Additions,14069
+2000,Medicare,Waitlist Removals,11660
+2000,Medicare,Transplants,8372
+1999,Medicare,Waitlist Additions,13204
+1999,Medicare,Waitlist Removals,10775
+1999,Medicare,Transplants,7942
+1998,Medicare,Waitlist Additions,12192
+1998,Medicare,Waitlist Removals,9665
+1998,Medicare,Transplants,8054
+1997,Medicare,Waitlist Additions,11869
+1997,Medicare,Waitlist Removals,8702
+1997,Medicare,Transplants,8150
+1996,Medicare,Waitlist Additions,11803
+1996,Medicare,Waitlist Removals,7680
+1996,Medicare,Transplants,7857
+1995,Medicare,Waitlist Additions,11681
+1995,Medicare,Waitlist Removals,5902
+1995,Medicare,Transplants,7783
+2021,Other Gov't Insurance,Waitlist Additions,416
+2021,Other Gov't Insurance,Waitlist Removals,452
+2021,Other Gov't Insurance,Transplants,175
+2020,Other Gov't Insurance,Waitlist Additions,790
+2020,Other Gov't Insurance,Waitlist Removals,795
+2020,Other Gov't Insurance,Transplants,389
+2019,Other Gov't Insurance,Waitlist Additions,955
+2019,Other Gov't Insurance,Waitlist Removals,894
+2019,Other Gov't Insurance,Transplants,476
+2018,Other Gov't Insurance,Waitlist Additions,929
+2018,Other Gov't Insurance,Waitlist Removals,767
+2018,Other Gov't Insurance,Transplants,442
+2017,Other Gov't Insurance,Waitlist Additions,673
+2017,Other Gov't Insurance,Waitlist Removals,632
+2017,Other Gov't Insurance,Transplants,318
+2016,Other Gov't Insurance,Waitlist Additions,623
+2016,Other Gov't Insurance,Waitlist Removals,632
+2016,Other Gov't Insurance,Transplants,346
+2015,Other Gov't Insurance,Waitlist Additions,649
+2015,Other Gov't Insurance,Waitlist Removals,595
+2015,Other Gov't Insurance,Transplants,303
+2014,Other Gov't Insurance,Waitlist Additions,547
+2014,Other Gov't Insurance,Waitlist Removals,549
+2014,Other Gov't Insurance,Transplants,235
+2013,Other Gov't Insurance,Waitlist Additions,571
+2013,Other Gov't Insurance,Waitlist Removals,618
+2013,Other Gov't Insurance,Transplants,270
+2012,Other Gov't Insurance,Waitlist Additions,580
+2012,Other Gov't Insurance,Waitlist Removals,511
+2012,Other Gov't Insurance,Transplants,252
+2011,Other Gov't Insurance,Waitlist Additions,578
+2011,Other Gov't Insurance,Waitlist Removals,448
+2011,Other Gov't Insurance,Transplants,232
+2010,Other Gov't Insurance,Waitlist Additions,510
+2010,Other Gov't Insurance,Waitlist Removals,409
+2010,Other Gov't Insurance,Transplants,220
+2009,Other Gov't Insurance,Waitlist Additions,491
+2009,Other Gov't Insurance,Waitlist Removals,426
+2009,Other Gov't Insurance,Transplants,235
+2008,Other Gov't Insurance,Waitlist Additions,507
+2008,Other Gov't Insurance,Waitlist Removals,381
+2008,Other Gov't Insurance,Transplants,219
+2007,Other Gov't Insurance,Waitlist Additions,506
+2007,Other Gov't Insurance,Waitlist Removals,382
+2007,Other Gov't Insurance,Transplants,215
+2006,Other Gov't Insurance,Waitlist Additions,421
+2006,Other Gov't Insurance,Waitlist Removals,360
+2006,Other Gov't Insurance,Transplants,221
+2005,Other Gov't Insurance,Waitlist Additions,540
+2005,Other Gov't Insurance,Waitlist Removals,333
+2005,Other Gov't Insurance,Transplants,310
+2004,Other Gov't Insurance,Waitlist Additions,360
+2004,Other Gov't Insurance,Waitlist Removals,111
+2004,Other Gov't Insurance,Transplants,222
+2003,Other Gov't Insurance,Waitlist Additions,20
+2003,Other Gov't Insurance,Waitlist Removals,9
+2003,Other Gov't Insurance,Transplants,10
+2002,Other Gov't Insurance,Waitlist Additions,9
+2002,Other Gov't Insurance,Waitlist Removals,5
+2002,Other Gov't Insurance,Transplants,4
+2001,Other Gov't Insurance,Waitlist Additions,10
+2001,Other Gov't Insurance,Waitlist Removals,4
+2001,Other Gov't Insurance,Transplants,2
+2000,Other Gov't Insurance,Waitlist Additions,3
+2000,Other Gov't Insurance,Waitlist Removals,3
+2000,Other Gov't Insurance,Transplants,1
+1999,Other Gov't Insurance,Waitlist Additions,1
+1999,Other Gov't Insurance,Waitlist Removals,0
+1999,Other Gov't Insurance,Transplants,0
+1998,Other Gov't Insurance,Waitlist Additions,2
+1998,Other Gov't Insurance,Waitlist Removals,0
+1998,Other Gov't Insurance,Transplants,0
+1997,Other Gov't Insurance,Waitlist Additions,2
+1997,Other Gov't Insurance,Waitlist Removals,2
+1997,Other Gov't Insurance,Transplants,0
+1996,Other Gov't Insurance,Waitlist Additions,3
+1996,Other Gov't Insurance,Waitlist Removals,0
+1996,Other Gov't Insurance,Transplants,1
+1995,Other Gov't Insurance,Waitlist Additions,0
+1995,Other Gov't Insurance,Waitlist Removals,0
+1995,Other Gov't Insurance,Transplants,0
+2021,Self,Waitlist Additions,50
+2021,Self,Waitlist Removals,45
+2021,Self,Transplants,23
+2020,Self,Waitlist Additions,67
+2020,Self,Waitlist Removals,86
+2020,Self,Transplants,45
+2019,Self,Waitlist Additions,113
+2019,Self,Waitlist Removals,117
+2019,Self,Transplants,99
+2018,Self,Waitlist Additions,92
+2018,Self,Waitlist Removals,121
+2018,Self,Transplants,67
+2017,Self,Waitlist Additions,91
+2017,Self,Waitlist Removals,106
+2017,Self,Transplants,52
+2016,Self,Waitlist Additions,91
+2016,Self,Waitlist Removals,115
+2016,Self,Transplants,70
+2015,Self,Waitlist Additions,116
+2015,Self,Waitlist Removals,167
+2015,Self,Transplants,72
+2014,Self,Waitlist Additions,135
+2014,Self,Waitlist Removals,148
+2014,Self,Transplants,67
+2013,Self,Waitlist Additions,144
+2013,Self,Waitlist Removals,166
+2013,Self,Transplants,75
+2012,Self,Waitlist Additions,141
+2012,Self,Waitlist Removals,186
+2012,Self,Transplants,75
+2011,Self,Waitlist Additions,125
+2011,Self,Waitlist Removals,184
+2011,Self,Transplants,72
+2010,Self,Waitlist Additions,175
+2010,Self,Waitlist Removals,212
+2010,Self,Transplants,93
+2009,Self,Waitlist Additions,204
+2009,Self,Waitlist Removals,251
+2009,Self,Transplants,102
+2008,Self,Waitlist Additions,236
+2008,Self,Waitlist Removals,262
+2008,Self,Transplants,95
+2007,Self,Waitlist Additions,262
+2007,Self,Waitlist Removals,285
+2007,Self,Transplants,133
+2006,Self,Waitlist Additions,234
+2006,Self,Waitlist Removals,286
+2006,Self,Transplants,146
+2005,Self,Waitlist Additions,249
+2005,Self,Waitlist Removals,266
+2005,Self,Transplants,103
+2004,Self,Waitlist Additions,418
+2004,Self,Waitlist Removals,244
+2004,Self,Transplants,102
+2003,Self,Waitlist Additions,212
+2003,Self,Waitlist Removals,207
+2003,Self,Transplants,103
+2002,Self,Waitlist Additions,213
+2002,Self,Waitlist Removals,267
+2002,Self,Transplants,113
+2001,Self,Waitlist Additions,262
+2001,Self,Waitlist Removals,302
+2001,Self,Transplants,171
+2000,Self,Waitlist Additions,274
+2000,Self,Waitlist Removals,292
+2000,Self,Transplants,160
+1999,Self,Waitlist Additions,367
+1999,Self,Waitlist Removals,337
+1999,Self,Transplants,177
+1998,Self,Waitlist Additions,400
+1998,Self,Waitlist Removals,314
+1998,Self,Transplants,171
+1997,Self,Waitlist Additions,396
+1997,Self,Waitlist Removals,343
+1997,Self,Transplants,181
+1996,Self,Waitlist Additions,395
+1996,Self,Waitlist Removals,299
+1996,Self,Transplants,199
+1995,Self,Waitlist Additions,387
+1995,Self,Waitlist Removals,283
+1995,Self,Transplants,175
+2021,Unknown,Waitlist Additions,1715
+2021,Unknown,Waitlist Removals,282
+2021,Unknown,Transplants,4165
+2020,Unknown,Waitlist Additions,54
+2020,Unknown,Waitlist Removals,43
+2020,Unknown,Transplants,871
+2019,Unknown,Waitlist Additions,41
+2019,Unknown,Waitlist Removals,41
+2019,Unknown,Transplants,890
+2018,Unknown,Waitlist Additions,37
+2018,Unknown,Waitlist Removals,40
+2018,Unknown,Transplants,847
+2017,Unknown,Waitlist Additions,38
+2017,Unknown,Waitlist Removals,43
+2017,Unknown,Transplants,796
+2016,Unknown,Waitlist Additions,24
+2016,Unknown,Waitlist Removals,33
+2016,Unknown,Transplants,809
+2015,Unknown,Waitlist Additions,26
+2015,Unknown,Waitlist Removals,31
+2015,Unknown,Transplants,722
+2014,Unknown,Waitlist Additions,40
+2014,Unknown,Waitlist Removals,64
+2014,Unknown,Transplants,713
+2013,Unknown,Waitlist Additions,51
+2013,Unknown,Waitlist Removals,84
+2013,Unknown,Transplants,763
+2012,Unknown,Waitlist Additions,53
+2012,Unknown,Waitlist Removals,82
+2012,Unknown,Transplants,807
+2011,Unknown,Waitlist Additions,75
+2011,Unknown,Waitlist Removals,138
+2011,Unknown,Transplants,804
+2010,Unknown,Waitlist Additions,67
+2010,Unknown,Waitlist Removals,126
+2010,Unknown,Transplants,831
+2009,Unknown,Waitlist Additions,58
+2009,Unknown,Waitlist Removals,147
+2009,Unknown,Transplants,852
+2008,Unknown,Waitlist Additions,70
+2008,Unknown,Waitlist Removals,211
+2008,Unknown,Transplants,838
+2007,Unknown,Waitlist Additions,89
+2007,Unknown,Waitlist Removals,218
+2007,Unknown,Transplants,864
+2006,Unknown,Waitlist Additions,79
+2006,Unknown,Waitlist Removals,344
+2006,Unknown,Transplants,925
+2005,Unknown,Waitlist Additions,182
+2005,Unknown,Waitlist Removals,273
+2005,Unknown,Transplants,901
+2004,Unknown,Waitlist Additions,95
+2004,Unknown,Waitlist Removals,346
+2004,Unknown,Transplants,883
+2003,Unknown,Waitlist Additions,22
+2003,Unknown,Waitlist Removals,334
+2003,Unknown,Transplants,821
+2002,Unknown,Waitlist Additions,34
+2002,Unknown,Waitlist Removals,630
+2002,Unknown,Transplants,12
+2001,Unknown,Waitlist Additions,30
+2001,Unknown,Waitlist Removals,614
+2001,Unknown,Transplants,9
+2000,Unknown,Waitlist Additions,45
+2000,Unknown,Waitlist Removals,919
+2000,Unknown,Transplants,3
+1999,Unknown,Waitlist Additions,209
+1999,Unknown,Waitlist Removals,1439
+1999,Unknown,Transplants,85
+1998,Unknown,Waitlist Additions,220
+1998,Unknown,Waitlist Removals,1866
+1998,Unknown,Transplants,192
+1997,Unknown,Waitlist Additions,207
+1997,Unknown,Waitlist Removals,2816
+1997,Unknown,Transplants,208
+1996,Unknown,Waitlist Additions,311
+1996,Unknown,Waitlist Removals,4523
+1996,Unknown,Transplants,396
+1995,Unknown,Waitlist Additions,130
+1995,Unknown,Waitlist Removals,7678
+1995,Unknown,Transplants,497
