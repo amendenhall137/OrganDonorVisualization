@@ -1,406 +1,271 @@
 Year,Payment,Waitlist_Additions,Waitlist_Removals,NumberTransplants
 2021,Donation,2,2,1
-2021,Foreign Government Specify,48,67,37
-2021,Free Care,13,18,10
-2021,Pending,25,22,0
-2021,Private insurance,14161,14901,6415
-2021,Public insurance - CHIP (Children's Health Insurance Program),66,55,39
-2021,Public insurance - Department of VA,581,553,239
-2021,Public insurance - Medicaid,4197,4204,1921
-2021,Public insurance - Medicare & Choice,4410,4419,2814
-2021,Public insurance - Medicare FFS (Fee for Service),7488,8851,5221
-2021,Public insurance - Medicare Unspecified,0,7,0
-2021,Public insurance - Other government,416,452,175
-2021,Self,50,45,23
-2021,US/State Govt Agency,0,1,0
-2021,Unknown,1715,282,4165
 2020,Donation,9,7,3
-2020,Foreign Government Specify,98,125,87
-2020,Free Care,28,28,20
-2020,Pending,32,41,1
-2020,Private insurance,26776,29035,14662
-2020,Public insurance - CHIP (Children's Health Insurance Program),171,150,112
-2020,Public insurance - Department of VA,947,1085,496
-2020,Public insurance - Medicaid,7806,7898,4140
-2020,Public insurance - Medicare & Choice,8122,8389,5867
-2020,Public insurance - Medicare FFS (Fee for Service),15221,17644,12343
-2020,Public insurance - Medicare Unspecified,0,29,0
-2020,Public insurance - Other government,790,795,389
-2020,Self,67,86,45
-2020,US/State Govt Agency,0,1,0
-2020,Unknown,54,43,871
 2019,Donation,3,7,3
-2019,Foreign Government Specify,154,151,112
-2019,Free Care,18,20,15
-2019,Pending,38,62,0
-2019,Private insurance,29432,30289,14799
-2019,Public insurance - CHIP (Children's Health Insurance Program),111,145,115
-2019,Public insurance - Department of VA,1098,1037,514
-2019,Public insurance - Medicaid,8028,7843,4085
-2019,Public insurance - Medicare & Choice,8204,8312,5651
-2019,Public insurance - Medicare FFS (Fee for Service),18568,18331,12960
-2019,Public insurance - Medicare Unspecified,0,67,0
-2019,Public insurance - Other government,955,894,476
-2019,Self,113,117,99
-2019,US/State Govt Agency,0,2,0
-2019,Unknown,41,41,890
 2018,Donation,6,5,2
-2018,Foreign Government Specify,145,160,94
-2018,Free Care,21,26,13
-2018,Pending,26,60,2
-2018,Private insurance,27850,29077,13346
-2018,Public insurance - CHIP (Children's Health Insurance Program),153,134,81
-2018,Public insurance - Department of VA,1028,983,454
-2018,Public insurance - Medicaid,7996,7602,3951
-2018,Public insurance - Medicare & Choice,7632,8148,5066
-2018,Public insurance - Medicare FFS (Fee for Service),17692,17545,12165
-2018,Public insurance - Medicare Unspecified,0,74,0
-2018,Public insurance - Other government,929,767,442
-2018,Self,92,121,67
-2018,US/State Govt Agency,0,1,0
-2018,Unknown,37,40,847
 2017,Donation,5,7,5
-2017,Foreign Government Specify,133,180,112
-2017,Free Care,18,27,14
-2017,Pending,30,68,0
-2017,Private insurance,26912,28539,13022
-2017,Public insurance - CHIP (Children's Health Insurance Program),146,98,74
-2017,Public insurance - Department of VA,1000,938,473
-2017,Public insurance - Medicaid,7385,7348,3691
-2017,Public insurance - Medicare & Choice,7476,7969,4851
-2017,Public insurance - Medicare FFS (Fee for Service),15765,17143,11362
-2017,Public insurance - Medicare Unspecified,0,98,0
-2017,Public insurance - Other government,673,632,318
-2017,Self,91,106,52
-2017,US/State Govt Agency,0,2,0
-2017,Unknown,38,43,796
 2016,Donation,4,6,4
-2016,Foreign Government Specify,197,194,120
-2016,Free Care,25,33,17
-2016,Pending,39,83,0
-2016,Private insurance,27071,27798,12482
-2016,Public insurance - CHIP (Children's Health Insurance Program),113,119,93
-2016,Public insurance - Department of VA,1066,920,428
-2016,Public insurance - Medicaid,7223,6892,3441
-2016,Public insurance - Medicare & Choice,7675,8003,5107
-2016,Public insurance - Medicare FFS (Fee for Service),14719,17019,10693
-2016,Public insurance - Medicare Unspecified,0,131,0
-2016,Public insurance - Other government,623,632,346
-2016,Self,91,115,70
-2016,US/State Govt Agency,0,7,0
-2016,Unknown,24,33,809
 2015,Donation,7,10,3
-2015,Foreign Government Specify,219,208,138
-2015,Free Care,20,40,17
-2015,Pending,48,80,0
-2015,Private insurance,27037,26495,11813
-2015,Public insurance - CHIP (Children's Health Insurance Program),105,109,73
-2015,Public insurance - Department of VA,858,780,360
-2015,Public insurance - Medicaid,6900,6370,3184
-2015,Public insurance - Medicare & Choice,6333,7306,4054
-2015,Public insurance - Medicare FFS (Fee for Service),15288,17138,10235
-2015,Public insurance - Medicare Unspecified,0,185,0
-2015,Public insurance - Other government,649,595,303
-2015,Self,116,167,72
-2015,US/State Govt Agency,0,9,0
-2015,Unknown,26,31,722
 2014,Donation,5,5,3
-2014,Foreign Government Specify,208,186,140
-2014,Free Care,27,46,11
-2014,Pending,62,91,0
-2014,Private insurance,27312,26113,11820
-2014,Public insurance - CHIP (Children's Health Insurance Program),109,99,72
-2014,Public insurance - Department of VA,915,778,375
-2014,Public insurance - Medicaid,6672,5823,2657
-2014,Public insurance - Medicare & Choice,6255,6695,3729
-2014,Public insurance - Medicare FFS (Fee for Service),16561,15126,9718
-2014,Public insurance - Medicare Unspecified,0,233,0
-2014,Public insurance - Other government,547,549,235
-2014,Self,135,148,67
-2014,US/State Govt Agency,0,9,0
-2014,Unknown,40,64,713
 2013,Donation,6,6,4
-2013,Foreign Government Specify,146,117,82
-2013,Free Care,59,58,37
-2013,Pending,113,122,0
-2013,Private insurance,26790,25371,11720
-2013,Public insurance - CHIP (Children's Health Insurance Program),114,104,58
-2013,Public insurance - Department of VA,876,746,361
-2013,Public insurance - Medicaid,6175,5661,2477
-2013,Public insurance - Medicare & Choice,6815,6251,3783
-2013,Public insurance - Medicare FFS (Fee for Service),16832,13958,9326
-2013,Public insurance - Medicare Unspecified,0,384,0
-2013,Public insurance - Other government,571,618,270
-2013,Self,144,166,75
-2013,US/State Govt Agency,0,15,0
-2013,Unknown,51,84,763
 2012,Donation,6,3,3
-2012,Foreign Government Specify,117,109,75
-2012,Free Care,51,62,34
-2012,Pending,97,138,0
-2012,Private insurance,26111,24902,11670
-2012,Public insurance - CHIP (Children's Health Insurance Program),92,99,67
-2012,Public insurance - Department of VA,682,637,357
-2012,Public insurance - Medicaid,5621,5427,2288
-2012,Public insurance - Medicare & Choice,7151,6384,3810
-2012,Public insurance - Medicare FFS (Fee for Service),15606,13040,8621
-2012,Public insurance - Medicare Unspecified,0,496,0
-2012,Public insurance - Other government,580,511,252
-2012,Self,141,186,75
-2012,US/State Govt Agency,0,13,0
-2012,Unknown,53,82,807
 2011,Donation,9,8,4
-2011,Foreign Government Specify,95,87,66
-2011,Free Care,50,52,37
-2011,Pending,83,137,1
-2011,Private insurance,26169,24993,11975
-2011,Public insurance - CHIP (Children's Health Insurance Program),91,97,80
-2011,Public insurance - Department of VA,757,573,324
-2011,Public insurance - Medicaid,5674,5573,2453
-2011,Public insurance - Medicare & Choice,6891,5999,3881
-2011,Public insurance - Medicare FFS (Fee for Service),14477,12910,8624
-2011,Public insurance - Medicare Unspecified,0,755,0
-2011,Public insurance - Other government,578,448,232
-2011,Self,125,184,72
-2011,US/State Govt Agency,0,20,0
-2011,Unknown,75,138,804
 2010,Donation,1,5,2
-2010,Foreign Government Specify,84,83,72
-2010,Free Care,63,74,22
-2010,Pending,102,145,1
-2010,Private insurance,27169,25005,12363
-2010,Public insurance - CHIP (Children's Health Insurance Program),117,103,90
-2010,Public insurance - Department of VA,681,532,308
-2010,Public insurance - Medicaid,5792,5470,2547
-2010,Public insurance - Medicare & Choice,7159,5768,3956
-2010,Public insurance - Medicare FFS (Fee for Service),14502,11614,8163
-2010,Public insurance - Medicare Unspecified,1,1114,0
-2010,Public insurance - Other government,510,409,220
-2010,Self,175,212,93
-2010,US/State Govt Agency,0,36,0
-2010,Unknown,67,126,831
 2009,Donation,8,11,13
-2009,Foreign Government Specify,101,81,55
-2009,Free Care,67,64,40
-2009,Pending,92,210,0
-2009,Private insurance,26783,24585,12592
-2009,Public insurance - CHIP (Children's Health Insurance Program),110,111,87
-2009,Public insurance - Department of VA,685,555,336
-2009,Public insurance - Medicaid,5752,5367,2539
-2009,Public insurance - Medicare & Choice,7057,5053,3656
-2009,Public insurance - Medicare FFS (Fee for Service),13444,11047,7956
-2009,Public insurance - Medicare Unspecified,2,1623,0
-2009,Public insurance - Other government,491,426,235
-2009,Self,204,251,102
-2009,US/State Govt Agency,0,42,0
-2009,Unknown,58,147,852
 2008,Donation,14,14,6
-2008,Foreign Government Specify,70,67,49
-2008,Free Care,45,80,33
-2008,Pending,103,245,0
-2008,Private insurance,26014,24655,12708
-2008,Public insurance - CHIP (Children's Health Insurance Program),144,125,106
-2008,Public insurance - Department of VA,596,484,279
-2008,Public insurance - Medicaid,5635,5404,2586
-2008,Public insurance - Medicare & Choice,6606,4495,3615
-2008,Public insurance - Medicare FFS (Fee for Service),13369,10207,7433
-2008,Public insurance - Medicare Unspecified,3,2658,0
-2008,Public insurance - Other government,507,381,219
-2008,Self,236,262,95
-2008,US/State Govt Agency,0,93,0
-2008,Unknown,70,211,838
 2007,Donation,11,14,6
-2007,Foreign Government Specify,51,51,41
-2007,Free Care,81,107,41
-2007,Pending,203,341,0
-2007,Private insurance,26369,24391,12922
-2007,Public insurance - CHIP (Children's Health Insurance Program),111,92,100
-2007,Public insurance - Department of VA,546,458,293
-2007,Public insurance - Medicaid,5506,5224,2662
-2007,Public insurance - Medicare & Choice,5663,3790,3640
-2007,Public insurance - Medicare FFS (Fee for Service),13411,9114,7449
-2007,Public insurance - Medicare Unspecified,4,3738,0
-2007,Public insurance - Other government,506,382,215
-2007,Self,262,285,133
-2007,US/State Govt Agency,0,131,0
-2007,Unknown,89,218,864
 2006,Donation,12,9,3
-2006,Foreign Government Specify,50,76,27
-2006,Free Care,95,69,44
-2006,Pending,273,388,0
-2006,Private insurance,25965,23828,13384
-2006,Public insurance - CHIP (Children's Health Insurance Program),120,107,103
-2006,Public insurance - Department of VA,567,458,332
-2006,Public insurance - Medicaid,5669,5180,2749
-2006,Public insurance - Medicare & Choice,5158,3149,3285
-2006,Public insurance - Medicare FFS (Fee for Service),12983,7499,7722
-2006,Public insurance - Medicare Unspecified,15,5300,0
-2006,Public insurance - Other government,421,360,221
-2006,Self,234,286,146
-2006,US/State Govt Agency,0,195,0
-2006,Unknown,79,344,925
 2005,Donation,6,10,12
-2005,Foreign Government Specify,47,81,40
-2005,Free Care,90,93,65
-2005,Pending,235,345,0
-2005,Private insurance,24457,23137,12988
-2005,Public insurance - CHIP (Children's Health Insurance Program),87,63,63
-2005,Public insurance - Department of VA,514,433,294
-2005,Public insurance - Medicaid,5470,4969,2627
-2005,Public insurance - Medicare & Choice,4951,2185,3238
-2005,Public insurance - Medicare FFS (Fee for Service),12048,4973,7478
-2005,Public insurance - Medicare Unspecified,12,8078,0
-2005,Public insurance - Other government,540,333,310
-2005,Self,249,266,103
-2005,US/State Govt Agency,1,339,0
-2005,Unknown,182,273,901
 2004,Donation,17,13,8
-2004,Foreign Government Specify,38,68,13
-2004,Free Care,97,99,57
-2004,Pending,366,467,0
-2004,Private insurance,23626,21549,12639
-2004,Public insurance - CHIP (Children's Health Insurance Program),59,21,45
-2004,Public insurance - Department of VA,442,304,209
-2004,Public insurance - Medicaid,5209,4405,2442
-2004,Public insurance - Medicare & Choice,2957,599,2349
-2004,Public insurance - Medicare FFS (Fee for Service),6656,1542,4708
-2004,Public insurance - Medicare Unspecified,6433,12151,3258
-2004,Public insurance - Other government,360,111,222
-2004,Self,418,244,102
-2004,US/State Govt Agency,270,532,107
-2004,Unknown,95,346,883
 2003,Donation,6,8,8
-2003,Foreign Government Specify,49,77,41
-2003,Free Care,71,75,37
-2003,Pending,584,514,1
-2003,Private insurance,22078,20710,12391
-2003,Public insurance - CHIP (Children's Health Insurance Program),1,1,2
-2003,Public insurance - Department of VA,325,251,186
-2003,Public insurance - Medicaid,4458,4058,2187
-2003,Public insurance - Medicare & Choice,165,44,101
-2003,Public insurance - Medicare FFS (Fee for Service),474,167,223
-2003,Public insurance - Medicare Unspecified,14356,12906,8967
-2003,Public insurance - Other government,20,9,10
-2003,Self,212,207,103
-2003,US/State Govt Agency,628,726,397
-2003,Unknown,22,334,821
 2002,Donation,7,13,7
-2002,Foreign Government Specify,78,101,66
-2002,Free Care,78,102,38
-2002,Pending,622,498,2
-2002,Private insurance,21615,20926,12633
-2002,Public insurance - CHIP (Children's Health Insurance Program),1,0,0
-2002,Public insurance - Department of VA,277,212,160
-2002,Public insurance - Medicaid,4258,4265,2106
-2002,Public insurance - Medicare & Choice,99,21,93
-2002,Public insurance - Medicare FFS (Fee for Service),346,140,154
-2002,Public insurance - Medicare Unspecified,13820,12614,9145
-2002,Public insurance - Other government,9,5,4
-2002,Self,213,267,113
-2002,US/State Govt Agency,706,756,383
-2002,Unknown,34,630,12
 2001,Donation,10,11,9
-2001,Foreign Government Specify,147,106,105
-2001,Free Care,110,79,47
-2001,Pending,731,460,0
-2001,Private insurance,22400,19623,12256
-2001,Public insurance - CHIP (Children's Health Insurance Program),0,0,1
-2001,Public insurance - Department of VA,253,190,148
-2001,Public insurance - Medicaid,4402,3741,2053
-2001,Public insurance - Medicare & Choice,77,18,46
-2001,Public insurance - Medicare FFS (Fee for Service),272,124,139
-2001,Public insurance - Medicare Unspecified,13355,11892,8840
-2001,Public insurance - Other government,10,4,2
-2001,Self,262,302,171
-2001,US/State Govt Agency,788,770,417
-2001,Unknown,30,614,9
 2000,Donation,8,15,7
-2000,Foreign Government Specify,165,77,83
-2000,Free Care,75,88,57
-2000,Pending,649,257,1
-2000,Private insurance,22405,18850,12183
-2000,Public insurance - CHIP (Children's Health Insurance Program),0,0,0
-2000,Public insurance - Department of VA,255,145,140
-2000,Public insurance - Medicaid,4278,3440,1835
-2000,Public insurance - Medicare & Choice,43,9,22
-2000,Public insurance - Medicare FFS (Fee for Service),159,67,60
-2000,Public insurance - Medicare Unspecified,13867,11584,8290
-2000,Public insurance - Other government,3,3,1
-2000,Self,274,292,160
-2000,US/State Govt Agency,785,753,432
-2000,Unknown,45,919,3
 1999,Donation,34,16,18
-1999,Foreign Government Specify,117,75,74
-1999,Free Care,87,90,45
-1999,Pending,272,121,0
-1999,Private insurance,22374,17312,11360
-1999,Public insurance - CHIP (Children's Health Insurance Program),0,0,2
-1999,Public insurance - Department of VA,173,112,116
-1999,Public insurance - Medicaid,3960,3244,1798
-1999,Public insurance - Medicare & Choice,31,10,7
-1999,Public insurance - Medicare FFS (Fee for Service),113,46,29
-1999,Public insurance - Medicare Unspecified,13060,10719,7906
-1999,Public insurance - Other government,1,0,0
-1999,Self,367,337,177
-1999,US/State Govt Agency,826,737,413
-1999,Unknown,209,1439,85
 1998,Donation,13,15,10
-1998,Foreign Government Specify,46,23,27
-1998,Free Care,111,86,57
-1998,Pending,120,93,0
-1998,Private insurance,19984,15351,10747
-1998,Public insurance - CHIP (Children's Health Insurance Program),0,0,0
-1998,Public insurance - Department of VA,149,77,76
-1998,Public insurance - Medicaid,3949,2978,1780
-1998,Public insurance - Medicare & Choice,18,6,9
-1998,Public insurance - Medicare FFS (Fee for Service),67,25,18
-1998,Public insurance - Medicare Unspecified,12107,9634,8027
-1998,Public insurance - Other government,2,0,0
-1998,Self,400,314,171
-1998,US/State Govt Agency,736,655,411
-1998,Unknown,220,1866,192
 1997,Donation,17,18,14
-1997,Foreign Government Specify,46,38,29
-1997,Free Care,128,119,56
-1997,Pending,55,62,0
-1997,Private insurance,18034,13630,9503
-1997,Public insurance - CHIP (Children's Health Insurance Program),0,0,0
-1997,Public insurance - Department of VA,86,47,56
-1997,Public insurance - Medicaid,3638,2654,1758
-1997,Public insurance - Medicare & Choice,15,5,7
-1997,Public insurance - Medicare FFS (Fee for Service),50,21,10
-1997,Public insurance - Medicare Unspecified,11804,8676,8133
-1997,Public insurance - Other government,2,2,0
-1997,Self,396,343,181
-1997,US/State Govt Agency,877,722,424
-1997,Unknown,207,2816,208
 1996,Donation,23,18,17
-1996,Foreign Government Specify,30,24,25
-1996,Free Care,125,123,62
-1996,Pending,71,65,0
-1996,Private insurance,20780,11969,8854
-1996,Public insurance - CHIP (Children's Health Insurance Program),0,0,0
-1996,Public insurance - Department of VA,27,19,32
-1996,Public insurance - Medicaid,3652,2555,1869
-1996,Public insurance - Medicare & Choice,11,3,7
-1996,Public insurance - Medicare FFS (Fee for Service),48,21,10
-1996,Public insurance - Medicare Unspecified,11744,7656,7840
-1996,Public insurance - Other government,3,0,1
-1996,Self,395,299,199
-1996,US/State Govt Agency,853,658,453
-1996,Unknown,311,4523,396
 1995,Donation,22,21,18
-1995,Foreign Government Specify,37,22,30
+2021,Free Care,13,18,10
+2020,Free Care,28,28,20
+2019,Free Care,18,20,15
+2018,Free Care,21,26,13
+2017,Free Care,18,27,14
+2016,Free Care,25,33,17
+2015,Free Care,20,40,17
+2014,Free Care,27,46,11
+2013,Free Care,59,58,37
+2012,Free Care,51,62,34
+2011,Free Care,50,52,37
+2010,Free Care,63,74,22
+2009,Free Care,67,64,40
+2008,Free Care,45,80,33
+2007,Free Care,81,107,41
+2006,Free Care,95,69,44
+2005,Free Care,90,93,65
+2004,Free Care,97,99,57
+2003,Free Care,71,75,37
+2002,Free Care,78,102,38
+2001,Free Care,110,79,47
+2000,Free Care,75,88,57
+1999,Free Care,87,90,45
+1998,Free Care,111,86,57
+1997,Free Care,128,119,56
+1996,Free Care,125,123,62
 1995,Free Care,160,118,76
-1995,Pending,95,67,0
+2021,Private insurance,14161,14901,6415
+2020,Private insurance,26776,29035,14662
+2019,Private insurance,29432,30289,14799
+2018,Private insurance,27850,29077,13346
+2017,Private insurance,26912,28539,13022
+2016,Private insurance,27071,27798,12482
+2015,Private insurance,27037,26495,11813
+2014,Private insurance,27312,26113,11820
+2013,Private insurance,26790,25371,11720
+2012,Private insurance,26111,24902,11670
+2011,Private insurance,26169,24993,11975
+2010,Private insurance,27169,25005,12363
+2009,Private insurance,26783,24585,12592
+2008,Private insurance,26014,24655,12708
+2007,Private insurance,26369,24391,12922
+2006,Private insurance,25965,23828,13384
+2005,Private insurance,24457,23137,12988
+2004,Private insurance,23626,21549,12639
+2003,Private insurance,22078,20710,12391
+2002,Private insurance,21615,20926,12633
+2001,Private insurance,22400,19623,12256
+2000,Private insurance,22405,18850,12183
+1999,Private insurance,22374,17312,11360
+1998,Private insurance,19984,15351,10747
+1997,Private insurance,18034,13630,9503
+1996,Private insurance,20780,11969,8854
 1995,Private insurance,16030,10176,8532
-1995,Public insurance - CHIP (Children's Health Insurance Program),0,0,1
-1995,Public insurance - Department of VA,33,25,34
-1995,Public insurance - Medicaid,3504,2113,1737
-1995,Public insurance - Medicare & Choice,5,4,4
-1995,Public insurance - Medicare FFS (Fee for Service),36,15,7
-1995,Public insurance - Medicare Unspecified,11640,5883,7772
-1995,Public insurance - Other government,0,0,0
+2021,Children's Public Insurance (CHIP),66,55,39
+2020,Children's Public Insurance (CHIP),171,150,112
+2019,Children's Public Insurance (CHIP),111,145,115
+2018,Children's Public Insurance (CHIP),153,134,81
+2017,Children's Public Insurance (CHIP),146,98,74
+2016,Children's Public Insurance (CHIP),113,119,93
+2015,Children's Public Insurance (CHIP),105,109,73
+2014,Children's Public Insurance (CHIP),109,99,72
+2013,Children's Public Insurance (CHIP),114,104,58
+2012,Children's Public Insurance (CHIP),92,99,67
+2011,Children's Public Insurance (CHIP),91,97,80
+2010,Children's Public Insurance (CHIP),117,103,90
+2009,Children's Public Insurance (CHIP),110,111,87
+2008,Children's Public Insurance (CHIP),144,125,106
+2007,Children's Public Insurance (CHIP),111,92,100
+2006,Children's Public Insurance (CHIP),120,107,103
+2005,Children's Public Insurance (CHIP),87,63,63
+2004,Children's Public Insurance (CHIP),59,21,45
+2003,Children's Public Insurance (CHIP),1,1,2
+2002,Children's Public Insurance (CHIP),1,0,0
+2001,Children's Public Insurance (CHIP),0,0,1
+2000,Children's Public Insurance (CHIP),0,0,0
+1999,Children's Public Insurance (CHIP),0,0,2
+1998,Children's Public Insurance (CHIP),0,0,0
+1997,Children's Public Insurance (CHIP),0,0,0
+1996,Children's Public Insurance (CHIP),0,0,0
+1995,Children's Public Insurance (CHIP),0,0,1
+2021,VA Public Insurance,581,553,239
+2020,VA Public Insurance,947,1085,496
+2019,VA Public Insurance,1098,1037,514
+2018,VA Public Insurance,1028,983,454
+2017,VA Public Insurance,1000,938,473
+2016,VA Public Insurance,1066,920,428
+2015,VA Public Insurance,858,780,360
+2014,VA Public Insurance,915,778,375
+2013,VA Public Insurance,876,746,361
+2012,VA Public Insurance,682,637,357
+2011,VA Public Insurance,757,573,324
+2010,VA Public Insurance,681,532,308
+2009,VA Public Insurance,685,555,336
+2008,VA Public Insurance,596,484,279
+2007,VA Public Insurance,546,458,293
+2006,VA Public Insurance,567,458,332
+2005,VA Public Insurance,514,433,294
+2004,VA Public Insurance,442,304,209
+2003,VA Public Insurance,325,251,186
+2002,VA Public Insurance,277,212,160
+2001,VA Public Insurance,253,190,148
+2000,VA Public Insurance,255,145,140
+1999,VA Public Insurance,173,112,116
+1998,VA Public Insurance,149,77,76
+1997,VA Public Insurance,86,47,56
+1996,VA Public Insurance,27,19,32
+1995,VA Public Insurance,33,25,34
+2021,Medicaid,4197,4204,1921
+2020,Medicaid,7806,7898,4140
+2019,Medicaid,8028,7843,4085
+2018,Medicaid,7996,7602,3951
+2017,Medicaid,7385,7348,3691
+2016,Medicaid,7223,6892,3441
+2015,Medicaid,6900,6370,3184
+2014,Medicaid,6672,5823,2657
+2013,Medicaid,6175,5661,2477
+2012,Medicaid,5621,5427,2288
+2011,Medicaid,5674,5573,2453
+2010,Medicaid,5792,5470,2547
+2009,Medicaid,5752,5367,2539
+2008,Medicaid,5635,5404,2586
+2007,Medicaid,5506,5224,2662
+2006,Medicaid,5669,5180,2749
+2005,Medicaid,5470,4969,2627
+2004,Medicaid,5209,4405,2442
+2003,Medicaid,4458,4058,2187
+2002,Medicaid,4258,4265,2106
+2001,Medicaid,4402,3741,2053
+2000,Medicaid,4278,3440,1835
+1999,Medicaid,3960,3244,1798
+1998,Medicaid,3949,2978,1780
+1997,Medicaid,3638,2654,1758
+1996,Medicaid,3652,2555,1869
+1995,Medicaid,3504,2113,1737
+2021,Medicare,11898,13277,8035
+2020,Medicare,23343,26062,18210
+2019,Medicare,26772,26710,18611
+2018,Medicare,25324,25767,17231
+2017,Medicare,23241,25210,16213
+2016,Medicare,22394,25153,15800
+2015,Medicare,21621,24629,14289
+2014,Medicare,22816,22054,13447
+2013,Medicare,23647,20593,13109
+2012,Medicare,22757,19920,12431
+2011,Medicare,21368,19664,12505
+2010,Medicare,21662,18496,12119
+2009,Medicare,20503,17723,11612
+2008,Medicare,19978,17360,11048
+2007,Medicare,19078,16642,11089
+2006,Medicare,18156,15948,11007
+2005,Medicare,17011,15236,10716
+2004,Medicare,16046,14292,10315
+2003,Medicare,14995,13117,9291
+2002,Medicare,14265,12775,9392
+2001,Medicare,13704,12034,9025
+2000,Medicare,14069,11660,8372
+1999,Medicare,13204,10775,7942
+1998,Medicare,12192,9665,8054
+1997,Medicare,11869,8702,8150
+1996,Medicare,11803,7680,7857
+1995,Medicare,11681,5902,7783
+2021,Other Gov't Insurance,416,452,175
+2020,Other Gov't Insurance,790,795,389
+2019,Other Gov't Insurance,955,894,476
+2018,Other Gov't Insurance,929,767,442
+2017,Other Gov't Insurance,673,632,318
+2016,Other Gov't Insurance,623,632,346
+2015,Other Gov't Insurance,649,595,303
+2014,Other Gov't Insurance,547,549,235
+2013,Other Gov't Insurance,571,618,270
+2012,Other Gov't Insurance,580,511,252
+2011,Other Gov't Insurance,578,448,232
+2010,Other Gov't Insurance,510,409,220
+2009,Other Gov't Insurance,491,426,235
+2008,Other Gov't Insurance,507,381,219
+2007,Other Gov't Insurance,506,382,215
+2006,Other Gov't Insurance,421,360,221
+2005,Other Gov't Insurance,540,333,310
+2004,Other Gov't Insurance,360,111,222
+2003,Other Gov't Insurance,20,9,10
+2002,Other Gov't Insurance,9,5,4
+2001,Other Gov't Insurance,10,4,2
+2000,Other Gov't Insurance,3,3,1
+1999,Other Gov't Insurance,1,0,0
+1998,Other Gov't Insurance,2,0,0
+1997,Other Gov't Insurance,2,2,0
+1996,Other Gov't Insurance,3,0,1
+1995,Other Gov't Insurance,0,0,0
+2021,Self,50,45,23
+2020,Self,67,86,45
+2019,Self,113,117,99
+2018,Self,92,121,67
+2017,Self,91,106,52
+2016,Self,91,115,70
+2015,Self,116,167,72
+2014,Self,135,148,67
+2013,Self,144,166,75
+2012,Self,141,186,75
+2011,Self,125,184,72
+2010,Self,175,212,93
+2009,Self,204,251,102
+2008,Self,236,262,95
+2007,Self,262,285,133
+2006,Self,234,286,146
+2005,Self,249,266,103
+2004,Self,418,244,102
+2003,Self,212,207,103
+2002,Self,213,267,113
+2001,Self,262,302,171
+2000,Self,274,292,160
+1999,Self,367,337,177
+1998,Self,400,314,171
+1997,Self,396,343,181
+1996,Self,395,299,199
 1995,Self,387,283,175
-1995,US/State Govt Agency,944,641,513
+2021,Unknown,1715,282,4165
+2020,Unknown,54,43,871
+2019,Unknown,41,41,890
+2018,Unknown,37,40,847
+2017,Unknown,38,43,796
+2016,Unknown,24,33,809
+2015,Unknown,26,31,722
+2014,Unknown,40,64,713
+2013,Unknown,51,84,763
+2012,Unknown,53,82,807
+2011,Unknown,75,138,804
+2010,Unknown,67,126,831
+2009,Unknown,58,147,852
+2008,Unknown,70,211,838
+2007,Unknown,89,218,864
+2006,Unknown,79,344,925
+2005,Unknown,182,273,901
+2004,Unknown,95,346,883
+2003,Unknown,22,334,821
+2002,Unknown,34,630,12
+2001,Unknown,30,614,9
+2000,Unknown,45,919,3
+1999,Unknown,209,1439,85
+1998,Unknown,220,1866,192
+1997,Unknown,207,2816,208
+1996,Unknown,311,4523,396
 1995,Unknown,130,7678,497
