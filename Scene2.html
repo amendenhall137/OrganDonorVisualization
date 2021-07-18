@@ -6,18 +6,19 @@
 <link rel="stylesheet" href="Style.css">
 <!-- Create a div where the graph will take place -->
 <!--<div name="tooltip" opacity=1>tooltip</div>-->
-<script src="lineChart.js" language="JavaScript" type="text/javascript">
-</script>
-<script src="pieChart.js" language="JavaScript" type="text/javascript">
-</script>
+<script src="lineChart.js" language="JavaScript" type="text/javascript"></script>
+<script src="pieChart.js" language="JavaScript" type="text/javascript"></script>
+<script src="barChart.js" language="JavaScript" type="text/javascript"></script>
+
 </head>
 <body>
     <a href="Scene1.html"><button>Scene1</button></a>
     <a href="Scene2.html"><button>Scene2</button></a>
     <a href="Scene3.html"><button>Scene3</button></a>
-    <p>Scene2</p>
 <svg id="organDashboard" width="1700" height="1600"></svg>
 <script>
+    //console.log(bigBarGraph.height);
     makeLineGraph2();
+    makeBarChart();
 </script>
 </body>

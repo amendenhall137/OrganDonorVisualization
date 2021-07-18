@@ -8,24 +8,24 @@
 <!--<div name="tooltip" opacity=1>tooltip</div>-->
 <script>
     // set the dimensions and margins of the graph
-var margin = {top: 50, right: 170, bottom: 75, left: 75},
-    smallGraph = {graphWidth: (450-margin.left-margin.right), graphHeight:(300-margin.top-margin.bottom),width: 450,height:300,attrText:"12px",titleText:"20px"},
-    bigGraph = {graphWidth: (750-margin.left-margin.right), graphHeight:(600-margin.top-margin.bottom),width: 750,height:600,attrText:"14px",titleText:"24px"},
-    padding = 10;
+var pieMargin = {top: 50, right: 170, bottom: 75, left: 75},
+    smallPieGraph = {graphWidth: (450-pieMargin.left-pieMargin.right), graphHeight:(300-pieMargin.top-pieMargin.bottom),width: 450,height:300,attrText:"12px",titleText:"20px"},
+    bigPieGraph = {graphWidth: (750-pieMargin.left-pieMargin.right), graphHeight:(600-pieMargin.top-pieMargin.bottom),width: 750,height:600,attrText:"14px",titleText:"24px"},
+    piePadding = 10;
 
     
 function chartSetup(svgContainer){
     //Graph2 = TransplantByOrganPie
-    console.log(padding+parseInt(bigGraph.width)/2);
+    console.log(padding+parseInt(bigPieGraph.width)/2);
     svgContainer.append("svg")
-    .attr("width", bigGraph.width)
-    .attr("height", bigGraph.height)
-    .attr("x", padding+parseInt(bigGraph.width)/2)
-    .attr("y", padding+parseInt(bigGraph.height)/2)
+    .attr("width", bigPieGraph.width)
+    .attr("height", bigPieGraph.height)
+    .attr("x", padding+parseInt(bigPieGraph.width)/2)
+    .attr("y", padding+parseInt(bigPieGraph.height)/2)
     .attr("style", "outline: thin solid green;")
     .append("g")
         .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")")
+            "translate(" + pieMargin.left + "," + pieMargin.top + ")")
         .attr("class","bigGraph")
         .attr("graphType","pie")
         .attr("id", "TransplantPie");
