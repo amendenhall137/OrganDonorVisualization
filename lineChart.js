@@ -130,7 +130,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
     var groupedData = d3.nest() // nest function allows to group the calculation per level of a factor
                     .key(function(d) { return d[colorBy];})
                     .entries(data);
-    console.log(groupedData);
+    //console.log(groupedData);
     var colorByOptions = groupedData.map(function(d){ return d.key }); // list of group names
     var colorScale = d3.scaleOrdinal()
       .domain(colorByOptions)
@@ -175,7 +175,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
           .attr('x',(width+10+parseInt(legendBar.attr("width"))))
           .attr('y', function(d,i) {return (10+legendSpacing+i*parseInt(attrText.slice(0,-2)) + 0.5*parseInt(attrText.slice(0,-2))); })
           .style("font-size",attrText)
-          .text(function(d,i) {return colorByOptions[i]}); //Little bit of extra spacing on end.
+          .text(function(d,i) {return colorByOptions[i]});
       }
     }
 }
