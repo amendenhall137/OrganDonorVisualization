@@ -1,75 +1,75 @@
-var barMargin = {top: 50, right: 170, bottom: 75, left: 300},
-    smallBarGraph = {graphWidth: (450-barMargin.left-barMargin.right), graphHeight:(300-barMargin.top-barMargin.bottom),width: 450,height:300,attrText:"12px",titleText:"20px"},
-    bigBarGraph = {graphWidth: (750-barMargin.left-barMargin.right), graphHeight:(600-barMargin.top-barMargin.bottom),width: 750,height:600,attrText:"14px",titleText:"24px"},
-    barPadding = 0;
-var colors =['#F94040','#808080','#0000FF','#FF6000','#94641F','#AD07E3','#F0EA00','#000000','#00FF00','#FFA0A0','#C0B57B','#90BFF9','#A00000','#D4D4D4','#000080','#FFC080','#8C7E39','#A0FFA0','#FFC0E0','#ECE6CA','#008000'];
+//altered from https://www.d3-graph-gallery.com/graph/barplot_grouped_basicWide.html
+
+function makeBarChart(){
+    // set the dimensions and margins of the graph
+    const barMargin = {top: 10, right: 30, bottom: 20, left: 170},
+        width = 580 - barMargin.left - barMargin.right,
+        height = 400 - barMargin.top - barMargin.bottom;
     
-
-function barChartSetup(svgContainer){
-    //Graph1 = Transplant
-    svgContainer.append("svg")
-    .attr("width", bigBarGraph.width)
-    .attr("height", bigBarGraph.height)
-    .attr("x", barPadding*2+bigBarGraph.width+0)
-    .attr("y", barPadding)
-    .attr("style", "outline: thin solid red;")
-    .append("g")
-        .attr("transform",
-            "translate(" + barMargin.left + "," + barMargin.top + ")")
-        .attr("class","bigBarGraph")
-        .attr("graphType","bar")
-        .attr("id", "TransplantBar");
-
-    return ["TransplantBar"];
-}
-
-
-function makeBarChart(){ //horizontal bar chart
-    d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearPaymentTransplantWaitlist2.csv").then(function(data){
-    var yAxis = "Payment";
-    var bars1 = "Waitlist_Additions";
-    var bars2 = "Waitlist_Removals";
-    var bars3 = "NumberTransplants";
-    var scene3 = d3.select("#organDashboard");
-    var graphName = barChartSetup(scene3);
-    var graph = scene3.select("#"+graphName);
-    minX = 0;
-    maxX = d3.max(data, function(d) {return parseFloat(d[bars1])+parseFloat(d[bars1])*0.1;});
+    // append the svg object to the body of the page
+    const svg = d3.select("#organDashboard")
+      .append("svg")
+        .attr("width", width + barMargin.left + barMargin.right)
+        .attr("height", height + barMargin.top + barMargin.bottom)
+      .append("g")
+        .attr("transform",`translate(${barMargin.left},${barMargin.top})`);
     
-    //x-axis
-    var barXScales = d3.scaleLinear().range([0,bigBarGraph.graphWidth]);
-    barXScales.domain([0,maxX]);
-    graph.append("g")
-         .attr("transform","translate(0,"+bigBarGraph.graphHeight+")")
-         .call(d3.axisBottom(barXScales));
+    // Parse the Data
+    d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearPaymentTransplantWaitlist2.csv").then( function(data) {
     
-    //y-axis
-    var barYScales = d3.scaleBand().range([0,bigBarGraph.graphHeight]).padding(0.4);
-    barYScales.domain(data.map(function(d){ return d[yAxis]}));
-    graph.append("g")
-         .call(d3.axisLeft(barYScales).tickFormat(function(d){
-             return d;
-         }).ticks(10))
-         .append("text")
-         .attr("y", 6)
-         .attr("dy", "0.71em")
-         .attr("text-anchor", "end")
-         .text("value");
-
-    var colorBy = "Payment";
-    var groupedData = d3.nest() // nest function allows to group the calculation per level of a factor
-                        .key(function(d) { return d[colorBy];})
-                        .entries(data);
-    console.log(groupedData);
-    //Add data
-    graph.selectAll(".bar")
-    .data(data)
-    .enter().append("rect")
-    .attr("class","bar")
-    .attr("x", function(d) { return 0})//barXScales(d[bars1]); })
-    .attr("y", function(d) { return barYScales(d[yAxis]); })
-    .attr("height", barYScales.bandwidth())
-    .attr("width", function(d) { return barXScales(d[bars1]); });
-
-    })//End CSV pull
-}
+      // List of subgroups = header of the csv files
+      var subgroups = data.columns.slice(1);
+      subgroups = subgroups.slice(1,subgroups.length);
+      //console.log(subgroups);
+    
+      // List of groups = species here = value of the first column called group -> I show them on the X axis
+      const groups = data.map(d => d.Payment)
+    
+      //console.log(groups)
+    
+      // Add Y axis
+      const y = d3.scaleBand()
+          .domain(groups)
+          .range([0, height])
+          .padding([0.2])
+      svg.append("g")
+        .call(d3.axisLeft(y));
+    
+      // Add X axis
+      const x = d3.scaleLinear()
+        .domain([0, 50000])
+        .range([0, width]);
+      svg.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x).tickSize(0));
+    
+      // Another scale for subgroup position?
+      const ySubgroup = d3.scaleBand()
+        .domain(subgroups)
+        .range([0, y.bandwidth()])
+        .padding([0.05])
+    
+      // color palette = one color per subgroup
+      const color = d3.scaleOrdinal()
+        .domain(subgroups)
+        .range(['#e41a1c','#377eb8','#4daf4a'])
+    
+      console.log(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]}; }); });  
+      // Show the bars
+      svg.append("g")
+        .selectAll("g")
+        // Enter in data = loop group per group
+        .data(data)
+        .join("g")
+          .attr("transform", d => `translate(0,${y(d.Payment)})`)
+        .selectAll("rect")
+        .data(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]}; }); })
+        .join("rect")
+          .attr("y", d => ySubgroup(d.key))
+          .attr("x", d => 0)
+          .attr("height", ySubgroup.bandwidth())
+          .attr("width", d => x(d.value))
+          .attr("fill", d => color(d.key));
+    
+    })
+    }

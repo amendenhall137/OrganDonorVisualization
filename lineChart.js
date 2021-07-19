@@ -180,7 +180,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
     }
 }
 
-function addData2(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
+/*function addData2(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
     if(svg.attr("graphType") == "line"){
       var width=0;
       var height=0;
@@ -208,8 +208,6 @@ function addData2(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
   
       // group the data: I want to draw one line per group
       var groupedData = data;
-      console.log("groupedData");
-      console.log(groupedData);
       var colorByOptions = groupedData.map(function(d){ return d.key }); // list of group names
       var colorScale = d3.scaleOrdinal()
         .domain(colorByOptions)
@@ -225,14 +223,12 @@ function addData2(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
               .style("top",(d3.event.pageY)+"px")
               html("hi")
             })
-            .on("mouseout",function(){tooltip.style("opacity",0)*/
+            .on("mouseout",function(){tooltip.style("opacity",0)
             .attr("fill", "none")
             .attr("stroke", function(d){ return colorScale(d.key) })
             .style("stroke-dasharray", dash)//("10,3"))
             .attr("stroke-width", 1.5)
             .attr("d", function(d){
-              console.log(d.key);
-              console.log(d.value);
               return d3.line()
                 .x(function(d) { return scales.x(d.key); })
                 .y(function(d) { return scales.y(+d.value); })
@@ -259,7 +255,7 @@ function addData2(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
             .text(function(d,i) {return colorByOptions[i]}); //Little bit of extra spacing on end.
         }
       }
-  }
+  }*/
 
 
 //Read the data and graph
@@ -293,10 +289,10 @@ function makeLineGraph2(){
     d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearPaymentTransplantWaitlist2.csv").then(function(data){
         var scene2 = d3.select("#organDashboard");
         var graphNames = chartSetup(scene2);
-        var colorCol = "List";
+        var colorCol = "Payment";
         var xCol = "Year";
         var graph = scene2.select("#"+graphNames[0]);
-        var colName = "Number";//graph.attr("id"); //Column name must match g id for that graph
+        var colName = ["Waitlist_Additions","Waitlist_Removals","Transplants"];//graph.attr("id"); //Column name must match g id for that graph
         var aggCol = "Payment";
         
         //Determine max and min for graph
@@ -305,21 +301,19 @@ function makeLineGraph2(){
         var maxX = 2020;//d3.max(data, function(d) {return parseFloat(d[xCol])+parseFloat(d[xCol])*0.1;}); //Auto-determine max +10%
         var minX = 1995;//d3.min(data, function(d) {return parseFloat(d[xCol])-parseFloat(d[xCol])*0.1;}); //Auto-determine lowest value -10%
         
-        var groupedData = d3.nest() // nest function allows to group the calculation per level of a factor
+        /*var groupedData = d3.nest() // nest function allows to group the calculation per level of a factor
                         .key(function(d) { return d.List;})
                         .key(function(c) {return c.Year;})
                         .rollup(function(d){return d3.sum(d,function(g){return g.Number;})})
-                        .entries(data);
-        console.log(groupedData);
-        var groupedDataOld = d3.nest() // nest function allows to group the calculation per level of a factor
+                        .entries(data);*/
+        /*var groupedDataOld = d3.nest() // nest function allows to group the calculation per level of a factor
                             .key(function(d) { return d[colorCol];})
-                            .entries(data);
-        console.log(groupedDataOld);
+                            .entries(data);*/
         //Create First Line Graph
         var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
-        addData2(svg=graph,data=groupedData,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid");//data.columns[2]);
-        //addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis="value",colorBy=colorCol,xAxis=xCol,line="dashed");
-        //addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis="value",colorBy=colorCol,xAxis=xCol,line="dotted");
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[0],colorBy=colorCol,xAxis=xCol,line="solid");//data.columns[2]);
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dashed");
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="dotted");
         graph.selectAll(".xlabel").text(xCol);
         graph.selectAll(".ylabel").text(colName);
     })
