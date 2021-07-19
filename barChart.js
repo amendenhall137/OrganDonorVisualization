@@ -55,6 +55,7 @@ function makeBarChart(){
         .domain(subgroups)
         .range(colors.slice(0,3));
     
+        
       // Show the bars
       svg.append("g")
         .selectAll("g")
@@ -65,11 +66,17 @@ function makeBarChart(){
         .selectAll("rect")
         .data(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]}; }); })
         .join("rect")
-          .attr("y", d => ySubgroup(d.key))
-          .attr("x", d => 0)
-          .attr("height", ySubgroup.bandwidth())
-          .attr("width", d => x(d.value))
-          .attr("fill", d => color(d.key));
+        .attr("y", d => ySubgroup(d.key))
+        .attr("x", d => 0)
+        .attr("height", ySubgroup.bandwidth())
+        .attr("width", d => x(d.value))
+        .attr("fill", d => color(d.key))
+        .on("mouseover", function(d) {
+            d3.select(this).style("fill", d3.rgb(color(d.key)).darker(2));
+        })
+        .on("mouseout", function(d) {
+            d3.select(this).style("fill", color(d.key));
+        });
 
     //Legend
     //Add rect
