@@ -2,18 +2,20 @@
 
 function makeBarChart(){
     // set the dimensions and margins of the graph
-    const barMargin = {top: 10, right: 30, bottom: 20, left: 170},
-        width = 580 - barMargin.left - barMargin.right,
-        height = 400 - barMargin.top - barMargin.bottom;
+    const barMargin = {top: 10, right: 30, bottom: 40, left: 170},
+        width = 600 - barMargin.left - barMargin.right,
+        height = 600 - barMargin.top - barMargin.bottom;
 
-    var bigBarGraph = {graphWidth: (900-margin.left-margin.right), graphHeight:(600-margin.top-margin.bottom),width: 900,height:600,attrText:"14px",titleText:"24px"};
+    var bigBarGraph = {graphWidth: (600-barMargin.left-barMargin.right), graphHeight:(600-barMargin.top-barMargin.bottom),width: 600,height:600,attrText:"14px",titleText:"24px"};
     
     // append the svg object to the body of the page
     const svg = d3.select("#organDashboard")
       .append("svg")
         .attr("width", bigBarGraph.graphWidth + barMargin.left + barMargin.right)
         .attr("height", bigBarGraph.graphHeight + barMargin.top + barMargin.bottom)
-      .append("g")
+        .attr("x",100+bigGraph.width)
+        .attr("y", 20)
+        .append("g")
         .attr("transform",`translate(${barMargin.left},${barMargin.top})`);
     
     // Parse the Data
