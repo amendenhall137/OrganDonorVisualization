@@ -1,4 +1,4 @@
-Year,Payment,Waitlist Additions,Waitlist Removals,Transplants
+Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2021,Children's Public Insurance (CHIP),66,55,39
 2021,Donation,2,2,1
 2021,Free Care,13,18,10
