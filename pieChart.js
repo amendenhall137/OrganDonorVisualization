@@ -232,12 +232,31 @@ function makeGraphs2(){
                             return d3.sum(data, function(d){
                                                 return d.Transplant;
                       })
-                  }).entries(data)
+                  }).entries(data);
+    //make a list of subgroups
+    var subgroups = []
+    for(i in pieData){
+      console.log(pieData[i].key);
+      subgroups.push(pieData[i].key);
+    }
+    const color = d3.scaleOrdinal()
+                    .domain(subgroups)
+                    .range(colors.slice(0,subgroups.length));
     allOrgans = pieData.shift();//Remove "allOrgans" so it is just individual breakdown.
+    console.log(pieData);
     var pie = d3.pie().value(function(d){return d.value;});
     var arc = g.selectAll("arc").data(pie(pieData)).enter();
     var path = d3.arc().outerRadius(radius*0.8).innerRadius(radius*0.5)
-    arc.append("path").attr("d",path).attr("fill",function(d,i){return colors.slice(1,8)[i];});//colors[i];});
+    arc.append("path").attr("d",path).attr("fill",function(d,i){return color(d.data.key);})
+        .on("mouseover", function(d) {
+          d3.select(this).style("fill", d3.rgb(color(d.data.key)).darker(2));
+          })
+        .on("mouseout", function(d) {
+          d3.select(this).style("fill", color(d.data.key));
+          })
+        .on("click",function(d){
+          console.log("clicked: ");
+        })
     
     //Lines for labels (adapted from d3-graph-gallery.com)
     g.selectAll("allPolylines").data(pie(pieData)).enter().append("polyline")
@@ -265,7 +284,8 @@ function makeGraphs2(){
         pos[1] =pos[1]+6;
         if(d.data.key == "Intestine"){pos[0]=radius*0.99*1+50;}
         if(d.data.key =="Pancreas"){pos[1]=pos[1]-10;}
-        console.log(d.data.key)
+        //console.log(d)
+        //console.log(d.data.key)
         return 'translate(' + pos + ')';
     })
     .style('text-anchor', function(d) {
