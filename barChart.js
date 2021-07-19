@@ -5,12 +5,14 @@ function makeBarChart(){
     const barMargin = {top: 10, right: 30, bottom: 20, left: 170},
         width = 580 - barMargin.left - barMargin.right,
         height = 400 - barMargin.top - barMargin.bottom;
+
+    var bigBarGraph = {graphWidth: (900-margin.left-margin.right), graphHeight:(600-margin.top-margin.bottom),width: 900,height:600,attrText:"14px",titleText:"24px"};
     
     // append the svg object to the body of the page
     const svg = d3.select("#organDashboard")
       .append("svg")
-        .attr("width", width + barMargin.left + barMargin.right)
-        .attr("height", height + barMargin.top + barMargin.bottom)
+        .attr("width", bigBarGraph.graphWidth + barMargin.left + barMargin.right)
+        .attr("height", bigBarGraph.graphHeight + barMargin.top + barMargin.bottom)
       .append("g")
         .attr("transform",`translate(${barMargin.left},${barMargin.top})`);
     
@@ -37,7 +39,7 @@ function makeBarChart(){
     
       // Add X axis
       const x = d3.scaleLinear()
-        .domain([0, 50000])
+        .domain([0, 35000])
         .range([0, width]);
       svg.append("g")
         .attr("transform", `translate(0, ${height})`)
@@ -52,7 +54,7 @@ function makeBarChart(){
       // color palette = one color per subgroup
       const color = d3.scaleOrdinal()
         .domain(subgroups)
-        .range(['#e41a1c','#377eb8','#4daf4a'])
+        .range(colors.slice(0,3));
     
       console.log(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]}; }); });  
       // Show the bars
