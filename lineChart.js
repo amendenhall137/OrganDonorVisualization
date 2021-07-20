@@ -130,11 +130,8 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
     var groupedData = d3.nest() // nest function allows to group the calculation per level of a factor
                     .key(function(d) { return d[colorBy];})
                     .entries(data);
-    if(svg.attr("sceneNum")=="1"){
+    if((svg.attr("sceneNum")=="1")){
       var filteredData = groupedData.filter(function(d){return d.key == filter});
-      console.log(filter);
-      console.log(filteredData);
-      console.log(groupedData);
     }
     
     var colorByOptions = groupedData.map(function(d){ return d.key }); // list of group names
@@ -265,7 +262,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
 
 
 //Read the data and graph
-function makeLineGraph1(filter="All Organs"){
+function makeLineGraph1(filter_passed="All Organs"){
   //console.log("line1Draw");
 
   //console.log(filter);
@@ -287,8 +284,9 @@ function makeLineGraph1(filter="All Organs"){
     var minX = 1995//d3.min(data, function(d) {return parseFloat(d[xCol])-parseFloat(d[xCol])*0.1;}); //Auto-determine lowest value -10%
     //console.log("inlinePie"+scene1.attr("pieChosen"));
     //Create First Line Graph
-    var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
-    addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid",filter=filter);//data.columns[2]);
+    var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY); 
+    addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid",filter="All Organs"); 
+    addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="dashed",filter=filter_passed);//data.columns[2]);
     graph.selectAll(".xlabel").text(xCol);
     graph.selectAll(".ylabel").text(colName);
   })
