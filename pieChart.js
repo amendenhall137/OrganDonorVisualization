@@ -236,27 +236,58 @@ function makeGraphs2(){
     //make a list of subgroups
     var subgroups = []
     for(i in pieData){
-      console.log(pieData[i].key);
+      //console.log(pieData[i].key);
       subgroups.push(pieData[i].key);
     }
     const color = d3.scaleOrdinal()
                     .domain(subgroups)
                     .range(colors.slice(0,subgroups.length));
     allOrgans = pieData.shift();//Remove "allOrgans" so it is just individual breakdown.
-    console.log(pieData);
-    var pie = d3.pie().value(function(d){return d.value;});
+
+    //Add on the doughnut sections
+    var totalTransplants= 0;
+    var addedTransplants = false;
+    var pie = d3.pie().value(function(d){
+      if(!addedTransplants){
+      totalTransplants += d.value; 
+      }
+      return d.value;});
+
     var arc = g.selectAll("arc").data(pie(pieData)).enter();
     var path = d3.arc().outerRadius(radius*0.8).innerRadius(radius*0.5)
-    arc.append("path").attr("d",path).attr("fill",function(d,i){return color(d.data.key);})
-        .on("mouseover", function(d) {
+    var sections = arc.append("path").attr("d",path).attr("fill",function(d,i){return color(d.data.key);})
+    addedTransplants = true; //for some reason after this step the pie function would be called 3 times, this makes it only update numTransplants for one of these.
+    //Animation and Tooltips
+    //Tooltip text
+    var tooltip = d3.select("#organDiv")
+                    .append("div")
+                    .style("position", "absolute")
+                    .style("visibility", "hidden")
+                    .style("background-color", "white")
+                    .style("border", "solid")
+                    .style("width","150px")
+                    .style("border-width", "1px")
+                    .style("border-radius", "5px")
+                    .style("padding", "10px");
+    sections.on("mouseover", function(d) {
           d3.select(this).style("fill", d3.rgb(color(d.data.key)).darker(2));
+          tooltip.style("visibility","visible");
           })
         .on("mouseout", function(d) {
           d3.select(this).style("fill", color(d.data.key));
+          tooltip.style("visibility", "hidden");
           })
         .on("click",function(d){
           console.log("clicked: ");
         })
+        .on("mousemove", function(d){
+          //console.log("x: "+d3.event.pageX+" y: "+d3.event.pageY);
+          //tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX)+"px");
+          tooltip
+              .html("Value:<br>" + Math.round(d.value/totalTransplants*100*10)/10 + "%<br>Organ:<br>"+ d.data.key)
+              .style("left", (d3.event.pageX+30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+              .style("top", (d3.event.pageY) + "px");
+          })
     
     //Lines for labels (adapted from d3-graph-gallery.com)
     g.selectAll("allPolylines").data(pie(pieData)).enter().append("polyline")
