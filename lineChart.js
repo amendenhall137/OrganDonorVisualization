@@ -100,7 +100,7 @@ function setupAxes(svg, xmax=0, ymax=0, xmin=0, ymin=0){
     }
 }
 
-function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
+function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=""){
   if(svg.attr("graphType") == "line"){
     var width=0;
     var height=0;
@@ -125,19 +125,25 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
     else if(lineStyle == "dotted"){
         dash = (4,2);
     }
-
+    
     // group the data: I want to draw one line per group
     var groupedData = d3.nest() // nest function allows to group the calculation per level of a factor
                     .key(function(d) { return d[colorBy];})
                     .entries(data);
-    //console.log(groupedData);
+    if(svg.attr("sceneNum")=="1"){
+      var filteredData = groupedData.filter(function(d){return d.key == filter});
+      console.log(filter);
+      console.log(filteredData);
+      console.log(groupedData);
+    }
+    
     var colorByOptions = groupedData.map(function(d){ return d.key }); // list of group names
     var colorScale = d3.scaleOrdinal()
       .domain(colorByOptions)
       .range(colorList.slice(0,colorByOptions.length));
     // Draw the line
     svg.selectAll(".line")
-        .data(groupedData)
+        .data(filteredData)
         .enter()
         .append("path")
           /*.on('mouseover', function(d,i){
@@ -259,8 +265,10 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
 
 
 //Read the data and graph
-function makeLineGraph1(){
-  console.log("line1Draw");
+function makeLineGraph1(filter="All Organs"){
+  //console.log("line1Draw");
+
+  //console.log(filter);
   //d3.select('#TransplantLine').selectAll('*').remove(); //Remove old graphs
   //Data and creation
   d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantWaitlist1and3.csv").then(function(data) {
@@ -270,8 +278,8 @@ function makeLineGraph1(){
     var colorCol = "Organ";
     var xCol = "Year";
     var graph = scene1.select("#"+graphNames[0]);
+    graph.attr("sceneNum","1");
     var colName = "Transplant"//graph.attr("id"); //Column name must match g id for that graph
-    
     //Determine max and min for graph
     var minY = 0//d3.min(data, function(d) {return parseFloat(d[colName])-parseFloat(d[colName])*0.1;});
     var maxY = d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
@@ -280,16 +288,16 @@ function makeLineGraph1(){
     //console.log("inlinePie"+scene1.attr("pieChosen"));
     //Create First Line Graph
     var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
-    addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid");//data.columns[2]);
+    addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid",filter=filter);//data.columns[2]);
     graph.selectAll(".xlabel").text(xCol);
     graph.selectAll(".ylabel").text(colName);
   })
 }
 
-function redrawLine1(data)
+function redrawLine1(filter)
 {
   d3.select('#TransplantLine').selectAll('*').remove();
-  makeLineGraph1();
+  makeLineGraph1(filter);
 
 }
 function makeLineGraph2(){
@@ -299,6 +307,7 @@ function makeLineGraph2(){
         var colorCol = "Payment";
         var xCol = "Year";
         var graph = scene2.select("#"+graphNames[0]);
+        graph.attr("sceneNum",2);
         var colName = ["Waitlist_Additions","Waitlist_Removals","Transplants"];//graph.attr("id"); //Column name must match g id for that graph
         var aggCol = "Payment";
         

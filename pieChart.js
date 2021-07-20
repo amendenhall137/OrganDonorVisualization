@@ -279,9 +279,9 @@ function makeGraphs2(){
           })
         .on("click",function(d){
           var dashboard = d3.select("#organDashboard").attr("pieChosen",d.data.key);
-          console.log("InPieChart: "+dashboard.attr("pieChosen"));
+          //console.log("InPieChart: "+dashboard.attr("pieChosen"));
           //update line chart on click of pie chart.
-          redrawLine1();
+          redrawLine1(dashboard.attr("pieChosen"));
 
         })
         .on("mousemove", function(d){
