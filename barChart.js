@@ -71,36 +71,56 @@ function makeBarChart(){
             
             .entries(data);
     
-      // Show the bars
-      svg.append("g")
+    // Show the bars
+    var bars =  svg.append("g")
         .selectAll("g")
         // Enter in data = loop group per group
         .data(groupedData)//data)
         .join("g")
           .attr("transform", d => `translate(0,${y(d.key)})`)
         .selectAll("rect")
-    .data(function(d) { return subgroups.map(function(c) { 
+        .data(function(d) { return subgroups.map(function(c) { 
         return {key: c, value: d.value[c]}; }); })
         .join("rect")
         .attr("y", d => ySubgroup(d.key))
         .attr("x", d => 0)
         .attr("height", ySubgroup.bandwidth())
         .attr("width", d => x(d.value))
-        .attr("fill", d => color(d.key))//color(d.key))
-        .on("mouseover", function(d) {
+        .attr("fill", d => color(d.key));//color(d.key))
+    
+    //Tooltip text
+    var tooltip = d3.select("#organDiv")
+                    .append("div")
+                    .style("position", "absolute")
+                    .style("visibility", "hidden")
+                    .style("background-color", "white")
+                    .style("border", "solid")
+                    .style("width","150px")
+                    .style("border-width", "1px")
+                    .style("border-radius", "5px")
+                    .style("padding", "10px");
+                    //.html("<p id='payment'>Payment:<br> None</p><p id='list'>List Added to:<br> None</p><p id='value'>Number of People:<br> 0</p>");
+
+    
+    //Animation
+    bars.on("mouseover", function(d) {
             d3.select(this).style("fill", d3.rgb(color(d.key)).darker(2));
-            //tooltip.style("visibility","visible");
+            tooltip.style("visibility","visible");
         })
         .on("mouseout", function(d) {
             d3.select(this).style("fill", color(d.key));
-            //tooltip.style("visibility", "hidden");
+            tooltip.style("visibility", "hidden");
         })
         .on("click",function(d){
             console.log("clicked: ");
           })
         .on("mousemove", function(d){
-            console.log("x: "+d3.event.pageX+" y: "+d3.event.pageY);
-            //tooltip.style("top", (d3.event.pageY-2360)+"px").style("left",(d3.event.pageX-800)+"px");
+            //console.log("x: "+d3.event.pageX+" y: "+d3.event.pageY);
+            //tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX)+"px");
+            tooltip
+                .html("Value:<br>" + d.value + "<br>List:<br>"+ d.key)
+                .style("left", (d3.event.pageX+30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+                .style("top", (d3.event.pageY) + "px");
         })
 
     //Legend
