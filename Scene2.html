@@ -5,10 +5,9 @@
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <link rel="stylesheet" href="Style.css">
 <!-- Create a div where the graph will take place -->
-<!--<div name="tooltip" opacity=1>tooltip</div>-->
 <script src="lineChart.js" language="JavaScript" type="text/javascript"></script>
 <script src="pieChart.js" language="JavaScript" type="text/javascript"></script>
-<!--<script src="barChart.js" language="JavaScript" type="text/javascript"></script>-->
+<script src="tooltip.js" language="JavaScript" type="text/javascript"></script>
 <script src="barChart.js" language="JavaScript" type="text/javascript"></script>
 
 </head>
@@ -16,7 +15,7 @@
     <a href="Scene1.html"><button>Scene1</button></a>
     <a href="Scene2.html"><button>Scene2</button></a>
     <a href="Scene3.html"><button>Scene3</button></a>
-<svg id="organDashboard" width="1700" height="1600"></svg>
+<div id="organDiv"><svg id="organDashboard" width="1700" height="1600"></svg></div>
 <script>
     var colors =['#F94040','#808080','#0000FF','#FF6000','#94641F','#AD07E3','#F0EA00','#000000','#00FF00','#FFA0A0','#C0B57B','#90BFF9','#A00000','#D4D4D4','#000080','#FFC080','#8C7E39','#A0FFA0','#FFC0E0','#ECE6CA','#008000'];
     makeLineGraph2();
