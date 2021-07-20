@@ -281,8 +281,6 @@ function makeGraphs2(){
           console.log("clicked: ");
         })
         .on("mousemove", function(d){
-          //console.log("x: "+d3.event.pageX+" y: "+d3.event.pageY);
-          //tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX)+"px");
           tooltip
               .html("Value:<br>" + Math.round(d.value/totalTransplants*100*10)/10 + "%<br>Organ:<br>"+ d.data.key)
               .style("left", (d3.event.pageX+30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
