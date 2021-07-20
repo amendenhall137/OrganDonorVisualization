@@ -17,7 +17,8 @@
 <div id="organDiv"><svg id="organDashboard" width="1700" height="1600"></svg></div>
 <!--<div name="tooltip" opacity=1>tooltip</div>-->
 <script>
-  makeLineGraph1();
+  chartSetup(d3.select("#organDashboard"));
+  makeLineGraph1();//d3.select("#organDashboard"));
   makeGraphs2();
 </script>
 </body>

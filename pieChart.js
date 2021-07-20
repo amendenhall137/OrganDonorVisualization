@@ -278,7 +278,11 @@ function makeGraphs2(){
           tooltip.style("visibility", "hidden");
           })
         .on("click",function(d){
-          console.log("clicked: ");
+          var dashboard = d3.select("#organDashboard").attr("pieChosen",d.data.key);
+          console.log("InPieChart: "+dashboard.attr("pieChosen"));
+          //update line chart on click of pie chart.
+          redrawLine1();
+
         })
         .on("mousemove", function(d){
           tooltip

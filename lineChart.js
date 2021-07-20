@@ -260,12 +260,13 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle){
 
 //Read the data and graph
 function makeLineGraph1(){
-  //d3.select('svg').selectAll('*').remove(); //Remove old graphs
+  console.log("line1Draw");
+  //d3.select('#TransplantLine').selectAll('*').remove(); //Remove old graphs
   //Data and creation
   d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantWaitlist1and3.csv").then(function(data) {
     //Var names
     var scene1 = d3.select("#organDashboard");
-    var graphNames = chartSetup(scene1);
+    var graphNames = ["TransplantLine"]
     var colorCol = "Organ";
     var xCol = "Year";
     var graph = scene1.select("#"+graphNames[0]);
@@ -276,7 +277,7 @@ function makeLineGraph1(){
     var maxY = d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
     var maxX = 2020//d3.max(data, function(d) {return parseFloat(d[xCol])+parseFloat(d[xCol])*0.1;}); //Auto-determine max +10%
     var minX = 1995//d3.min(data, function(d) {return parseFloat(d[xCol])-parseFloat(d[xCol])*0.1;}); //Auto-determine lowest value -10%
-    
+    //console.log("inlinePie"+scene1.attr("pieChosen"));
     //Create First Line Graph
     var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
     addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid");//data.columns[2]);
@@ -285,10 +286,16 @@ function makeLineGraph1(){
   })
 }
 
+function redrawLine1(data)
+{
+  d3.select('#TransplantLine').selectAll('*').remove();
+  makeLineGraph1();
+
+}
 function makeLineGraph2(){
     d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearPaymentTransplantWaitlist2.csv").then(function(data){
         var scene2 = d3.select("#organDashboard");
-        var graphNames = chartSetup(scene2);
+        var graphNames = ["TransplantLine"];
         var colorCol = "Payment";
         var xCol = "Year";
         var graph = scene2.select("#"+graphNames[0]);
@@ -324,7 +331,7 @@ function makeLineGraph3(){
     d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantWaitlist1and3.csv").then(function(data) {
         //Var names
         var scene3 = d3.select("#organDashboard");
-        var graphNames = chartSetup(scene3);
+        var graphNames = ["TransplantLine"];
         var colorCol = "Organ";
         var xCol = "Year";
         var graph = scene3.select("#"+graphNames[0]);
