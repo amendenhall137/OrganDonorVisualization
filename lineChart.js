@@ -133,6 +133,12 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
     if((svg.attr("sceneNum")=="1")){
       var filteredData = groupedData.filter(function(d){return d.key == filter});
     }
+    else if((svg.attr("sceneNum")=="2")){
+      var filteredData = groupedData;
+    }
+    else if((svg.attr("sceneNum")=="3")){
+      var filteredData = groupedData;
+    }
     
     var colorByOptions = groupedData.map(function(d){ return d.key }); // list of group names
     var colorScale = d3.scaleOrdinal()
@@ -342,6 +348,7 @@ function makeLineGraph3(){
         var colorCol = "Organ";
         var xCol = "Year";
         var graph = scene3.select("#"+graphNames[0]);
+        graph.attr("sceneNum","3");
         var colName = "Transplant"//graph.attr("id"); //Column name must match g id for that graph
         
         //Determine max and min for graph
