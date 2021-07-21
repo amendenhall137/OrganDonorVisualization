@@ -50,7 +50,7 @@ function makeBarChart(){
         .domain(subgroups)
         .range([0, y.bandwidth()])
         .padding([0.05])
-    
+
       // color palette = one color per subgroup
       const color = d3.scaleOrdinal()
         .domain(subgroups)
@@ -70,18 +70,21 @@ function makeBarChart(){
             
             
             .entries(data);
-    
+    console.log(groupedData);
     // Show the bars
     var bars =  svg.append("g")
         .selectAll("g")
         // Enter in data = loop group per group
         .data(groupedData)//data)
         .join("g")
-          .attr("transform", d => `translate(0,${y(d.key)})`)
+        .attr("Payment", function(d){return d.key;})
+        .attr("transform", d => `translate(0,${y(d.key)})`)
         .selectAll("rect")
         .data(function(d) { return subgroups.map(function(c) { 
+          //console.log(c + " "+ d.value[c]);
         return {key: c, value: d.value[c]}; }); })
         .join("rect")
+        //.attr("id", d.value)
         .attr("y", d => ySubgroup(d.key))
         .attr("x", d => 0)
         .attr("height", ySubgroup.bandwidth())
@@ -112,8 +115,12 @@ function makeBarChart(){
             tooltip.style("visibility", "hidden");
         })
         .on("click",function(d){
-            console.log("clicked: ");
-          })
+          //console.log("payment " + d3.select(this.parentNode).attr("Payment"));
+          //var dashboard = d3.select("#organDashboard").attr("barChosen",});
+          //console.log("InPieChart: "+dashboard.attr("pieChosen"));
+          //update line chart on click of pie chart.
+          redrawLine2(d3.select(this.parentNode).attr("Payment"));
+        })
         .on("mousemove", function(d){
             //console.log("x: "+d3.event.pageX+" y: "+d3.event.pageY);
             //tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX)+"px");

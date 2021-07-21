@@ -134,6 +134,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       var filteredData = groupedData.filter(function(d){return d.key == filter});
     }
     else if((svg.attr("sceneNum")=="2")){
+      console.log('grouped2')
       var filteredData = groupedData;
     }
     else if((svg.attr("sceneNum")=="3")){
@@ -304,7 +305,14 @@ function redrawLine1(filter)
   makeLineGraph1(filter);
 
 }
-function makeLineGraph2(){
+
+function redrawLine2(filter)
+{
+  d3.select('#TransplantLine').selectAll('*').remove();
+  makeLineGraph2(filter);
+
+}
+function makeLineGraph2(filter_passed2=""){
     d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearPaymentTransplantWaitlist2.csv").then(function(data){
         var scene2 = d3.select("#organDashboard");
         var graphNames = ["TransplantLine"];
@@ -331,9 +339,9 @@ function makeLineGraph2(){
                             .entries(data);*/
         //Create First Line Graph
         var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[0],colorBy=colorCol,xAxis=xCol,line="solid");//data.columns[2]);
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dashed");
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="dotted");
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[0],colorBy=colorCol,xAxis=xCol,line="solid",filter=filter_passed2);//data.columns[2]);
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dashed",filter=filter_passed2);
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="dotted",filter=filter_passed2);
         graph.selectAll(".xlabel").text(xCol);
         graph.selectAll(".ylabel").text(colName);
     })
