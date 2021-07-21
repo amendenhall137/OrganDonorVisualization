@@ -151,6 +151,28 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       var barColors = ['#FFFFFF'];
       colorByOptions = [filter];
       var filteredData = groupedData.filter(function(d){return d.key == filter});
+      
+      if(lineStyle == "solid"){ //Only add static legend one time
+      //Secondary static legend for color breakdown.
+          var legendSpacingStatic = 6;
+          var staticColors = ['#EE0000', '#85CA3A', '#00B0F0'];
+          var staticColorByOptions = ["Waitlist Additions", "Waitlist Removals","Transplants"];
+          var legendGStatic = svg.selectAll(".staticLegend").data(staticColorByOptions).enter().append("g")
+          var legendBarStatic =  legendGStatic.attr("class","staticLegend")
+                                //.attr("id", function(d){return (d[colorBy]+"_"+yAxis)})
+                                .append("rect")
+                                .attr("width", 20)
+                                .attr("height", 5)
+                                .attr("x",bigGraph.graphWidth+5)
+                                .attr("y",function(d,i) {return 30+10+legendSpacingStatic+i*parseInt(bigGraph.attrText.slice(0,-2));})
+                                .attr("fill", function(d,i) {return staticColors[i];});
+        //Add text
+          legendGStatic.append("text")
+                .attr('x',(bigGraph.graphWidth+10+parseInt(legendBarStatic.attr("width"))))
+                .attr('y', function(d,i) {return (30+10+legendSpacingStatic+i*parseInt(bigGraph.attrText.slice(0,-2)) + 0.5*parseInt(bigGraph.attrText.slice(0,-2))); })
+                .style("font-size",bigGraph.attrText)
+                .text(function(d,i) {return staticColorByOptions[i]});
+      }
     }
     else if((svg.attr("sceneNum")=="3")){
 
