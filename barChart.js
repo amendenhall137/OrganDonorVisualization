@@ -2,7 +2,7 @@
 var barColors = ['#EE0000', '#85CA3A', '#00B0F0'];
 function makeBarChart(){
     // set the dimensions and margins of the graph
-    const barMargin = {top: 10, right: 100, bottom: 40, left: 170};
+    const barMargin = {top: 50, right: 170, bottom: 75, left: 170};
 
     var bigBarGraph = {graphWidth: (900-barMargin.left-barMargin.right), graphHeight:(600-barMargin.top-barMargin.bottom),width: 900,height:600,attrText:"14px",titleText:"24px"};
     
@@ -12,7 +12,7 @@ function makeBarChart(){
         .attr("width", bigBarGraph.graphWidth + barMargin.left + barMargin.right)
         .attr("height", bigBarGraph.graphHeight + barMargin.top + barMargin.bottom)
         .attr("x",100+bigGraph.width)
-        .attr("y", 20)
+        .attr("y", 0)
         .append("g")
         .attr("transform",`translate(${barMargin.left},${barMargin.top})`);
     
@@ -35,7 +35,8 @@ function makeBarChart(){
           .range([0, bigBarGraph.graphHeight])
           .padding([0.2])
       svg.append("g")
-        .call(d3.axisLeft(y));
+        .call(d3.axisLeft(y))
+        .style("font-size",bigBarGraph.attrText);
     
       // Add X axis
       const x = d3.scaleLinear()
@@ -43,7 +44,16 @@ function makeBarChart(){
         .range([0, bigBarGraph.graphWidth]);
       svg.append("g")
         .attr("transform", `translate(0, ${bigBarGraph.graphHeight})`)
-        .call(d3.axisBottom(x).tickSize(0));
+        .call(d3.axisBottom(x).tickSize(0).tickFormat(function(d){return d/1000;}))
+        .style("font-size",bigBarGraph.attrText);
+      svg.append("text")
+        .attr("class", "xlabel")
+        .attr("id",("xlabel_"+ svg.attr("id")))
+        .attr("text-anchor", "middle")
+        .attr("x", bigBarGraph.graphWidth/2)
+        .attr("y", bigBarGraph.graphHeight + 30)
+        .style("font-size", bigBarGraph.attrText)
+        .text("Number of People (in thousands, 1995-2020)");
     
       // Another scale for subgroup position
       const ySubgroup = d3.scaleBand()

@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
-var margin = {top: 50, right: 50, bottom: 75, left: 50},
+var margin = {top: 50, right: 170, bottom: 75, left: 75},
     smallGraph = {graphWidth: (450-margin.left-margin.right), graphHeight:(300-margin.top-margin.bottom),width: 450,height:300,attrText:"12px",titleText:"20px"},
-    bigGraph = {graphWidth: (900-margin.left-margin.right), graphHeight:(600-margin.top-margin.bottom),width: 900,height:600,attrText:"14px",titleText:"24px"},
+    bigGraph = {graphWidth: (750-margin.left-margin.right), graphHeight:(600-margin.top-margin.bottom),width: 750,height:600,attrText:"14px",titleText:"24px"},
     padding = 10;
 var colors =['#F94040','#808080','#0000FF','#FF6000','#94641F','#AD07E3','#F0EA00','#000000','#00FF00','#FFA0A0','#C0B57B','#90BFF9','#A00000','#D4D4D4','#000080','#FFC080','#8C7E39','#A0FFA0','#FFC0E0','#ECE6CA','#008000'];
     

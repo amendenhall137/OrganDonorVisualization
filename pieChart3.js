@@ -1,11 +1,11 @@
 // set the dimensions and margins of the graph
-var Pie1margin = {top: 0, right: 170, bottom: 75, left: 75},
+var Pie3margin = {top: 50, right: 170, bottom: 75, left: 75},
     smallGraph = {graphWidth: (450-margin.left-margin.right), graphHeight:(300-margin.top-margin.bottom),width: 450,height:300,attrText:"12px",titleText:"20px"},
-    bigPie1Graph = {graphWidth: (750-margin.left-margin.right), graphHeight:(800-margin.top-margin.bottom),width: 750,height:800,attrText:"14px",titleText:"24px"},
-    padding = 0;
+    bigPie3Graph = {graphWidth: (750-margin.left-margin.right), graphHeight:(800-margin.top-margin.bottom),width: 750,height:800,attrText:"14px",titleText:"24px"},
+    padding = 10;
 
     
-function chartSetup2(svgContainer){
+function chartSetup3(svgContainer){
     /*//Graph1 = Transplant
     svgContainer.append("svg")
     .attr("width", bigGraph.width)
@@ -22,14 +22,14 @@ function chartSetup2(svgContainer){
 
     //Graph2 = TransplantByOrganPie
     svgContainer.append("svg")
-    .attr("width", bigPie1Graph.width)
-    .attr("height", bigPie1Graph.height)
-    .attr("x", padding+bigPie1Graph.width)
-    .attr("y", '-90px')
+    .attr("width", bigPie3Graph.width)
+    .attr("height", bigPie3Graph.height)
+    .attr("x", padding+bigPie3Graph.width)
+    .attr("y",'-90px')
     //.attr("style", "outline: thin solid green;")
     .append("g")
         .attr("transform",
-            "translate(" + bigPie1Graph.width/2 + "," + bigPie1Graph.height/2 + ")")
+            "translate(" + bigPie3Graph.width/2 + "," + bigPie3Graph.height/2 + ")")
         .attr("class","bigGraph")
         .attr("graphType","pie")
         .attr("id", "TransplantPie");
@@ -190,7 +190,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis){
 
 
 //Read the data and graph
-function makeGraphs2(){
+function makePieGraph3(){
   //d3.select('svg').selectAll('*').remove(); //Remove old graphs
   var colors = ['#000000', '#EE0000', '#7030A0', '#00B0F0', '#85CA3A', '#FF3FFF','#FF6000' ];
  
@@ -222,12 +222,11 @@ function makeGraphs2(){
     //Pie Chart
     var g = d3.select("#TransplantPie");
     //Add title
-    g.selectAll(".title").data("Breakdown By Organ").enter().append('text')
-      .attr("x", 0-bigPie1Graph.graphWidth/4+25)
+    /*g.selectAll(".title").data("Breakdown By Organ").enter().append('text')
+      .attr("x", 0-bigGraph.graphWidth/4+55)
       .attr("y",0+6)
-      .style("font-size","24px")
-      .text("Breakdown By Organ");
-    var radius = Math.min(bigPie1Graph.width, bigPie1Graph.height) / 2 -(Pie1margin.left+Pie1margin.right)/2;
+      .text("Breakdown By Organ");*/
+    var radius = Math.min(bigPie3Graph.width, bigPie3Graph.height) / 2 -(Pie3margin.left+Pie3margin.right)/2;
     var pieGroupBy = "Organ";
     var pieSumBy = "Year";
     var vals = "Transplant";
@@ -287,7 +286,7 @@ function makeGraphs2(){
           //var dashboard = d3.select("#organDashboard").attr("pieChosen",);
           //console.log("InPieChart: "+dashboard.attr("pieChosen"));
           //update line chart on click of pie chart.
-          redrawLine1(d.data.key);
+          redrawLine3(d.data.key);
 
         })
         .on("mousemove", function(d){
@@ -333,6 +332,7 @@ function makeGraphs2(){
     })
   
   })
+
 }
 
 //makeGraphs()
