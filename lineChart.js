@@ -134,8 +134,9 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       var filteredData = groupedData.filter(function(d){return d.key == filter});
     }
     else if((svg.attr("sceneNum")=="2")){
-      console.log('grouped2')
-      var filteredData = groupedData;
+      console.log(groupedData);
+      console.log(filter);
+      var filteredData = groupedData.filter(function(d){return d.key == filter});
     }
     else if((svg.attr("sceneNum")=="3")){
       var filteredData = groupedData;
