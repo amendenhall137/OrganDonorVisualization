@@ -13,7 +13,7 @@ function chartSetup(svgContainer){
     .attr("height", bigGraph.height)
     .attr("x", padding)
     .attr("y", padding)
-    .attr("style", "outline: thin solid red;")
+    //.attr("style", "outline: thin solid red;")
     .append("g")
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")")
@@ -224,6 +224,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
     legendG.append("text")
           .attr('x',(width+10+parseInt(legendBar.attr("width"))))
           .attr('y', function(d,i) {return (10+legendSpacing+i*parseInt(attrText.slice(0,-2)) + 0.5*parseInt(attrText.slice(0,-2))); })
+          .attr('class','legendText')
           .style("font-size",attrText)
           .text(function(d,i) {return colorByOptions[i]});
       }
@@ -257,8 +258,9 @@ function makeLineGraph1(filter_passed="All Organs"){
     var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY); 
     addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid",filter="All Organs"); 
     addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid2",filter=filter_passed);//data.columns[2]);
-    graph.selectAll(".xlabel").text(xCol);
-    graph.selectAll(".ylabel").text(colName);
+    graph.selectAll(".xlabel").text("Year");
+    graph.selectAll(".ylabel").text("Number of Transplants");
+    graph.selectAll(".title").text("Transplants over Time");
   })
 }
 
@@ -297,8 +299,10 @@ function makeLineGraph2(filter_passed2="Private insurance"){
         addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[0],colorBy=colorCol,xAxis=xCol,line="solid",filter=filter_passed2);//data.columns[2]);
         addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dashed",filter=filter_passed2);
         addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="dotted",filter=filter_passed2);
-        graph.selectAll(".xlabel").text(xCol);
-        graph.selectAll(".ylabel").text(colName);
+        graph.selectAll(".xlabel").text("Year");
+        graph.selectAll(".ylabel").text("Number of People");
+        graph.selectAll(".title").text("Waitlist Compared to Number of Transplants")
+        graph.selectAll(".legendText").attr("text-decoration","underline").attr("font-weight", 900).attr("font-size",'20px');
     })
 }
 

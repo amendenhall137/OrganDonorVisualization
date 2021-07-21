@@ -131,6 +131,10 @@ function makeBarChart(){
         })
 
     //Legend
+    //remove underscores in values.
+    for(var sgroup in subgroups){
+      subgroups[sgroup] = subgroups[sgroup].replace("_", " ");
+    }
     //Add rect
     var legendSpacing = 6;
     var legendG = svg.selectAll(".legend").data(subgroups).enter().append("g")

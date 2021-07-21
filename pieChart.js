@@ -26,7 +26,7 @@ function chartSetup2(svgContainer){
     .attr("height", bigGraph.height)
     .attr("x", padding+bigGraph.width)
     .attr("y", padding)
-    .attr("style", "outline: thin solid green;")
+    //.attr("style", "outline: thin solid green;")
     .append("g")
         .attr("transform",
             "translate(" + bigGraph.width/2 + "," + bigGraph.height/2 + ")")
@@ -221,6 +221,11 @@ function makeGraphs2(){
 
     //Pie Chart
     var g = d3.select("#TransplantPie");
+    //Add title
+    g.selectAll(".title").data("Breakdown By Organ").enter().append('text')
+      .attr("x", 0-bigGraph.graphWidth/4+55)
+      .attr("y",0+6)
+      .text("Breakdown By Organ");
     var radius = Math.min(bigGraph.width, bigGraph.height) / 2 -(margin.left+margin.right)/2;
     var pieGroupBy = "Organ";
     var pieSumBy = "Year";
