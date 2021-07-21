@@ -192,7 +192,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis){
 //Read the data and graph
 function makeGraphs2(){
   //d3.select('svg').selectAll('*').remove(); //Remove old graphs
-  var colors =['#F94040','#808080','#0000FF','#FF6000','#94641F','#AD07E3','#F0EA00','#000000','#00FF00','#FFA0A0','#C0B57B','#90BFF9','#A00000','#D4D4D4','#000080','#FFC080','#8C7E39','#A0FFA0','#FFC0E0','#ECE6CA','#008000'];
+  var colors = ['#000000', '#EE0000', '#7030A0', '#00B0F0', '#85CA3A', '#FF3FFF','#FF6000' ];
  
   //Data and creation
   d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantWaitlist1and3.csv").then(function(data) {

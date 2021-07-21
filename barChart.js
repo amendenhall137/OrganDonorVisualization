@@ -1,5 +1,5 @@
 //altered from https://www.d3-graph-gallery.com/graph/barplot_grouped_basicWide.html, https://bl.ocks.org/bricedev/0d95074b6d83a77dc3ad
-
+var barColors = ['#EE0000', '#85CA3A', '#00B0F0'];
 function makeBarChart(){
     // set the dimensions and margins of the graph
     const barMargin = {top: 10, right: 100, bottom: 40, left: 170};
@@ -54,7 +54,7 @@ function makeBarChart(){
       // color palette = one color per subgroup
       const color = d3.scaleOrdinal()
         .domain(subgroups)
-        .range(colors.slice(0,3));
+        .range(barColors.slice(0,3));
 
         //group data by payment and dataset
         var groupedData = d3.nest() // nest function allows to group the calculation per level of a factor
@@ -70,7 +70,7 @@ function makeBarChart(){
             
             
             .entries(data);
-    console.log(groupedData);
+    //console.log(groupedData);
     // Show the bars
     var bars =  svg.append("g")
         .selectAll("g")
@@ -141,7 +141,7 @@ function makeBarChart(){
                             .attr("height", 5)
                             .attr("x",bigBarGraph.graphWidth-100)
                             .attr("y",function(d,i) {return 10+legendSpacing+i*parseInt(bigBarGraph.attrText.slice(0,-2));})
-                            .attr("fill", function(d,i) {return colors.slice(0,subgroups.length)[i];});
+                            .attr("fill", function(d,i) {return barColors.slice(0,subgroups.length)[i];});
     //Add text
     //console.log(bigBarGraph.graphWidth+10+parseInt(legendBar.attr("width")));
     legendG.append("text")
