@@ -2,7 +2,7 @@
 var barColors = ['#EE0000', '#85CA3A', '#00B0F0'];
 function makeBarChart(){
     // set the dimensions and margins of the graph
-    const barMargin = {top: 50, right: 170, bottom: 75, left: 170};
+    const barMargin = {top: 50, right: 170, bottom: 75, left: 150};
 
     var bigBarGraph = {graphWidth: (900-barMargin.left-barMargin.right), graphHeight:(600-barMargin.top-barMargin.bottom),width: 900,height:600,attrText:"14px",titleText:"24px"};
     
@@ -11,7 +11,7 @@ function makeBarChart(){
       .append("svg")
         .attr("width", bigBarGraph.graphWidth + barMargin.left + barMargin.right)
         .attr("height", bigBarGraph.graphHeight + barMargin.top + barMargin.bottom)
-        .attr("x",100+bigGraph.width)
+        .attr("x",bigGraph.width)
         .attr("y", 0)
         .append("g")
         .attr("transform",`translate(${barMargin.left},${barMargin.top})`);

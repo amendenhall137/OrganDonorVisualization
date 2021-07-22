@@ -1,5 +1,5 @@
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #00B0F0; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -13,8 +13,8 @@
   .center {
     margin: 0;
     position: absolute;
-    top: 70%;
-    left: 35%;
+    top: 600px;
+    left: 600px;
     -ms-transform: translate(-50%, -50%);*/
     transform: translate(-50%, -50%);
   }
