@@ -14,7 +14,7 @@
   .center {
     margin: 0;
     position: absolute;
-    top: 650px;
+    top: 750px;
     left: 700px;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -40,4 +40,25 @@
     left: 1143px;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+  }
+
+  .messagingTop{
+    font-size: 20px;
+    width: 1500px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+
+  .messagingBottom{
+    font-size: 20px;
+    position: absolute;
+    top: 680px;
+    left: 340px;  
+    padding-top: 20px;
+    padding-bottom: 30px;  
+
+  }
+
+  #organDashboard{
+
   }
