@@ -1,15 +1,4 @@
 Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
-2021,Children's Public Insurance (CHIP),66,55,39
-2021,Donation,2,2,1
-2021,Free Care,13,18,10
-2021,Medicaid,4197,4204,1921
-2021,Medicare,11898,13277,8035
-2021,Other Gov't Insurance,416,452,175
-2021,Private insurance,14161,14901,6415
-2021,Self,50,45,23
-2021,Unknown,1715,282,4165
-2021,VA Public Insurance,581,553,239
-2020,Children's Public Insurance (CHIP),171,150,112
 2020,Donation,9,7,3
 2020,Free Care,28,28,20
 2020,Medicaid,7806,7898,4140
@@ -19,7 +8,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2020,Self,67,86,45
 2020,Unknown,54,43,871
 2020,VA Public Insurance,947,1085,496
-2019,Children's Public Insurance (CHIP),111,145,115
 2019,Donation,3,7,3
 2019,Free Care,18,20,15
 2019,Medicaid,8028,7843,4085
@@ -29,7 +17,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2019,Self,113,117,99
 2019,Unknown,41,41,890
 2019,VA Public Insurance,1098,1037,514
-2018,Children's Public Insurance (CHIP),153,134,81
 2018,Donation,6,5,2
 2018,Free Care,21,26,13
 2018,Medicaid,7996,7602,3951
@@ -39,7 +26,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2018,Self,92,121,67
 2018,Unknown,37,40,847
 2018,VA Public Insurance,1028,983,454
-2017,Children's Public Insurance (CHIP),146,98,74
 2017,Donation,5,7,5
 2017,Free Care,18,27,14
 2017,Medicaid,7385,7348,3691
@@ -49,7 +35,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2017,Self,91,106,52
 2017,Unknown,38,43,796
 2017,VA Public Insurance,1000,938,473
-2016,Children's Public Insurance (CHIP),113,119,93
 2016,Donation,4,6,4
 2016,Free Care,25,33,17
 2016,Medicaid,7223,6892,3441
@@ -59,7 +44,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2016,Self,91,115,70
 2016,Unknown,24,33,809
 2016,VA Public Insurance,1066,920,428
-2015,Children's Public Insurance (CHIP),105,109,73
 2015,Donation,7,10,3
 2015,Free Care,20,40,17
 2015,Medicaid,6900,6370,3184
@@ -69,7 +53,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2015,Self,116,167,72
 2015,Unknown,26,31,722
 2015,VA Public Insurance,858,780,360
-2014,Children's Public Insurance (CHIP),109,99,72
 2014,Donation,5,5,3
 2014,Free Care,27,46,11
 2014,Medicaid,6672,5823,2657
@@ -79,7 +62,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2014,Self,135,148,67
 2014,Unknown,40,64,713
 2014,VA Public Insurance,915,778,375
-2013,Children's Public Insurance (CHIP),114,104,58
 2013,Donation,6,6,4
 2013,Free Care,59,58,37
 2013,Medicaid,6175,5661,2477
@@ -89,7 +71,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2013,Self,144,166,75
 2013,Unknown,51,84,763
 2013,VA Public Insurance,876,746,361
-2012,Children's Public Insurance (CHIP),92,99,67
 2012,Donation,6,3,3
 2012,Free Care,51,62,34
 2012,Medicaid,5621,5427,2288
@@ -99,7 +80,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2012,Self,141,186,75
 2012,Unknown,53,82,807
 2012,VA Public Insurance,682,637,357
-2011,Children's Public Insurance (CHIP),91,97,80
 2011,Donation,9,8,4
 2011,Free Care,50,52,37
 2011,Medicaid,5674,5573,2453
@@ -109,7 +89,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2011,Self,125,184,72
 2011,Unknown,75,138,804
 2011,VA Public Insurance,757,573,324
-2010,Children's Public Insurance (CHIP),117,103,90
 2010,Donation,1,5,2
 2010,Free Care,63,74,22
 2010,Medicaid,5792,5470,2547
@@ -119,7 +98,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2010,Self,175,212,93
 2010,Unknown,67,126,831
 2010,VA Public Insurance,681,532,308
-2009,Children's Public Insurance (CHIP),110,111,87
 2009,Donation,8,11,13
 2009,Free Care,67,64,40
 2009,Medicaid,5752,5367,2539
@@ -129,7 +107,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2009,Self,204,251,102
 2009,Unknown,58,147,852
 2009,VA Public Insurance,685,555,336
-2008,Children's Public Insurance (CHIP),144,125,106
 2008,Donation,14,14,6
 2008,Free Care,45,80,33
 2008,Medicaid,5635,5404,2586
@@ -139,7 +116,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2008,Self,236,262,95
 2008,Unknown,70,211,838
 2008,VA Public Insurance,596,484,279
-2007,Children's Public Insurance (CHIP),111,92,100
 2007,Donation,11,14,6
 2007,Free Care,81,107,41
 2007,Medicaid,5506,5224,2662
@@ -149,7 +125,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2007,Self,262,285,133
 2007,Unknown,89,218,864
 2007,VA Public Insurance,546,458,293
-2006,Children's Public Insurance (CHIP),120,107,103
 2006,Donation,12,9,3
 2006,Free Care,95,69,44
 2006,Medicaid,5669,5180,2749
@@ -159,7 +134,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2006,Self,234,286,146
 2006,Unknown,79,344,925
 2006,VA Public Insurance,567,458,332
-2005,Children's Public Insurance (CHIP),87,63,63
 2005,Donation,6,10,12
 2005,Free Care,90,93,65
 2005,Medicaid,5470,4969,2627
@@ -169,7 +143,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2005,Self,249,266,103
 2005,Unknown,182,273,901
 2005,VA Public Insurance,514,433,294
-2004,Children's Public Insurance (CHIP),59,21,45
 2004,Donation,17,13,8
 2004,Free Care,97,99,57
 2004,Medicaid,5209,4405,2442
@@ -179,7 +152,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2004,Self,418,244,102
 2004,Unknown,95,346,883
 2004,VA Public Insurance,442,304,209
-2003,Children's Public Insurance (CHIP),1,1,2
 2003,Donation,6,8,8
 2003,Free Care,71,75,37
 2003,Medicaid,4458,4058,2187
@@ -189,7 +161,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2003,Self,212,207,103
 2003,Unknown,22,334,821
 2003,VA Public Insurance,325,251,186
-2002,Children's Public Insurance (CHIP),1,0,0
 2002,Donation,7,13,7
 2002,Free Care,78,102,38
 2002,Medicaid,4258,4265,2106
@@ -199,7 +170,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2002,Self,213,267,113
 2002,Unknown,34,630,12
 2002,VA Public Insurance,277,212,160
-2001,Children's Public Insurance (CHIP),0,0,1
 2001,Donation,10,11,9
 2001,Free Care,110,79,47
 2001,Medicaid,4402,3741,2053
@@ -209,7 +179,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2001,Self,262,302,171
 2001,Unknown,30,614,9
 2001,VA Public Insurance,253,190,148
-2000,Children's Public Insurance (CHIP),0,0,0
 2000,Donation,8,15,7
 2000,Free Care,75,88,57
 2000,Medicaid,4278,3440,1835
@@ -219,7 +188,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 2000,Self,274,292,160
 2000,Unknown,45,919,3
 2000,VA Public Insurance,255,145,140
-1999,Children's Public Insurance (CHIP),0,0,2
 1999,Donation,34,16,18
 1999,Free Care,87,90,45
 1999,Medicaid,3960,3244,1798
@@ -229,7 +197,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 1999,Self,367,337,177
 1999,Unknown,209,1439,85
 1999,VA Public Insurance,173,112,116
-1998,Children's Public Insurance (CHIP),0,0,0
 1998,Donation,13,15,10
 1998,Free Care,111,86,57
 1998,Medicaid,3949,2978,1780
@@ -239,7 +206,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 1998,Self,400,314,171
 1998,Unknown,220,1866,192
 1998,VA Public Insurance,149,77,76
-1997,Children's Public Insurance (CHIP),0,0,0
 1997,Donation,17,18,14
 1997,Free Care,128,119,56
 1997,Medicaid,3638,2654,1758
@@ -249,7 +215,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 1997,Self,396,343,181
 1997,Unknown,207,2816,208
 1997,VA Public Insurance,86,47,56
-1996,Children's Public Insurance (CHIP),0,0,0
 1996,Donation,23,18,17
 1996,Free Care,125,123,62
 1996,Medicaid,3652,2555,1869
@@ -259,7 +224,6 @@ Year,Payment,Waitlist_Additions,Waitlist_Removals,Transplants
 1996,Self,395,299,199
 1996,Unknown,311,4523,396
 1996,VA Public Insurance,27,19,32
-1995,Children's Public Insurance (CHIP),0,0,1
 1995,Donation,22,21,18
 1995,Free Care,160,118,76
 1995,Medicaid,3504,2113,1737
