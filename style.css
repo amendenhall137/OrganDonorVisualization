@@ -10,6 +10,10 @@
     border-radius: 5px;
   }
 
+  button:hover {
+    background: #3e7db4
+  }
+
  
   .center {
     margin: 0;
@@ -20,7 +24,7 @@
     transform: translate(-50%, -50%);
   }
 
-  #organDonor{
+  .organDonorButton{
     background-color: #7030A0;    /* Green */
     border: none;
     color: white;
@@ -30,6 +34,10 @@
     display: inline-block;
     font-size: 16px;
     border-radius: 5px;
+  }
+
+  .organDonorButton:hover{
+    background: #3d1a57;
   }
 
  
@@ -71,6 +79,3 @@
 
   }
 
-  #organDashboard{
-
-  }
