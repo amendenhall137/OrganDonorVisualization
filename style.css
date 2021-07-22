@@ -14,8 +14,8 @@
   .center {
     margin: 0;
     position: absolute;
-    top: 750px;
-    left: 700px;
+    top: 840px;
+    left: 790px;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
   }
@@ -36,7 +36,7 @@
   .organCenter {
     margin: 0;
     position: absolute;
-    top: 315px;
+    top: 410px;
     left: 1143px;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -47,15 +47,27 @@
     width: 1500px;
     padding-top: 20px;
     padding-bottom: 30px;
+    text-align: center;
   }
 
   .messagingBottom{
     font-size: 20px;
     position: absolute;
-    top: 680px;
+    top: 710px;
     left: 340px;  
     padding-top: 20px;
     padding-bottom: 30px;  
+    text-align: center;
+
+  }
+  .messagingBottom1{
+    font-size: 20px;
+    position: absolute;
+    top: 710px;
+    left: 410px;  
+    padding-top: 20px;
+    padding-bottom: 30px;  
+    text-align: center;
 
   }
 
