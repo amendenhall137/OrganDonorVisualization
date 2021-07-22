@@ -1,21 +1,22 @@
 .button {
-    background-color: #00B0F0; /* Green */
+    background-color: #96C0E6; /* Green */
     border: none;
-    color: white;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    border-radius: 5px;
   }
 
  
   .center {
     margin: 0;
     position: absolute;
-    top: 600px;
-    left: 600px;
-    -ms-transform: translate(-50%, -50%);*/
+    top: 650px;
+    left: 700px;
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
   }
 

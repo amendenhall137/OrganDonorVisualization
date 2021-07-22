@@ -69,7 +69,7 @@ function setupAxes(svg, xmax=0, ymax=0, xmin=0, ymin=0){
         //yaxis
         svg.append("g")
            .style("font-size", attrText)
-           .call(d3.axisLeft(y));
+           .call(d3.axisLeft(y).tickFormat(function(d){return d/1000;}));
         //Ylabel
         svg.append("text")
           .attr("class", "ylabel")
@@ -175,9 +175,35 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       }
     }
     else if((svg.attr("sceneNum")=="3")){
-
+      colorList = ['#000000', '#EE0000', '#7030A0', '#00B0F0', '#85CA3A', '#FF3FFF','#FF6000' ];
       var barColors = colorList;
-      var filteredData = groupedData;
+      var filteredData = groupedData.filter(function(d){return d.key == filter});;
+      if(lineStyle == "dashed"){
+        dash = (20,2);
+      }
+
+      //Secondary static legend for line style.
+      var legendSpacingStatic = 6;
+      var staticDashes = [(0,0), (5,2)];
+      var staticColorByOptions = ["Transplants", "Deaths"];
+      var legendGStatic = svg.selectAll(".staticLegend").data(staticColorByOptions).enter().append("g")
+      var legendBarStatic =  legendGStatic.attr("class","lineLegend")
+                            //.attr("id", function(d){return (d[colorBy]+"_"+yAxis)})
+                            .append("line")//making a line for legend
+                            .attr("x1", bigGraph.graphWidth+5)
+                            .attr("x2", bigGraph.graphWidth+5+20)
+                            .attr("y1", function(d,i) {return 140+10+legendSpacingStatic+i*parseInt(bigGraph.attrText.slice(0,-2));})
+                            .attr("y2", function(d,i) {return 140+10+legendSpacingStatic+i*parseInt(bigGraph.attrText.slice(0,-2));})
+                            .style("stroke-dasharray", function(d,i){return staticDashes[i];})//dashed array for line
+                            .style("stroke", "black");
+
+   
+    //Add text
+      legendGStatic.append("text")
+            .attr('x',(bigGraph.graphWidth+10+parseInt(20)))
+            .attr('y', function(d,i) {return (137+10+legendSpacingStatic+i*parseInt(bigGraph.attrText.slice(0,-2)) + 0.5*parseInt(bigGraph.attrText.slice(0,-2))); })
+            .style("font-size",bigGraph.attrText)
+            .text(function(d,i) {return staticColorByOptions[i]});
     }
     //console.log(colorByOptions);
     var colorScale = d3.scaleOrdinal()
@@ -259,7 +285,7 @@ function makeLineGraph1(filter_passed="All Organs"){
     addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid",filter="All Organs"); 
     addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid2",filter=filter_passed);//data.columns[2]);
     graph.selectAll(".xlabel").text("Year");
-    graph.selectAll(".ylabel").text("Number of Transplants");
+    graph.selectAll(".ylabel").text("Number of Transplants (in thousands)");
     graph.selectAll(".title").text("Transplants over Time");
   })
 }
@@ -300,13 +326,20 @@ function makeLineGraph2(filter_passed2="Private insurance"){
         addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dashed",filter=filter_passed2);
         addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="dotted",filter=filter_passed2);
         graph.selectAll(".xlabel").text("Year");
-        graph.selectAll(".ylabel").text("Number of People");
+        graph.selectAll(".ylabel").text("Number of People (in thousands)");
         graph.selectAll(".title").text("Waitlist Compared to Number of Transplants")
         graph.selectAll(".legendText").attr("text-decoration","underline").attr("font-weight", 900).attr("font-size",'20px');
     })
 }
 
-function makeLineGraph3(){
+function redrawLine3(filter)
+{
+  d3.select('#TransplantLine').selectAll('*').remove();
+  makeLineGraph3(filter);
+
+}
+
+function makeLineGraph3(filter_passed3=""){
     //Data and creation
     d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantWaitlist1and3.csv").then(function(data) {
         //Var names
@@ -326,11 +359,21 @@ function makeLineGraph3(){
         
         //Create First Line Graph
         var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
-        console.log(graph.attr("id"));
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid");//data.columns[2]);
-        console.log(graph.attr("id"));
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis="DeathSickness",colorBy=colorCol,xAxis=xCol,line="dashed");
+
+        //All organ dataset.
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid2",filter="All Organs");
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis="DeathSickness",colorBy=colorCol,xAxis=xCol,line="dashed",filter="All Organs");
+
+        //Organ Specific Dataset.
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid",filter=filter_passed3);
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis="DeathSickness",colorBy=colorCol,xAxis=xCol,line="dashed",filter=filter_passed3);
+        
+        
+        
+        
+        
         graph.selectAll(".xlabel").text(xCol);
-        graph.selectAll(".ylabel").text(colName);
+        graph.selectAll(".ylabel").text("Number of People (in thousands)");
+        graph.selectAll(".title").text("Transplant Waiting List Deaths");
     })
 }
