@@ -79,3 +79,18 @@
 
   }
 
+  .introHeader{
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+  }
+
+  .introBody{
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .startButton{
+    left: 600px;
+  }
+
