@@ -163,7 +163,41 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       var filteredData = groupedData.filter(function(d){return d.key == filter});
       
       if(lineStyle == "solid"){ //Only add static legend one time
-      
+        
+        ///Static legend for all Payment dash breakdown.
+        var legendSpacingStatic3 = 6;
+        //var staticColors2 = ['#EE0000', '#85CA3A', '#00B0F0'];
+        var staticColorByOptions3 = ["Waitlist Additions","Transplants"];
+        var staticColors3 = ['black','black'];//,
+        var staticDashes3 = [(20,8),(0,0)];
+        var legendGStatic3 = svg.selectAll(".staticLegend3").data(staticColorByOptions3).enter().append("g")
+        var legendBarStatic3 =  legendGStatic3.attr("class","staticLegend3")
+                              //.attr("id", function(d){return (d[colorBy]+"_"+yAxis)})
+                              .append("line")
+                              .attr("x1", 30+bigGraph.graphWidth+9)
+                              .attr("x2", 30+bigGraph.graphWidth+9+20)
+                              .attr("y1", function(d,i) {return 70+20+12+legendSpacingStatic3+i*parseInt(bigGraph.attrText.slice(0,-2));})
+                              .attr("y2", function(d,i) {return 70+20+12+legendSpacingStatic3+i*parseInt(bigGraph.attrText.slice(0,-2));})
+                              .style("stroke-dasharray", function(d,i){return staticDashes3[i];})//dashed array for line
+                              .style("stroke", function(d,i){return staticColors3[i]});
+        legendGStatic3.append("text")
+              .attr('x',(30+bigGraph.graphWidth+15+parseInt(20)))
+              .attr('y', function(d,i) {return (70+20+10+legendSpacingStatic3+i*parseInt(bigGraph.attrText.slice(0,-2)) + 0.5*parseInt(bigGraph.attrText.slice(0,-2))); })
+              .style("font-size",bigGraph.attrText)
+              .text(function(d,i) {return staticColorByOptions3[i]});
+        //Static All Payments text
+        legendGStatic3.append("text")
+              .attr('x',(width+10+20))
+              .attr('y', function(d,i) {return (10+80);})
+              .attr('class','legendText3')
+              .style("font-size",attrText)
+              .text("All Payments")
+              .attr("text-decoration","underline").attr("font-weight", 900).attr("font-size",'20px');
+
+
+
+      //Only add this legend if specific subset picked
+      if(filter != ""){
       //Third static legend for dash breakdown.
       var legendSpacingStatic2 = 6;
       //var staticColors2 = ['#EE0000', '#85CA3A', '#00B0F0'];
@@ -174,17 +208,20 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       var legendBarStatic2 =  legendGStatic2.attr("class","staticLegend2")
                             //.attr("id", function(d){return (d[colorBy]+"_"+yAxis)})
                             .append("line")
-                            .attr("x1", bigGraph.graphWidth+9)
-                            .attr("x2", bigGraph.graphWidth+9+20)
-                            .attr("y1", function(d,i) {return 50+12+legendSpacingStatic2+i*parseInt(bigGraph.attrText.slice(0,-2));})
-                            .attr("y2", function(d,i) {return 50+12+legendSpacingStatic2+i*parseInt(bigGraph.attrText.slice(0,-2));})
+                            .attr("x1", 30+bigGraph.graphWidth+9)
+                            .attr("x2", 30+bigGraph.graphWidth+9+20)
+                            .attr("y1", function(d,i) {return 20+12+legendSpacingStatic2+i*parseInt(bigGraph.attrText.slice(0,-2));})
+                            .attr("y2", function(d,i) {return 20+12+legendSpacingStatic2+i*parseInt(bigGraph.attrText.slice(0,-2));})
                             .style("stroke-dasharray", function(d,i){return staticDashes2[i];})//dashed array for line
                             .style("stroke", function(d,i){return staticColors2[i]});
       legendGStatic2.append("text")
-            .attr('x',(bigGraph.graphWidth+15+parseInt(20)))
-            .attr('y', function(d,i) {return (20+30+10+legendSpacingStatic2+i*parseInt(bigGraph.attrText.slice(0,-2)) + 0.5*parseInt(bigGraph.attrText.slice(0,-2))); })
+            .attr('x',(30+bigGraph.graphWidth+15+parseInt(20)))
+            .attr('y', function(d,i) {return (20+10+legendSpacingStatic2+i*parseInt(bigGraph.attrText.slice(0,-2)) + 0.5*parseInt(bigGraph.attrText.slice(0,-2))); })
             .style("font-size",bigGraph.attrText)
             .text(function(d,i) {return staticColorByOptions2[i]});
+      }
+
+
       }
     }
     else if((svg.attr("sceneNum")=="3")){
