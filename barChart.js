@@ -1,5 +1,5 @@
 //altered from https://www.d3-graph-gallery.com/graph/barplot_grouped_basicWide.html, https://bl.ocks.org/bricedev/0d95074b6d83a77dc3ad
-var barColors = ['#EE0000', '#85CA3A', '#00B0F0'];
+var barColors = ['#EE0000','#85CA3A','#00B0F0'];
 function makeBarChart(){
     // set the dimensions and margins of the graph
     const barMargin = {top: 50, right: 170, bottom: 75, left: 150};
@@ -21,8 +21,8 @@ function makeBarChart(){
     
       // List of subgroups = header of the csv files
       var subgroups = data.columns.slice(1);
-      subgroups = subgroups.slice(1,subgroups.length);
-      //console.log(subgroups)
+      subgroups = ["Waitlist_Additions","Transplants"];
+      console.log(subgroups)
     
       // List of groups = species here = value of the first column called group -> I show them on the Y axis
       var groups = data.map(d => d.Payment)

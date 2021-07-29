@@ -139,7 +139,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
 
       if(lineStyle == "solid"){
         dash = (0,0);
-        colorList = ['#00B0F0'];}
+        colorList = ['#85CA3A'];}
       else if(lineStyle == "solid2"){
         dash = (0,0);
         colorList = ['#000000'];}
@@ -148,14 +148,14 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
         colorList = ['#EE0000'];}
       else if(lineStyle == "dashed2"){
         dash = (20,8);
-        console.log("dash")
+        //console.log("dash")
         colorList = ['#000000'];}
       else if(lineStyle == "dotted"){
         dash = (4,2);
-        colorList = ['#85CA3A'];}
+        colorList = ['#EE0000'];}
       else if(lineStyle == "dotted2"){
         dash = (4,2);
-        console.log("dotted")
+        //console.log("dotted")
         colorList = ['#000000'];} 
 
       var barColors = ['#FFFFFF'];
@@ -163,25 +163,28 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       var filteredData = groupedData.filter(function(d){return d.key == filter});
       
       if(lineStyle == "solid"){ //Only add static legend one time
-      //Secondary static legend for color breakdown.
-          var legendSpacingStatic = 6;
-          var staticColors = ['#EE0000', '#85CA3A', '#00B0F0'];
-          var staticColorByOptions = ["Waitlist Additions", "Waitlist Removals","Transplants"];
-          var legendGStatic = svg.selectAll(".staticLegend").data(staticColorByOptions).enter().append("g")
-          var legendBarStatic =  legendGStatic.attr("class","staticLegend")
-                                //.attr("id", function(d){return (d[colorBy]+"_"+yAxis)})
-                                .append("rect")
-                                .attr("width", 20)
-                                .attr("height", 5)
-                                .attr("x",bigGraph.graphWidth+5)
-                                .attr("y",function(d,i) {return 30+10+legendSpacingStatic+i*parseInt(bigGraph.attrText.slice(0,-2));})
-                                .attr("fill", function(d,i) {return staticColors[i];});
-        //Add text
-          legendGStatic.append("text")
-                .attr('x',(bigGraph.graphWidth+10+parseInt(legendBarStatic.attr("width"))))
-                .attr('y', function(d,i) {return (30+10+legendSpacingStatic+i*parseInt(bigGraph.attrText.slice(0,-2)) + 0.5*parseInt(bigGraph.attrText.slice(0,-2))); })
-                .style("font-size",bigGraph.attrText)
-                .text(function(d,i) {return staticColorByOptions[i]});
+      
+      //Third static legend for dash breakdown.
+      var legendSpacingStatic2 = 6;
+      //var staticColors2 = ['#EE0000', '#85CA3A', '#00B0F0'];
+      var staticColorByOptions2 = ["Waitlist Additions","Transplants"];
+      var staticColors2 = ['#EE0000','#85CA3A'];//,
+      var staticDashes2 = [(20,8),(0,0)];
+      var legendGStatic2 = svg.selectAll(".staticLegend2").data(staticColorByOptions2).enter().append("g")
+      var legendBarStatic2 =  legendGStatic2.attr("class","staticLegend2")
+                            //.attr("id", function(d){return (d[colorBy]+"_"+yAxis)})
+                            .append("line")
+                            .attr("x1", bigGraph.graphWidth+9)
+                            .attr("x2", bigGraph.graphWidth+9+20)
+                            .attr("y1", function(d,i) {return 50+12+legendSpacingStatic2+i*parseInt(bigGraph.attrText.slice(0,-2));})
+                            .attr("y2", function(d,i) {return 50+12+legendSpacingStatic2+i*parseInt(bigGraph.attrText.slice(0,-2));})
+                            .style("stroke-dasharray", function(d,i){return staticDashes2[i];})//dashed array for line
+                            .style("stroke", function(d,i){return staticColors2[i]});
+      legendGStatic2.append("text")
+            .attr('x',(bigGraph.graphWidth+15+parseInt(20)))
+            .attr('y', function(d,i) {return (20+30+10+legendSpacingStatic2+i*parseInt(bigGraph.attrText.slice(0,-2)) + 0.5*parseInt(bigGraph.attrText.slice(0,-2))); })
+            .style("font-size",bigGraph.attrText)
+            .text(function(d,i) {return staticColorByOptions2[i]});
       }
     }
     else if((svg.attr("sceneNum")=="3")){
@@ -189,12 +192,12 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       var barColors = colorList;
       var filteredData = groupedData.filter(function(d){return d.key == filter});;
       if(lineStyle == "dashed"){
-        dash = (20,2);
+        dash = (20,8);
       }
 
       //Secondary static legend for line style.
       var legendSpacingStatic = 6;
-      var staticDashes = [(0,0), (5,2)];
+      var staticDashes = [(0,0), (20,6)];
       var staticColorByOptions = ["Transplants", "Deaths"];
       var legendGStatic = svg.selectAll(".staticLegend").data(staticColorByOptions).enter().append("g")
       var legendBarStatic =  legendGStatic.attr("class","lineLegend")
@@ -206,9 +209,6 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
                             .attr("y2", function(d,i) {return 140+10+legendSpacingStatic+i*parseInt(bigGraph.attrText.slice(0,-2));})
                             .style("stroke-dasharray", function(d,i){return staticDashes[i];})//dashed array for line
                             .style("stroke", "black");
-
-   
-    //Add text
       legendGStatic.append("text")
             .attr('x',(bigGraph.graphWidth+10+parseInt(20)))
             .attr('y', function(d,i) {return (137+10+legendSpacingStatic+i*parseInt(bigGraph.attrText.slice(0,-2)) + 0.5*parseInt(bigGraph.attrText.slice(0,-2))); })
@@ -286,7 +286,7 @@ function makeLineGraph1(filter_passed="All Organs"){
     var colName = "Transplant"//graph.attr("id"); //Column name must match g id for that graph
     //Determine max and min for graph
     var minY = 0//d3.min(data, function(d) {return parseFloat(d[colName])-parseFloat(d[colName])*0.1;});
-    var maxY = d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
+    var maxY = 70000//d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
     var maxX = 2020//d3.max(data, function(d) {return parseFloat(d[xCol])+parseFloat(d[xCol])*0.1;}); //Auto-determine max +10%
     var minX = 1995//d3.min(data, function(d) {return parseFloat(d[xCol])-parseFloat(d[xCol])*0.1;}); //Auto-determine lowest value -10%
     //console.log("inlinePie"+scene1.attr("pieChosen"));
@@ -326,19 +326,19 @@ function makeLineGraph2(filter_passed2=""){
         
         //Determine max and min for graph
         var minY = 0;//d3.min(data, function(d) {return parseFloat(d[colName])-parseFloat(d[colName])*0.1;});
-        var maxY = 50000;//d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
+        var maxY = 70000;//d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
         var maxX = 2020;//d3.max(data, function(d) {return parseFloat(d[xCol])+parseFloat(d[xCol])*0.1;}); //Auto-determine max +10%
         var minX = 1995;//d3.min(data, function(d) {return parseFloat(d[xCol])-parseFloat(d[xCol])*0.1;}); //Auto-determine lowest value -10%
 
         //Create First Line Graph
         var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
         addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[0],colorBy=colorCol,xAxis=xCol,line="dashed2",filter="All Payment"); //Waitlist Additions
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dotted2",filter="All Payment"); //Waitlist Removals
+        //addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dotted2",filter="All Payment"); //Waitlist Removals
         addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="solid2",filter="All Payment"); //Transplants
 
 
         addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[0],colorBy=colorCol,xAxis=xCol,line="dashed",filter=filter_passed2);//data.columns[2]);
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dotted",filter=filter_passed2);
+        //addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dotted",filter=filter_passed2);
         addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="solid",filter=filter_passed2);
         graph.selectAll(".xlabel").text("Year");
         graph.selectAll(".ylabel").text("Number of People (in thousands)");
@@ -368,7 +368,7 @@ function makeLineGraph3(filter_passed3=""){
         
         //Determine max and min for graph
         var minY = 0//d3.min(data, function(d) {return parseFloat(d[colName])-parseFloat(d[colName])*0.1;});
-        var maxY = d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
+        var maxY = 70000//d3.max(data, function(d) {return parseFloat(d[colName])+parseFloat(d[colName])*0.1;});
         var maxX = 2020//d3.max(data, function(d) {return parseFloat(d[xCol])+parseFloat(d[xCol])*0.1;}); //Auto-determine max +10%
         var minX = 1995//d3.min(data, function(d) {return parseFloat(d[xCol])-parseFloat(d[xCol])*0.1;}); //Auto-determine lowest value -10%
         
