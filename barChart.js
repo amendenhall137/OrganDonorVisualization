@@ -25,9 +25,11 @@ function makeBarChart(){
       //console.log(subgroups)
     
       // List of groups = species here = value of the first column called group -> I show them on the Y axis
-      const groups = data.map(d => d.Payment)
-    
-      //console.log(groups)
+      var groups = data.map(d => d.Payment)
+      
+      //var allPaymentArray = groups.filter(function(d,i){return d == "All Payment"})
+      groups = groups.filter(function(d,i){return d != "All Payment"})
+      
     
       // Add Y axis
       const y = d3.scaleBand()
@@ -80,6 +82,7 @@ function makeBarChart(){
             
             
             .entries(data);
+    allPayments = groupedData.shift();
     //console.log(groupedData);
     // Show the bars
     var bars =  svg.append("g")

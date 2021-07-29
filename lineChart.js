@@ -136,18 +136,28 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       //console.log(groupedData);
       //console.log(filter);
       colorList = ['#EE0000', '#85CA3A', '#00B0F0'];
+
       if(lineStyle == "solid"){
         dash = (0,0);
-        colorList = ['#EE0000'];
-      }
+        colorList = ['#00B0F0'];}
+      else if(lineStyle == "solid2"){
+        dash = (0,0);
+        colorList = ['#000000'];}
       else if(lineStyle == "dashed"){
-        dash = (20,2);
-        colorList = ['#85CA3A'];
-      }
+        dash = (20,8);
+        colorList = ['#EE0000'];}
+      else if(lineStyle == "dashed2"){
+        dash = (20,8);
+        console.log("dash")
+        colorList = ['#000000'];}
       else if(lineStyle == "dotted"){
         dash = (4,2);
-        colorList = ['#00B0F0'];
-      }
+        colorList = ['#85CA3A'];}
+      else if(lineStyle == "dotted2"){
+        dash = (4,2);
+        console.log("dotted")
+        colorList = ['#000000'];} 
+
       var barColors = ['#FFFFFF'];
       colorByOptions = [filter];
       var filteredData = groupedData.filter(function(d){return d.key == filter});
@@ -285,7 +295,7 @@ function makeLineGraph1(filter_passed="All Organs"){
     addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid",filter="All Organs"); 
     addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid2",filter=filter_passed);//data.columns[2]);
     graph.selectAll(".xlabel").text("Year");
-    graph.selectAll(".ylabel").text("Number of Transplants (in thousands)");
+    graph.selectAll(".ylabel").text("Number of People (in thousands)");
     graph.selectAll(".title").text("Transplants over Time");
   })
 }
@@ -303,7 +313,7 @@ function redrawLine2(filter)
   makeLineGraph2(filter);
 
 }
-function makeLineGraph2(filter_passed2="Private insurance"){
+function makeLineGraph2(filter_passed2=""){
     d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearPaymentTransplantWaitlist2.csv").then(function(data){
         var scene2 = d3.select("#organDashboard");
         var graphNames = ["TransplantLine"];
@@ -322,9 +332,14 @@ function makeLineGraph2(filter_passed2="Private insurance"){
 
         //Create First Line Graph
         var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[0],colorBy=colorCol,xAxis=xCol,line="solid",filter=filter_passed2);//data.columns[2]);
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dashed",filter=filter_passed2);
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="dotted",filter=filter_passed2);
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[0],colorBy=colorCol,xAxis=xCol,line="dashed2",filter="All Payment"); //Waitlist Additions
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dotted2",filter="All Payment"); //Waitlist Removals
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="solid2",filter="All Payment"); //Transplants
+
+
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[0],colorBy=colorCol,xAxis=xCol,line="dashed",filter=filter_passed2);//data.columns[2]);
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dotted",filter=filter_passed2);
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="solid",filter=filter_passed2);
         graph.selectAll(".xlabel").text("Year");
         graph.selectAll(".ylabel").text("Number of People (in thousands)");
         graph.selectAll(".title").text("Waitlist Compared to Number of Transplants")
