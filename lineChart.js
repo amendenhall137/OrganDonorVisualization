@@ -131,6 +131,8 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       var barColors = colorList;
       var filteredData = groupedData.filter(function(d){return d.key == filter});
       dash = (0,0);
+      /*if(filter == "");//If no filter applied
+        var annotation = svg.*/
     }
     else if((svg.attr("sceneNum")=="2")){
       //console.log(groupedData);
