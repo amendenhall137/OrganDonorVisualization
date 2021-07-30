@@ -98,7 +98,12 @@
     text-align: center;
   }
 
-  .startButton{
-    left: 600px;
+  .startButtonDiv{
+    margin: 0;
+    position: absolute;
+    top: 230px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 
