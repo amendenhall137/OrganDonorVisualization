@@ -131,8 +131,29 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       var barColors = colorList;
       var filteredData = groupedData.filter(function(d){return d.key == filter});
       dash = (0,0);
-      /*if(filter == "");//If no filter applied
-        var annotation = svg.*/
+
+      //--------------------------Annotation------------------------------------
+      const annotationsRight = [{
+            note: {
+                label: "Close to 44,000 transplants were performed in 2020",
+                title: "2020 Transplants"
+              },
+              type: d3.annotationCalloutCircle,
+              subject: {
+                radius:10
+              },
+              color: ["gray"],
+              x: scales.x(2020),
+              y: scales.y(43554),
+              dy: 50,
+              dx: 10
+            }]
+      
+      // Add annotation to the chart
+      const makeAnnotationsRight = d3.annotation()
+                      .annotations(annotationsRight)
+      svg.append("g")
+        .call(makeAnnotationsRight)
     }
     else if((svg.attr("sceneNum")=="2")){
       //console.log(groupedData);
@@ -165,6 +186,28 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       var filteredData = groupedData.filter(function(d){return d.key == filter});
       
       if(lineStyle == "solid"){ //Only add static legend one time
+              //--------------------------Annotation------------------------------------
+            const annotationsRight = [{
+              note: {
+                  label: "This is in contrast to 60,000 waitlist additions",
+                  title: "2020 Waitlist"
+                },
+                type: d3.annotationCalloutCircle,
+                subject: {
+                  radius:10
+                },
+                color: ["gray"],
+                x: scales.x(2020),
+                y: scales.y(59820),
+                dy: 160,
+                dx: 10
+              }]
+        
+        // Add annotation to the chart
+        const makeAnnotationsRight = d3.annotation()
+                        .annotations(annotationsRight)
+        svg.append("g")
+          .call(makeAnnotationsRight)
         
         ///Static legend for all Payment dash breakdown.
         var legendSpacingStatic3 = 6;
@@ -233,6 +276,27 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       if(lineStyle == "dashed"){
         dash = (20,8);
       }
+      //--------------------------Annotation------------------------------------
+      const annotationsRight = [{
+        note: {
+            label: "12,000 people died without new organs in 2020",
+            title: "2020 Deaths"
+          },
+          type: d3.annotationCalloutCircle,
+          subject: {
+            radius:10
+          },
+          x: scales.x(2020),
+          y: scales.y(12258),
+          dy: -80,
+          dx: 10
+        }]
+  
+          // Add annotation to the chart
+          const makeAnnotationsRight = d3.annotation()
+                          .annotations(annotationsRight)
+          svg.append("g")
+            .call(makeAnnotationsRight)
 
       //Secondary static legend for line style.
       var legendSpacingStatic = 6;
@@ -283,6 +347,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
               (d.values)
           })
     if(lineStyle == "solid"){ //Only add legend one time
+      
     //Add legend
     var legendSpacing = 6;
     var legendG = svg.selectAll(".legend").data(colorByOptions).enter().append("g")
