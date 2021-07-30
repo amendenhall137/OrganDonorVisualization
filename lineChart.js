@@ -100,7 +100,7 @@ function setupAxes(svg, xmax=0, ymax=0, xmin=0, ymin=0){
     }
 }
 
-function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=""){
+function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter="",firstDraw){
   if(svg.attr("graphType") == "line"){
     var width=0;
     var height=0;
@@ -142,7 +142,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
               subject: {
                 radius:10
               },
-              color: ["gray"],
+              color: "#ef4837",
               x: scales.x(2020),
               y: scales.y(43554),
               dy: 50,
@@ -154,6 +154,13 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
                       .annotations(annotationsRight)
       svg.append("g")
         .call(makeAnnotationsRight)
+      svg.selectAll(".moveDot2").data(annotationsRight).enter().append("g")
+          .attr("class", "moveDot2")
+          .append("circle")
+          .attr("cx",scales.x(2020))
+          .attr("cy",scales.y(43554))
+          .attr("r",10)
+          .attr("fill","#ef4837")
     }
     else if((svg.attr("sceneNum")=="2")){
       //console.log(groupedData);
@@ -186,29 +193,51 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       var filteredData = groupedData.filter(function(d){return d.key == filter});
       
       if(lineStyle == "solid"){ //Only add static legend one time
-              //--------------------------Annotation------------------------------------
-            const annotationsRight = [{
-              note: {
-                  label: "This is in contrast to 60,000 waitlist additions",
-                  title: "2020 Waitlist"
-                },
-                type: d3.annotationCalloutCircle,
-                subject: {
-                  radius:10
-                },
-                color: ["gray"],
-                x: scales.x(2020),
-                y: scales.y(59820),
-                dy: 160,
-                dx: 10
-              }]
-        
-        // Add annotation to the chart
-        const makeAnnotationsRight = d3.annotation()
-                        .annotations(annotationsRight)
-        svg.append("g")
-          .call(makeAnnotationsRight)
-        
+        const annotationsRight = [{
+          note: {
+              label: "This is in contrast to 60,000 waitlist additions",
+              title: "2020 Waitlist"
+            },
+            type: d3.annotationCalloutCircle,
+            subject: {
+              radius:10
+            },
+            color: "#ef4837",
+            x: scales.x(2020),
+            y: scales.y(59820),
+            dy: 160,
+            dx: 10
+          }]
+        if(firstDraw){
+                //==========================Annotation Animation-------------------------
+          svg.selectAll(".moveDot2").data(annotationsRight).enter().append("g")
+          .attr("class", "moveDot2")
+          .append("circle")
+          .attr("cx",scales.x(2020))
+          .attr("cy",scales.y(43554))
+          .attr("r",10)
+          .attr("fill","#ef4837")
+          .transition().delay(60).duration(2000).attr("cy",scales.y(59820))
+          // Add annotation to the chart
+          const makeAnnotationsRight = d3.annotation()
+          .annotations(annotationsRight)
+          setTimeout(function(d){svg.append("g")
+          .call(makeAnnotationsRight);},2060);
+        }
+        else if(!firstDraw){
+            // Add annotation to the chart
+            svg.selectAll(".moveDot2").data(annotationsRight).enter().append("g")
+          .attr("class", "moveDot2")
+          .append("circle")
+          .attr("cx",scales.x(2020))
+          .attr("cy",scales.y(43554))
+          .attr("r",10)
+          .attr("fill","#ef4837")
+            const makeAnnotationsRight = d3.annotation()
+                            .annotations(annotationsRight)
+            svg.append("g")
+              .call(makeAnnotationsRight)
+        }
         ///Static legend for all Payment dash breakdown.
         var legendSpacingStatic3 = 6;
         //var staticColors2 = ['#EE0000', '#85CA3A', '#00B0F0'];
@@ -276,7 +305,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
       if(lineStyle == "dashed"){
         dash = (20,8);
       }
-      //--------------------------Annotation------------------------------------
+      //--------------------------Annotation scene3------------------------------------
       const annotationsRight = [{
         note: {
             label: "12,000 people died without new organs in 2020",
@@ -286,17 +315,44 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
           subject: {
             radius:10
           },
+          color: "#ef4837",
           x: scales.x(2020),
           y: scales.y(12258),
           dy: -80,
           dx: 10
         }]
-  
+        if(firstDraw){
+          // Add annotation to the chart
+          const makeAnnotationsRight = d3.annotation()
+                          .annotations(annotationsRight)
+          setTimeout(function(d){svg.append("g")
+          .call(makeAnnotationsRight);},2060);
+          //==========================Annotation Animation3-------------------------
+          svg.selectAll(".moveDot").data(annotationsRight).enter().append("g")
+          .attr("class", "moveDot")
+          .append("circle")
+          .attr("cx",scales.x(2020))
+          .attr("cy",scales.y(43554))
+          .attr("r",10)
+          .attr("fill","#ef4837")
+          .transition().delay(60).duration(2000).attr("cy",scales.y(12258))
+        }
+        else{
           // Add annotation to the chart
           const makeAnnotationsRight = d3.annotation()
                           .annotations(annotationsRight)
           svg.append("g")
             .call(makeAnnotationsRight)
+          //==========================Annotation Animation-------------------------
+          svg.selectAll(".moveDot").data(annotationsRight).enter().append("g")
+          .attr("class", "moveDot")
+          .append("circle")
+          .attr("cx",scales.x(2020))
+          .attr("cy",scales.y(12258))
+          .attr("r",10)
+          .attr("fill","red");
+          //.transition().delay(60).duration(2000).attr("cy",scales.y(12258))
+        }
 
       //Secondary static legend for line style.
       var legendSpacingStatic = 6;
@@ -373,7 +429,7 @@ function addData(svg,data,scales,colorList,yAxis,colorBy,xAxis,lineStyle,filter=
 
 
 //Read the data and graph
-function makeLineGraph1(filter_passed="All Organs"){
+function makeLineGraph1(filter_passed="All Organs",firstDraw=true){
   //console.log("line1Draw");
 
   //console.log(filter);
@@ -396,8 +452,8 @@ function makeLineGraph1(filter_passed="All Organs"){
     //console.log("inlinePie"+scene1.attr("pieChosen"));
     //Create First Line Graph
     var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY); 
-    addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid",filter="All Organs"); 
-    addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid2",filter=filter_passed);//data.columns[2]);
+    addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid",filter="All Organs",firstDraw); 
+    addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid2",filter=filter_passed,firstDraw);//data.columns[2]);
     graph.selectAll(".xlabel").text("Year");
     graph.selectAll(".ylabel").text("Number of People (in thousands)");
     graph.selectAll(".title").text("Transplants over Time");
@@ -407,17 +463,17 @@ function makeLineGraph1(filter_passed="All Organs"){
 function redrawLine1(filter)
 {
   d3.select('#TransplantLine').selectAll('*').remove();
-  makeLineGraph1(filter);
+  makeLineGraph1(filter,false);
 
 }
 
 function redrawLine2(filter)
 {
   d3.select('#TransplantLine').selectAll('*').remove();
-  makeLineGraph2(filter);
+  makeLineGraph2(filter,false);
 
 }
-function makeLineGraph2(filter_passed2=""){
+function makeLineGraph2(filter_passed2="",firstDraw=true){
     d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearPaymentTransplantWaitlist2.csv").then(function(data){
         var scene2 = d3.select("#organDashboard");
         var graphNames = ["TransplantLine"];
@@ -436,14 +492,14 @@ function makeLineGraph2(filter_passed2=""){
 
         //Create First Line Graph
         var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[0],colorBy=colorCol,xAxis=xCol,line="dashed2",filter="All Payment"); //Waitlist Additions
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[0],colorBy=colorCol,xAxis=xCol,line="dashed2",filter="All Payment",firstDraw); //Waitlist Additions
         //addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dotted2",filter="All Payment"); //Waitlist Removals
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="solid2",filter="All Payment"); //Transplants
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="solid2",filter="All Payment",firstDraw); //Transplants
 
 
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[0],colorBy=colorCol,xAxis=xCol,line="dashed",filter=filter_passed2);//data.columns[2]);
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[0],colorBy=colorCol,xAxis=xCol,line="dashed",filter=filter_passed2,firstDraw);//data.columns[2]);
         //addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[1],colorBy=colorCol,xAxis=xCol,line="dotted",filter=filter_passed2);
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="solid",filter=filter_passed2);
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName[2],colorBy=colorCol,xAxis=xCol,line="solid",filter=filter_passed2,firstDraw);
         graph.selectAll(".xlabel").text("Year");
         graph.selectAll(".ylabel").text("Number of People (in thousands)");
         graph.selectAll(".title").text("Waitlist Compared to Number of Transplants")
@@ -454,11 +510,11 @@ function makeLineGraph2(filter_passed2=""){
 function redrawLine3(filter)
 {
   d3.select('#TransplantLine').selectAll('*').remove();
-  makeLineGraph3(filter);
+  makeLineGraph3(filter,false);
 
 }
 
-function makeLineGraph3(filter_passed3=""){
+function makeLineGraph3(filter_passed3="",firstDraw=true){
     //Data and creation
     d3.csv("https://raw.githubusercontent.com/amendenhall137/OrganDonorVisualization/main/YearOrganTransplantWaitlist1and3.csv").then(function(data) {
         //Var names
@@ -480,12 +536,12 @@ function makeLineGraph3(filter_passed3=""){
         var lineGraphScales = setupAxes(svg=graph,xmax=maxX,ymax=maxY,xmin=minX,ymin=minY);  
 
         //All organ dataset.
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid2",filter="All Organs");
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis="DeathSickness",colorBy=colorCol,xAxis=xCol,line="dashed",filter="All Organs");
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid2",filter="All Organs",firstDraw);
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis="DeathSickness",colorBy=colorCol,xAxis=xCol,line="dashed",filter="All Organs",firstDraw);
 
         //Organ Specific Dataset.
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid",filter=filter_passed3);
-        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis="DeathSickness",colorBy=colorCol,xAxis=xCol,line="dashed",filter=filter_passed3);
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis=colName,colorBy=colorCol,xAxis=xCol,line="solid",filter=filter_passed3,firstDraw);
+        addData(svg=graph,data=data,scales=lineGraphScales,colorList=colors,yAxis="DeathSickness",colorBy=colorCol,xAxis=xCol,line="dashed",filter=filter_passed3,firstDraw);
         
         
         
