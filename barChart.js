@@ -1,4 +1,4 @@
-//altered from https://www.d3-graph-gallery.com/graph/barplot_grouped_basicWide.html, https://bl.ocks.org/bricedev/0d95074b6d83a77dc3ad
+//altered code from https://www.d3-graph-gallery.com/graph/barplot_grouped_basicWide.html, https://bl.ocks.org/bricedev/0d95074b6d83a77dc3ad
 var barColors = ['#EE0000','#85CA3A','#00B0F0'];
 function makeBarChart(){
     // set the dimensions and margins of the graph

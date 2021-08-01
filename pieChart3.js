@@ -1,4 +1,4 @@
-// set the dimensions and margins of the graph
+// set the dimensions and margins of the graph (third pie chart)
 var Pie3margin = {top: 50, right: 170, bottom: 75, left: 75},
     smallGraph = {graphWidth: (450-margin.left-margin.right), graphHeight:(300-margin.top-margin.bottom),width: 450,height:300,attrText:"12px",titleText:"20px"},
     bigPie3Graph = {graphWidth: (750-margin.left-margin.right), graphHeight:(800-margin.top-margin.bottom),width: 750,height:800,attrText:"14px",titleText:"24px"},
